@@ -17,19 +17,24 @@ public class SavedLocationsScreen {
 	{
 		this.driver=driver;
 	}
-	public void clickOnSaveALocation()
+	public void clickOnSaveALocationLink()
 	{
 		WebElement saveALocation=driver.findElement(By.id("sg.com.blu.android.uat:id/saveLocationTextView"));
 		saveALocation.click();
 	}
-	public void clickOnSaveLocationBtn()
+	public void clickOnSaveLocationBluHomeBtn()
+	{
+		WebElement saveLocationBtn=driver.findElement(By.id("sg.com.blu.android.uat:id/saveBluHomeButton"));
+		saveLocationBtn.click();
+	}
+	public void selectActionBtn()
 	{
 		WebElement saveLocationBtn=driver.findElement(By.id("sg.com.blu.android.uat:id/action_btn"));
 		saveLocationBtn.click();
 	}
-	public List<WebElement> listOfSavedBluPorts()
+	public List<WebElement> listOfSavedAddress()
 	{
-		List<WebElement> list=driver.findElements(By.xpath("//androidx.recyclerview.widget.RecyclerView[@resource-id='sg.com.blu.android.uat:id/recyclerView']//android.widget.RelativeLayout//android.widget.TextView[@resource-id='sg.com.blu.android.uat:id/textViewBluPortName'][1]"));
+		List<WebElement> list=driver.findElements(By.xpath("//androidx.recyclerview.widget.RecyclerView[@resource-id='sg.com.blu.android.uat:id/recyclerView']//android.widget.RelativeLayout//android.widget.LinearLayout//android.widget.TextView[1]"));
 		return list;
 	}
 	public List<WebElement> listOfhearticons()

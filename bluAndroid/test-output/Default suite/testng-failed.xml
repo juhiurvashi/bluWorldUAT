@@ -3,15 +3,15 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="bluAndroid.bluAndroid.TestScripts.SavedLocationsTestRunner">
+      <class name="bluAndroid.bluAndroid.TestScripts.CreateBookingRequestTestRunner">
         <methods>
           <include name="SetUp"/>
-          <include name="preCondition"/>
-          <include name="tc03_saveABluHomeLocation"/>
+          <include name="tc01_createBooking"/>
           <include name="getResult"/>
           <include name="tearDown"/>
+          <include name="preCondition"/>
         </methods>
-      </class> <!-- bluAndroid.bluAndroid.TestScripts.SavedLocationsTestRunner -->
+      </class> <!-- bluAndroid.bluAndroid.TestScripts.CreateBookingRequestTestRunner -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

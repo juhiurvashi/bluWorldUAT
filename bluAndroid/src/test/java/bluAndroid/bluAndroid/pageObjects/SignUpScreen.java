@@ -30,62 +30,62 @@ public class SignUpScreen {
 	}
 
 	public void clickSignUpBtn() {
-		driver.findElement(By.id("sg.com.blu.android:id/sign_up_btn")).click();
+		driver.findElement(By.id("sg.com.blu.android.uat:id/sign_up_btn")).click();
 	}
 
 	public WebElement enterEmail() {
 		WebElement email = driver.findElement(
-				By.xpath("//android.widget.LinearLayout[@resource-id ='sg.com.blu.android:id/email_inputField']"));
+				By.xpath("//android.widget.LinearLayout[@resource-id ='sg.com.blu.android.uat:id/email_inputField']"));
 		return email;
 	}
 
 	public WebElement enterPassword() {
 		WebElement pass = driver.findElement(
-				By.xpath("//android.widget.LinearLayout[@resource-id ='sg.com.blu.android:id/password_inputField']"));
+				By.xpath("//android.widget.LinearLayout[@resource-id ='sg.com.blu.android.uat:id/password_inputField']"));
 		return pass;
 	}
 
 	public WebElement enterConPassword() {
 		WebElement conPass = driver.findElement(By.xpath(
-				"//android.widget.LinearLayout[@resource-id ='sg.com.blu.android:id/confirm_password_inputField']"));
+				"//android.widget.LinearLayout[@resource-id ='sg.com.blu.android.uat:id/confirm_password_inputField']"));
 		return conPass;
 	}
 
 	public WebElement enterFirstName() {
 		WebElement fname = driver.findElement(
-				By.xpath("//android.widget.LinearLayout[@resource-id ='sg.com.blu.android:id/first_name_inputField']"));
+				By.xpath("//android.widget.LinearLayout[@resource-id ='sg.com.blu.android.uat:id/first_name_inputField']"));
 		return fname;
 	}
 
 	public WebElement enterLastName() {
 		WebElement lname = driver.findElement(
-				By.xpath("//android.widget.LinearLayout[@resource-id ='sg.com.blu.android:id/last_name_inputField']"));
+				By.xpath("//android.widget.LinearLayout[@resource-id ='sg.com.blu.android.uat:id/last_name_inputField']"));
 		return lname;
 	}
 
 	public WebElement enterMobile() {
 		WebElement mobile = driver.findElement(
-				By.xpath("//android.widget.EditText[@resource-id ='sg.com.blu.android:id/input_mobile_number_et']"));
+				By.xpath("//android.widget.EditText[@resource-id ='sg.com.blu.android.uat:id/input_mobile_number_et']"));
 		return mobile;
 	}
 
 	public WebElement selectDOBbtn() {
 		WebElement dob = driver.findElement(
-				By.xpath("//android.widget.LinearLayout[@resource-id ='sg.com.blu.android:id/dob_inputField']"));
+				By.xpath("//android.widget.LinearLayout[@resource-id ='sg.com.blu.android.uat:id/dob_inputField']"));
 		return dob;
 	}
 
 	public WebElement selectGender() throws IOException {
-		WebElement gender = driver.findElement(By.id("sg.com.blu.android:id/female_rb"));
+		WebElement gender = driver.findElement(By.id("sg.com.blu.android.uat:id/female_rb"));
 		//String gender = CommonUtil.getPropertyValue("signup", "gender");
-		///WebElement gender1=driver.findElement(By.xpath("sg.com.blu.android:id/\"" +gender + "\""));
+		///WebElement gender1=driver.findElement(By.xpath("sg.com.blu.android.uat:id/\"" +gender + "\""));
 	//	System.out.println(gender1);
 				return gender;
 	}
 
 	public WebElement enterReferralCode() {
 		WebElement referralCode = driver.findElement(
-				By.xpath("//android.widget.LinearLayout[@resource-id ='sg.com.blu.android:id/promo_code_inputField']"));
+				By.xpath("//android.widget.LinearLayout[@resource-id ='sg.com.blu.android.uat:id/promo_code_inputField']"));
 		return referralCode;
 	}
 	public static void swipeInListFromLastToFirst(List<WebElement> list) {
@@ -165,9 +165,9 @@ public class SignUpScreen {
 		/*
 		 * TouchAction tAction=new TouchAction(driver); WebElement
 		 * fromElement=driver.findElement(By.
-		 * xpath("//android.widget.LinearLayout[@resource-id ='sg.com.blu.android:id/last_name_inputField']"
+		 * xpath("//android.widget.LinearLayout[@resource-id ='sg.com.blu.android.uat:id/last_name_inputField']"
 		 * )); WebElement
-		 * toElement=driver.findElement(By.id("sg.com.blu.android:id/sign_up_btn"));
+		 * toElement=driver.findElement(By.id("sg.com.blu.android.uat:id/sign_up_btn"));
 		 * 
 		 * tAction.press(fromElement).moveTo(toElement).release().perform(); String
 		 * str="SIGN"; configuration.driver

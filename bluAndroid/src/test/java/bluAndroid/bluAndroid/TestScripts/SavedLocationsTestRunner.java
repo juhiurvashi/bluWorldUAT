@@ -24,6 +24,11 @@ import bluAndroid.bluAndroid.pageObjects.SignUpScreen;
 import bluAndroid.bluAndroid.util.BaseClass;
 import bluAndroid.bluAndroid.util.CommonUtil;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
+import io.appium.java_client.touch.offset.PointOption;
 
 public class SavedLocationsTestRunner extends BaseClass {
 	static AppiumDriver<WebElement> driver;
@@ -60,7 +65,7 @@ public class SavedLocationsTestRunner extends BaseClass {
 		extentTest = extentReports.createTest("tc01_saveALocation");
 		mds.clickOnMenu();
 		ms.clickOnSavedLocations();
-		sls.clickOnSaveALocation();
+		sls.clickOnSaveALocationLink();
 		mvs.clickonSearchBox();
 		String bluPort=CommonUtil.getPropertyValue("bluPortDetails", "bluPort");
 		mvs.enterInSearchBox().sendKeys(bluPort);
@@ -68,14 +73,14 @@ public class SavedLocationsTestRunner extends BaseClass {
 		bluPortName.click();
 		Assert.assertTrue(mvs.bluPortPin().isDisplayed());
 		Assert.assertTrue(mvs.selectedBluPortName().isDisplayed());
-		sls.clickOnSaveLocationBtn();
-		System.out.println(sls.listOfSavedBluPorts().size());
-		for (int i = 0; i < sls.listOfSavedBluPorts().size(); i++) {
-			System.out.println(sls.listOfSavedBluPorts().get(i).getText());
-			if(i==sls.listOfSavedBluPorts().size()-1)
+		sls.selectActionBtn();
+		System.out.println(sls.listOfSavedAddress().size());
+		for (int i = 0; i < sls.listOfSavedAddress().size(); i++) {
+			System.out.println(sls.listOfSavedAddress().get(i).getText());
+			if(i==sls.listOfSavedAddress().size()-1)
 			{
-				System.out.println(sls.listOfSavedBluPorts().get(sls.listOfSavedBluPorts().size()-1).getText());
-				Assert.assertEquals(sls.listOfSavedBluPorts().get(sls.listOfSavedBluPorts().size()-1).getText(), bluPort);
+				System.out.println(sls.listOfSavedAddress().get(sls.listOfSavedAddress().size()-1).getText());
+				Assert.assertEquals(sls.listOfSavedAddress().get(sls.listOfSavedAddress().size()-1).getText(), bluPort);
 			}
 		}
 		
@@ -94,11 +99,11 @@ public class SavedLocationsTestRunner extends BaseClass {
 		Assert.assertEquals(pu.alertTitle().getText(), "Remove location");
 		Assert.assertEquals(pu.alertMsg().getText(), "Are you sure you want to remove this from your saved locations?");
 		pu.clickBtn1();
-		System.out.println(sls.listOfSavedBluPorts().size());
-		for (int i = 0; i < sls.listOfSavedBluPorts().size(); i++) {
+		System.out.println(sls.listOfSavedAddress().size());
+		for (int i = 0; i < sls.listOfSavedAddress().size(); i++) {
 			String bluPort=CommonUtil.getPropertyValue("bluPortDetails", "bluPort");
-			System.out.println(sls.listOfSavedBluPorts().get(i).getText());
-				Assert.assertNotEquals(sls.listOfSavedBluPorts().get(i).getText(), bluPort);
+			System.out.println(sls.listOfSavedAddress().get(i).getText());
+				Assert.assertNotEquals(sls.listOfSavedAddress().get(i).getText(), bluPort);
 		}
 		
 	}
@@ -110,27 +115,49 @@ public class SavedLocationsTestRunner extends BaseClass {
 		mds.clickOnMenu();
 		ms.clickOnSavedLocations();
 		sls.clickOnBluHome();
-		sls.clickOnSaveALocation();
-		sls.bluHomeAddress1().sendKeys("Admiralty drive");
+		sls.clickOnSaveALocationLink();
+		sls.bluHomeAddress1().sendKeys("357 Admiralty drive");
 		sls.bluHomeAddress2().sendKeys("#7 174");
 		sls.bluHomePostalCode().sendKeys("750357");
-		//su.swipeInListFromLastToFirst(list);
-		TouchActions action = new TouchActions(driver);
-		action.scroll(sls.bluHomeAddress1(), 10, 100);
-		action.perform();
-
- 
-		sls.clickOnSaveLocationBtn();
-		for (int i = 0; i < sls.listOfSavedBluPorts().size(); i++) {
-			System.out.println(sls.listOfSavedBluPorts().get(i).getText());
-			if(i==0)
+		((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.ENTER));
+		sls.clickOnSaveLocationBluHomeBtn();
+		System.out.println(sls.listOfSavedAddress().size());
+		int n=sls.listOfSavedAddress().size();
+		System.out.println(n);
+		for (int i = 0; i < sls.listOfSavedAddress().size(); i++) {
+			System.out.println(sls.listOfSavedAddress().get(i).getText());
+			if(i==sls.listOfhearticons().size()-1)
 			{
-				System.out.println(sls.listOfSavedBluPorts().get(0).getText());
-				Assert.assertEquals(sls.listOfSavedBluPorts().get(0).getText(), "357 Admiralty drive");
+				System.out.println(sls.listOfSavedAddress().get(sls.listOfhearticons().size()-1).getText());
+				Assert.assertEquals(sls.listOfSavedAddress().get(sls.listOfhearticons().size()-1).getText(), "357 Admiralty drive");
+				break;
 			}
 		}
 		
 	}
+	@Test(dependsOnMethods = "tc03_saveABluHomeLocation" )
+	public void tc04_removeBluHomeLocation() throws IOException
+	{
+		System.out.println("tc04_removeBluHomeLocation");
+		extentTest = extentReports.createTest("tc04_removeBluHomeLocation");
+		mds.clickOnMenu();
+		ms.clickOnSavedLocations();
+		sls.clickOnBluHome();
+		//sls.listOfhearticons();
+		for (int i = 0; i < sls.listOfhearticons().size(); i++) {
+				sls.listOfhearticons().get(sls.listOfhearticons().size()-1).click();
+		}
+		Assert.assertEquals(pu.alertTitle().getText(), "Remove location");
+		Assert.assertEquals(pu.alertMsg().getText(), "Are you sure you want to remove this from your saved locations?");
+		pu.clickBtn1();
+		System.out.println(sls.listOfSavedAddress().size());
+		for (int i = 0; i < sls.listOfSavedAddress().size(); i++) {
+			System.out.println(sls.listOfSavedAddress().get(i).getText());
+				Assert.assertNotEquals(sls.listOfSavedAddress().get(i).getText(), "357 Admiralty drive");
+		}
+		
+	}
+	
 	@AfterMethod
 	public void getResult(ITestResult testResult) throws IOException {
 		if (testResult.getStatus() == ITestResult.SKIP) {

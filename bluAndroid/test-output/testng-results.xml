@@ -1,29 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" ignored="2" total="3" passed="0">
+<testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="65150" started-at="2020-01-10T17:39:06 SGT" finished-at="2020-01-10T17:40:12 SGT">
+  <suite name="Default suite" duration-ms="72645" started-at="2020-01-13T17:58:40 SGT" finished-at="2020-01-13T17:59:53 SGT">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="65150" started-at="2020-01-10T17:39:06 SGT" finished-at="2020-01-10T17:40:12 SGT">
-      <class name="bluAndroid.bluAndroid.TestScripts.SavedLocationsTestRunner">
-        <test-method status="PASS" signature="SetUp()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.SavedLocationsTestRunner@3ecd23d9]" name="SetUp" is-config="true" duration-ms="123" started-at="2020-01-10T17:39:06 SGT" finished-at="2020-01-10T17:39:06 SGT">
+    <test name="Default test" duration-ms="72645" started-at="2020-01-13T17:58:40 SGT" finished-at="2020-01-13T17:59:53 SGT">
+      <class name="bluAndroid.bluAndroid.TestScripts.CreateBookingRequestTestRunner">
+        <test-method status="PASS" signature="SetUp()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.CreateBookingRequestTestRunner@7cbd213e]" name="SetUp" is-config="true" duration-ms="180" started-at="2020-01-13T17:58:40 SGT" finished-at="2020-01-13T17:58:40 SGT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SetUp -->
-        <test-method status="PASS" signature="preCondition()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.SavedLocationsTestRunner@3ecd23d9]" name="preCondition" is-config="true" duration-ms="40599" started-at="2020-01-10T17:39:07 SGT" finished-at="2020-01-10T17:39:47 SGT">
+        <test-method status="PASS" signature="preCondition()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.CreateBookingRequestTestRunner@7cbd213e]" name="preCondition" is-config="true" duration-ms="46221" started-at="2020-01-13T17:58:40 SGT" finished-at="2020-01-13T17:59:26 SGT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- preCondition -->
-        <test-method status="FAIL" signature="tc03_saveABluHomeLocation()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.SavedLocationsTestRunner@3ecd23d9]" name="tc03_saveABluHomeLocation" duration-ms="22599" started-at="2020-01-10T17:39:47 SGT" finished-at="2020-01-10T17:40:10 SGT">
-          <exception class="java.lang.ClassCastException">
+        <test-method status="FAIL" signature="tc01_createBooking()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.CreateBookingRequestTestRunner@7cbd213e]" name="tc01_createBooking" duration-ms="24393" started-at="2020-01-13T17:59:26 SGT" finished-at="2020-01-13T17:59:51 SGT">
+          <exception class="org.openqa.selenium.InvalidSelectorException">
             <message>
-              <![CDATA[io.appium.java_client.android.AndroidDriver cannot be cast to org.openqa.selenium.interactions.HasTouchScreen]]>
+              <![CDATA[javax.xml.transform.TransformerException: Extra illegal tokens: ')'
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/invalid_selector_exception.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'BLU-LP-00004', ip: '192.168.0.124', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_221'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: sg.com.blu.android.features..., appPackage: sg.com.blu.android.uat, databaseEnabled: false, desired: {appActivity: sg.com.blu.android.features..., appPackage: sg.com.blu.android.uat, deviceName: Galaxy S8+, platformName: android, platformVersion: 8.0.0, resetKeyboard: true, udid: ce031713d5fad93001, unicodeKeyboard: true}, deviceManufacturer: samsung, deviceModel: SM-G955F, deviceName: ce031713d5fad93001, deviceScreenSize: 1440x2960, deviceUDID: ce031713d5fad93001, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, platform: LINUX, platformName: Android, platformVersion: 8.0.0, resetKeyboard: true, takesScreenshot: true, udid: ce031713d5fad93001, unicodeKeyboard: true, warnings: {}, webStorageEnabled: false}
+Session ID: ee7d7de8-7ae6-43dc-b8a8-aee82b7a1785
+*** Element info: {Using=xpath, value=//android.widget.FrameLayout//android.widget.FrameLayout//android.widget.ListView//android.widget.CheckedTextView[contains(@text,'Baby products')])}]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.ClassCastException: io.appium.java_client.android.AndroidDriver cannot be cast to org.openqa.selenium.interactions.HasTouchScreen
-at org.openqa.selenium.interactions.touch.TouchActions.<init>(TouchActions.java:38)
-at bluAndroid.bluAndroid.TestScripts.SavedLocationsTestRunner.tc03_saveABluHomeLocation(SavedLocationsTestRunner.java:115)
+              <![CDATA[org.openqa.selenium.InvalidSelectorException: javax.xml.transform.TransformerException: Extra illegal tokens: ')'
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/invalid_selector_exception.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'BLU-LP-00004', ip: '192.168.0.124', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_221'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: sg.com.blu.android.features..., appPackage: sg.com.blu.android.uat, databaseEnabled: false, desired: {appActivity: sg.com.blu.android.features..., appPackage: sg.com.blu.android.uat, deviceName: Galaxy S8+, platformName: android, platformVersion: 8.0.0, resetKeyboard: true, udid: ce031713d5fad93001, unicodeKeyboard: true}, deviceManufacturer: samsung, deviceModel: SM-G955F, deviceName: ce031713d5fad93001, deviceScreenSize: 1440x2960, deviceUDID: ce031713d5fad93001, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, platform: LINUX, platformName: Android, platformVersion: 8.0.0, resetKeyboard: true, takesScreenshot: true, udid: ce031713d5fad93001, unicodeKeyboard: true, warnings: {}, webStorageEnabled: false}
+Session ID: ee7d7de8-7ae6-43dc-b8a8-aee82b7a1785
+*** Element info: {Using=xpath, value=//android.widget.FrameLayout//android.widget.FrameLayout//android.widget.ListView//android.widget.CheckedTextView[contains(@text,'Baby products')])}
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:41)
+at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:61)
+at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+at io.appium.java_client.DefaultGenericMobileDriver.findElementByXPath(DefaultGenericMobileDriver.java:151)
+at io.appium.java_client.AppiumDriver.findElementByXPath(AppiumDriver.java:1)
+at io.appium.java_client.android.AndroidDriver.findElementByXPath(AndroidDriver.java:1)
+at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:57)
+at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+at bluAndroid.bluAndroid.pageObjects.BookingScreen.selectProductCatagory(BookingScreen.java:61)
+at bluAndroid.bluAndroid.TestScripts.CreateBookingRequestTestRunner.tc01_createBooking(CreateBookingRequestTestRunner.java:84)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -54,26 +94,26 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.ClassCastException -->
+          </exception> <!-- org.openqa.selenium.InvalidSelectorException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- tc03_saveABluHomeLocation -->
-        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:bluAndroid.bluAndroid.TestScripts.SavedLocationsTestRunner@3ecd23d9]" name="getResult" is-config="true" duration-ms="1920" started-at="2020-01-10T17:40:10 SGT" finished-at="2020-01-10T17:40:12 SGT">
+        </test-method> <!-- tc01_createBooking -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:bluAndroid.bluAndroid.TestScripts.CreateBookingRequestTestRunner@7cbd213e]" name="getResult" is-config="true" duration-ms="1984" started-at="2020-01-13T17:59:51 SGT" finished-at="2020-01-13T17:59:53 SGT">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=tc03_saveABluHomeLocation status=FAILURE method=SavedLocationsTestRunner.tc03_saveABluHomeLocation()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.SavedLocationsTestRunner@3ecd23d9] output={null}]]]>
+                <![CDATA[[TestResult name=tc01_createBooking status=FAILURE method=CreateBookingRequestTestRunner.tc01_createBooking()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.CreateBookingRequestTestRunner@7cbd213e] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.SavedLocationsTestRunner@3ecd23d9]" name="tearDown" is-config="true" duration-ms="379" started-at="2020-01-10T17:40:12 SGT" finished-at="2020-01-10T17:40:13 SGT">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.CreateBookingRequestTestRunner@7cbd213e]" name="tearDown" is-config="true" duration-ms="489" started-at="2020-01-13T17:59:53 SGT" finished-at="2020-01-13T17:59:53 SGT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- bluAndroid.bluAndroid.TestScripts.SavedLocationsTestRunner -->
+      </class> <!-- bluAndroid.bluAndroid.TestScripts.CreateBookingRequestTestRunner -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

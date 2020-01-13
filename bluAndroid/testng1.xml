@@ -3,8 +3,13 @@
 
 	<test name="order">
 		<classes>
-			<class name="bluAndroid.bluAndroid.TestScripts.A" />
-			<class name="bluAndroid.bluAndroid.TestScripts.B" />
+			<!-- <class name="bluAndroid.bluAndroid.TestScripts.BluLoginTestRunner" /> -->
+			<class name="bluAndroid.bluAndroid.TestScripts.BluSignUpTestRunner" />
+			<!-- <class name="bluAndroid.bluAndroid.TestScripts.BluMyDetailsTestRunner" />
+			<class name="bluAndroid.bluAndroid.TestScripts.PublicProfileTestRunner" />
+			<class name="bluAndroid.bluAndroid.TestScripts.WalletTestRunner" />
+			<class name="bluAndroid.bluAndroid.TestScripts.CheckOutWithBluTestRunner" /> -->
+			<class name="bluAndroid.bluAndroid.TestScripts.SavedLocationsTestRunner" />
 		</classes>
 	</test>
 
