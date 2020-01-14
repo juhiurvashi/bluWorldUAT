@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import io.appium.java_client.AppiumDriver;
 
@@ -58,7 +59,12 @@ public class BookingScreen {
 	{
 		WebElement productCatagory=driver.findElement(By.id("sg.com.blu.android.uat:id/productCategorySpinner"));
 		productCatagory.click();
-		driver.findElement(By.xpath("//android.widget.FrameLayout//android.widget.FrameLayout//android.widget.ListView//android.widget.CheckedTextView[contains(@text,'Baby products')])")).click();
+		WebElement dropdown=driver.findElement(By.xpath("//android.widget.ListView//android.widget.CheckedTextView[2]"));
+		dropdown.click();
+		/*
+		 * Select sel = new Select(dropdown); sel.selectByValue("Baby products");
+		 */
+		//driver.findElement(By.xpath("//android.widget.FrameLayout//android.widget.FrameLayout//android.widget.ListView//android.widget.CheckedTextView[contains(text(),'Baby products')])")).click();
 		/*
 		 * List<WebElement> productList= driver.findElements(By.xpath(
 		 * "android.widget.FrameLayout//android.widget.FrameLayout//android.widget.ListView//android.widget.CheckedTextView"
@@ -66,6 +72,7 @@ public class BookingScreen {
 		 * productList.get(2).click(); }
 		 */
 	}
+
 	public WebElement enterRemarks()
 	{
 		WebElement remarks=driver.findElement(By.id("sg.com.blu.android.uat:id/remarksEditText"));
@@ -91,4 +98,17 @@ public class BookingScreen {
 		WebElement x=driver.findElement(By.id("sg.com.blu.android.uat:id/close_btn"));
 		x.click();
 	}
+	public void proceedToPaymentBtn()
+	{
+		WebElement actionBtn=driver.findElement(By.id("sg.com.blu.android.uat:id/actionButton"));
+		actionBtn.click();
+	}
+	public void clickOnViewBookingDetails()
+	{
+		WebElement x=driver.findElement(By.id("sg.com.blu.android.uat:id/viewBookingDetailsButton"));
+		x.click();
+	}
+	
+	
+	
 }
