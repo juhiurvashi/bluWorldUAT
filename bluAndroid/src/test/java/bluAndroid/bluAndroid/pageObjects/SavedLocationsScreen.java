@@ -29,8 +29,8 @@ public class SavedLocationsScreen {
 	}
 	public void selectActionBtn()
 	{
-		WebElement saveLocationBtn=driver.findElement(By.id("sg.com.blu.android.uat:id/action_btn"));
-		saveLocationBtn.click();
+		WebElement actionBtn=driver.findElement(By.id("sg.com.blu.android.uat:id/action_btn"));
+		actionBtn.click();
 	}
 	public List<WebElement> listOfSavedAddress()
 	{

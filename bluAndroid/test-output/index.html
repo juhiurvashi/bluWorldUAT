@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
-                    <span>C:\Users\urvashi\AppData\Local\Temp\testng-eclipse--268005091\testng-customsuite.xml</span>
+                    <span>C:\Users\urvashi\AppData\Local\Temp\testng-eclipse-103399370\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -102,7 +102,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="bluAndroid.bluAndroid.TestScripts.CreateBookingRequestTestRunner" hash-for-method="tc01_createBooking">tc01_createBooking</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="bluAndroid.bluAndroid.TestScripts.CreateBookingRequestTestRunner" hash-for-method="clickOnParcels">clickOnParcels</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -125,17 +125,16 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="tc01_createBooking">
-                  </a> <!-- tc01_createBooking -->
-                  <span class="method-name">tc01_createBooking</span>
-                  <div class="stack-trace">org.openqa.selenium.InvalidSelectorException: javax.xml.transform.TransformerException: Extra illegal tokens: &apos;)&apos;
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/invalid_selector_exception.html
+                  <a name="clickOnParcels">
+                  </a> <!-- clickOnParcels -->
+                  <span class="method-name">clickOnParcels</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchSessionException: A session is either terminated or not started
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;BLU-LP-00004&apos;, ip: &apos;192.168.0.124&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_221&apos;
+System info: host: &apos;BLU-LP-00004&apos;, ip: &apos;192.168.56.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_221&apos;
 Driver info: io.appium.java_client.android.AndroidDriver
 Capabilities {appActivity: sg.com.blu.android.features..., appPackage: sg.com.blu.android.uat, databaseEnabled: false, desired: {appActivity: sg.com.blu.android.features..., appPackage: sg.com.blu.android.uat, deviceName: Galaxy S8+, platformName: android, platformVersion: 8.0.0, resetKeyboard: true, udid: ce031713d5fad93001, unicodeKeyboard: true}, deviceManufacturer: samsung, deviceModel: SM-G955F, deviceName: ce031713d5fad93001, deviceScreenSize: 1440x2960, deviceUDID: ce031713d5fad93001, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, platform: LINUX, platformName: Android, platformVersion: 8.0.0, resetKeyboard: true, takesScreenshot: true, udid: ce031713d5fad93001, unicodeKeyboard: true, warnings: {}, webStorageEnabled: false}
-Session ID: ee7d7de8-7ae6-43dc-b8a8-aee82b7a1785
-*** Element info: {Using=xpath, value=//android.widget.FrameLayout//android.widget.FrameLayout//android.widget.ListView//android.widget.CheckedTextView[contains(@text,&apos;Baby products&apos;)])}
+Session ID: 0142a240-a904-4969-89c3-f309d0ec63f2
+*** Element info: {Using=xpath, value=//android.widget.ScrollView//android.widget.LinearLayout[@resource-id=&apos;sg.com.blu.android.uat:id/parcelDetailsContainer&apos;]//android.widget.LinearLayout[3]//android.widget.LinearLayout//android.widget.TextView[1]}
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
@@ -149,21 +148,18 @@ Session ID: ee7d7de8-7ae6-43dc-b8a8-aee82b7a1785
 	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:41)
 	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
 	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:61)
-	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
-	at io.appium.java_client.DefaultGenericMobileDriver.findElementByXPath(DefaultGenericMobileDriver.java:151)
-	at io.appium.java_client.AppiumDriver.findElementByXPath(AppiumDriver.java:1)
-	at io.appium.java_client.android.AndroidDriver.findElementByXPath(AndroidDriver.java:1)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:57)
-	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
-	at bluAndroid.bluAndroid.pageObjects.BookingScreen.selectProductCatagory(BookingScreen.java:61)
-	at bluAndroid.bluAndroid.TestScripts.CreateBookingRequestTestRunner.tc01_createBooking(CreateBookingRequestTestRunner.java:84)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElements(RemoteWebDriver.java:353)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElements(DefaultGenericMobileDriver.java:53)
+	at io.appium.java_client.AppiumDriver.findElements(AppiumDriver.java:178)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementsByXPath(RemoteWebDriver.java:432)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElementsByXPath(DefaultGenericMobileDriver.java:155)
+	at io.appium.java_client.AppiumDriver.findElementsByXPath(AppiumDriver.java:211)
+	at org.openqa.selenium.By$ByXPath.findElements(By.java:348)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElements(RemoteWebDriver.java:311)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElements(DefaultGenericMobileDriver.java:49)
+	at io.appium.java_client.AppiumDriver.findElements(AppiumDriver.java:173)
+	at bluAndroid.bluAndroid.pageObjects.ParcelsDetailsScreen.parcelDetailsViewContainer(ParcelsDetailsScreen.java:54)
+	at bluAndroid.bluAndroid.TestScripts.CreateBookingRequestTestRunner.clickOnParcels(CreateBookingRequestTestRunner.java:184)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -201,7 +197,7 @@ Session ID: ee7d7de8-7ae6-43dc-b8a8-aee82b7a1785
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\urvashi\AppData\Local\Temp\testng-eclipse--268005091\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\urvashi\AppData\Local\Temp\testng-eclipse-103399370\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -212,7 +208,7 @@ Session ID: ee7d7de8-7ae6-43dc-b8a8-aee82b7a1785
     &lt;classes&gt;
       &lt;class name=&quot;bluAndroid.bluAndroid.TestScripts.CreateBookingRequestTestRunner&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;tc01_createBooking&quot;/&gt;
+          &lt;include name=&quot;clickOnParcels&quot;/&gt;
         &lt;/methods&gt;
       &lt;/class&gt; &lt;!-- bluAndroid.bluAndroid.TestScripts.CreateBookingRequestTestRunner --&gt;
     &lt;/classes&gt;
@@ -256,14 +252,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'tc01_createBooking')
+data.setCell(0, 1, 'clickOnParcels')
 data.setCell(0, 2, 'bluAndroid.bluAndroid.TestScripts.CreateBookingRequestTestRunner')
-data.setCell(0, 3, 24393);
+data.setCell(0, 3, 31926);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 24 seconds</span>
+              <span class="suite-total-time">Total running time: 31 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -278,9 +274,18 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">2 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">bluAndroid.bluAndroid.TestScripts.CreateBookingRequestTestRunner</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">tc02_createBooking</span>
+                <br/>
+                <span class="ignored-method-name">tc01_createBooking</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Default_suite" class="panel">
@@ -296,21 +301,23 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="configuration-method before">
                 <span class="method-name">preCondition</span>
-                <span class="method-start">216 ms</span>
+                <span class="method-start">179 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">tc01_createBooking</span>
-                <span class="method-start">46439 ms</span>
+                <span class="method-name">clickOnParcels</span>
+                <span class="method-start">125840 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">getResult([TestResult name=tc01_createBooking status=FAILURE method=CreateBookingRequestTestRunner.tc01_create...)</span>
-                <span class="method-start">70840 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">getResult([TestResult name=clickOnParcels status=FAILURE method=CreateBookingRequestTestRunner.clickOnParcels(...)</span>
+                <span class="method-start">157771 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-suite after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">72888 ms</span>
+                <span class="method-start">158213 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
