@@ -16,11 +16,7 @@ public class MenuScreen {
 	{
 		this.driver=driver;
 	}
-	public void clickOnMenu()
-	{
-		WebElement menu=driver.findElement(By.id("sg.com.blu.android.uat:id/menuButton"));
-		menu.click();
-	}
+	
 	public void logout()
 	{
 		WebElement menu=driver.findElement(By.id("sg.com.blu.android.uat:id/menuButton"));

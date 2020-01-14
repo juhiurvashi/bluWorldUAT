@@ -6,7 +6,7 @@
       <class name="bluAndroid.bluAndroid.TestScripts.CreateBookingRequestTestRunner">
         <methods>
           <include name="SetUp"/>
-          <include name="clickOnParcels"/>
+          <include name="tc01_createBooking"/>
           <include name="getResult"/>
           <include name="tearDown"/>
           <include name="preCondition"/>
