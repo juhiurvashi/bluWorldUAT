@@ -31,16 +31,15 @@ public static void swipe(WebElement startPoint,WebElement endPoint)
 	new TouchAction(driver).longPress(p1.point(centerOfFirstElement.x, centerOfFirstElement.y+350))
 			.moveTo(p1.point(centerOfLastElement.x, centerOfLastElement.y)).release().perform();
 }
-public static void swipeInListTillExpectedTextAndTap1(List<WebElement> list, String expectedText, int time) {
-	int i = 1;
-	while (!driver.getPageSource().contains(expectedText)) {
-		swipeList(list);
-		i++;
-		if (i == time)
-			break;
-	}
-	driver.findElement(MobileBy.AndroidUIAutomator("new UiSelector().textContains(\"" +expectedText + "\")")).click();;
-}
+
+	/*
+	 * public static void swipeInListTillExpectedTextAndTap1(List<WebElement> list,
+	 * String expectedText, int time) { int i = 1; while
+	 * (!driver.getPageSource().contains(expectedText)) { swipeList(list); i++; if
+	 * (i == time) break; } driver.findElement(MobileBy.
+	 * AndroidUIAutomator("new UiSelector().textContains(\"" +expectedText +
+	 * "\")")).click();; }
+	 */
 public static void swipeList(List<WebElement> list) {
 	int items = list.size();
 	TouchAction action = new TouchAction(driver);
@@ -77,12 +76,34 @@ public static void swipeInListFromLastToFirst(List<WebElement> list) {
 	//System.out.println("List Size is: "+ items);
 	TouchAction action = new TouchAction(driver);
 	PointOption p1 = new PointOption();
+	org.openqa.selenium.Point centerOfFirstElement = ((MobileElement) list.get(items - 4)).getCenter();
+	org.openqa.selenium.Point centerOfLastElement = ((MobileElement) list.get(items - 1)).getCenter();
+	//System.out.println("center of first element: "+centerOfFirstElement+ "  center of last element: "+centerOfLastElement);
+	new TouchAction(driver).longPress(p1.point(centerOfFirstElement.x, centerOfFirstElement.y+800))
+			.moveTo(p1.point(centerOfLastElement.x, centerOfLastElement.y-1000)).release().perform();
+	
+}
+public static void swipeInListFromFirstToLast(List<WebElement> list) {
+	int items = list.size();
+	//System.out.println("List Size is: "+ items);
+	TouchAction action = new TouchAction(driver);
+	PointOption p1 = new PointOption();
 	org.openqa.selenium.Point centerOfFirstElement = ((MobileElement) list.get(0)).getCenter();
 	org.openqa.selenium.Point centerOfLastElement = ((MobileElement) list.get(items - 1)).getCenter();
 	//System.out.println("center of first element: "+centerOfFirstElement+ "  center of last element: "+centerOfLastElement);
-	new TouchAction(driver).longPress(p1.point(centerOfFirstElement.x, centerOfFirstElement.y+500))
-			.moveTo(p1.point(centerOfLastElement.x, centerOfLastElement.y-700)).release().perform();
+	new TouchAction(driver).longPress(p1.point(centerOfLastElement.x, centerOfLastElement.y+100))
+			.moveTo(p1.point(centerOfFirstElement.x, centerOfFirstElement.y+80)).release().perform();
 	
+}
+public static void swipeInListTillExpectedTextAndTap1(List<WebElement> list, String expectedText, int time) {
+	int i = 1;
+	while (!driver.getPageSource().contains(expectedText)) {
+		swipeInListFromFirstToLast(list);
+		i++;
+		if (i == time)
+			break;
+	}
+	driver.findElement(MobileBy.AndroidUIAutomator("new UiSelector().textContains(\"" +expectedText + "\")")).click();;
 }
 public static void swipeInListTillExpectedTextAndTap(List<WebElement> list, String expectedText, int time) {
 	int i = 1;

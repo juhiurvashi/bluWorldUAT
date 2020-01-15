@@ -56,4 +56,9 @@ public class PublicProfileScreen {
 		WebElement TextField=driver.findElement(By.id("sg.com.blu.android.uat:id/input_text_et"));
 		return TextField;
 	}
+	public WebElement permissionAllowBtn()
+	{
+		WebElement allow=driver.findElement(By.id("com.android.packageinstaller:id/permission_allow_button"));
+		return allow;
+	}
 }

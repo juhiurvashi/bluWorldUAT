@@ -98,7 +98,7 @@ public class BookingScreen {
 		WebElement x=driver.findElement(By.id("sg.com.blu.android.uat:id/close_btn"));
 		x.click();
 	}
-	public void proceedToPaymentBtn()
+	public void actionButton()
 	{
 		WebElement actionBtn=driver.findElement(By.id("sg.com.blu.android.uat:id/actionButton"));
 		actionBtn.click();
@@ -109,6 +109,29 @@ public class BookingScreen {
 		x.click();
 	}
 	
-	
-	
+	public WebElement recipientDetailsNotRegisteredMobileMsg()
+	{
+		WebElement msg=driver.findElement(By.xpath("//android.widget.LinearLayout[@resource-id='sg.com.blu.android.uat:id/mobileNumberRecipientContainer']//android.widget.TextView"));
+		return msg;
+	}
+	public WebElement recipientNametextField()
+	{
+		WebElement msg=driver.findElement(By.id("sg.com.blu.android.uat:id/input_text_et"));
+		return msg;
+	}
+	public WebElement recipientNametextFieldError()
+	{
+		WebElement error=driver.findElement(By.xpath("//android.widget.LinearLayout[@resource-id='recipientNameInputField']//android.widget.TextView[1]"));
+		return error;
+	}
+	public WebElement mobileNotextFieldError()
+	{
+		WebElement error=driver.findElement(By.id("sg.com.blu.android.uat:id/error_tv"));
+		return error;
+	}
+	public WebElement mobileNumberTextField()
+	{
+		WebElement textField=driver.findElement(By.id("sg.com.blu.android.uat:id/input_mobile_number_et"));
+		return textField;
+	}
 }

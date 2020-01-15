@@ -130,10 +130,10 @@ public class PublicProfileTestRunner extends BaseClass {
 		ms.clickOnFirstName();
 		//WebElement mobile=driver.findElement(By.id("sg.com.blu.android.uat:id/input_text_et"));
 		pp.clickOnMobile();
-		WebElement allow=driver.findElement(By.id("com.android.packageinstaller:id/permission_allow_button"));
-		if(allow.isDisplayed())
+		
+		if(pp.permissionAllowBtn().isDisplayed())
 		{
-			allow.click();
+			pp.permissionAllowBtn().click();
 		}
 		String mobilefromPropertiesValue=CommonUtil.getPropertyValue("publicProfile", "mobile");
 		pp.textField().sendKeys(mobilefromPropertiesValue);
