@@ -16,9 +16,11 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 
+import bluAndroid.bluAndroid.pageObjects.CommonFunctions;
 import bluAndroid.bluAndroid.pageObjects.LoginScreen;
 import bluAndroid.bluAndroid.pageObjects.MenuScreen;
 import bluAndroid.bluAndroid.pageObjects.MyDetailsScreen;
+import bluAndroid.bluAndroid.pageObjects.SettingsScreen;
 import bluAndroid.bluAndroid.util.BaseClass;
 import bluAndroid.bluAndroid.util.CommonUtil;
 import io.appium.java_client.AppiumDriver;
@@ -33,6 +35,8 @@ public class BluLogoutTestRunner extends BaseClass {
 	String mobileNo, password;
 	MyDetailsScreen mds;
 	MenuScreen ms;
+	CommonFunctions cf;
+	SettingsScreen ss;
 	@BeforeMethod
 	public void preCondition() throws IOException
 
@@ -46,6 +50,8 @@ public class BluLogoutTestRunner extends BaseClass {
 		ls.bluLogin(mobileNo, password);
 		mds=new MyDetailsScreen(driver);
 		ms=new MenuScreen(driver);
+		cf=new  CommonFunctions(driver);
+		ss=new SettingsScreen(driver);
 	}
 	
 	@Test
@@ -62,11 +68,10 @@ public class BluLogoutTestRunner extends BaseClass {
 	@Test
 	public void tc02_resetPassword()
 	{
-		System.out.println("tc01_logout");
-		extentTest = extentReports.createTest("tc01_logout()");
+		System.out.println("tc02_resetPassword");
+		extentTest = extentReports.createTest("tc02_resetPassword");
 		ms.clickOnSettings();
-		WebElement resetPassword=driver.findElement(By.id("sg.com.blu.android.uat:id/reset_password_container"));
-		resetPassword.click();
+		ss.clickOnResetpassword();
 		WebElement currentPassword=driver.findElement(By.id("sg.com.blu.android.uat:id/current_password_inputField"));
 		currentPassword.sendKeys("Admin@123");
 		WebElement newPassword=driver.findElement(By.id("sg.com.blu.android.uat:id/new_password_inputField"));
@@ -79,37 +84,81 @@ public class BluLogoutTestRunner extends BaseClass {
 		assertTrue(backToHome.isDisplayed());
 		backToHome.click();
 		ms.clickOnSettings();
-		resetPassword.click();
+		ss.clickOnResetpassword();
 		currentPassword.sendKeys("Admin@12345");
 		newPassword.sendKeys("Admin@123");
 		confirmPassword.sendKeys("Admin@123");
 		submitBtn.click();
 		
 	}
-	public static void swipeInListFromLastToFirst(List<WebElement> list) {
-		int items = list.size();
-		//System.out.println("List Size is: "+ items);
-		TouchAction action = new TouchAction(driver);
-		PointOption p1 = new PointOption();
-		org.openqa.selenium.Point centerOfFirstElement = ((MobileElement) list.get(0)).getCenter();
-		org.openqa.selenium.Point centerOfLastElement = ((MobileElement) list.get(items - 1)).getCenter();
-		//System.out.println("center of first element: "+centerOfFirstElement+ "  center of last element: "+centerOfLastElement);
-		new TouchAction(driver).longPress(p1.point(centerOfFirstElement.x, centerOfFirstElement.y+300))
-				.moveTo(p1.point(centerOfLastElement.x, centerOfLastElement.y+80)).release().perform();
+	
+	@Test
+	public void tc03_resetPasswordErrorWhenActorhasNotProvidedAnythingAndClicksOnSubmit()
+	{
+		System.out.println("tc03_resetPasswordErrorWhenActorhasNotProvidedAnythingAndClicksOnSubmit");
+		extentTest = extentReports.createTest("tc03_resetPasswordErrorWhenActorhasNotProvidedAnythingAndClicksOnSubmit");
+		ms.clickOnSettings();
+		ss.clickOnResetpassword();
+		WebElement submitBtn=driver.findElement(By.id("sg.com.blu.android.uat:id/submit_btn"));
+		submitBtn.click();
+		WebElement currentPasswordError=driver.findElement(By.xpath("//android.widget.LinearLayout[@resource-id='sg.com.blu.android.uat:id/current_password_inputField']//android.widget.TextView"));
+		Assert.assertEquals(currentPasswordError.getText(), "Enter current password");
+		WebElement newPasswordError=driver.findElement(By.xpath("//android.widget.LinearLayout[@resource-id='sg.com.blu.android.uat:id/new_password_inputField']//android.widget.TextView[@resource-id='sg.com.blu.android.uat:id/error_tv']"));
+		Assert.assertEquals(newPasswordError.getText(), "Enter new password");
 		
 	}
 	@Test
-	public void tc03_deactivateAccount()
+	public void tc04_NonMatchingPassword()
 	{
-		System.out.println("tc01_logout");
-		extentTest = extentReports.createTest("tc01_logout()");
+		System.out.println("tc04_NonMatchingPassword");
+		extentTest = extentReports.createTest("tc04_NonMatchingPassword");
+		ms.clickOnSettings();
+		ss.clickOnResetpassword();
+		WebElement currentPassword=driver.findElement(By.id("sg.com.blu.android.uat:id/current_password_inputField"));
+		currentPassword.sendKeys("Admin@123");
+		WebElement newPassword=driver.findElement(By.id("sg.com.blu.android.uat:id/new_password_inputField"));
+		newPassword.sendKeys("Admin@12345");
+		WebElement confirmPassword=driver.findElement(By.id("sg.com.blu.android.uat:id/confirm_password_inputField"));
+		confirmPassword.sendKeys("Admin@1234");
+		WebElement submitBtn=driver.findElement(By.id("sg.com.blu.android.uat:id/submit_btn"));
+		submitBtn.click();
+		WebElement confirmPasswordError=driver.findElement(By.xpath("//android.widget.LinearLayout[@resource-id='sg.com.blu.android.uat:id/confirm_password_inputField']//android.widget.TextView"));
+		Assert.assertEquals(confirmPasswordError.getText(), "Passwords do not match");
+		
+	}
+	@Test
+	public void tc05_Invalidpassword()
+	{
+		System.out.println("tc05_Invalidpassword");
+		extentTest = extentReports.createTest("tc05_Invalidpassword");
+		ms.clickOnSettings();
+		ss.clickOnResetpassword();
+		WebElement currentPassword=driver.findElement(By.id("sg.com.blu.android.uat:id/current_password_inputField"));
+		currentPassword.sendKeys("Admin");
+		WebElement newPassword=driver.findElement(By.id("sg.com.blu.android.uat:id/new_password_inputField"));
+		newPassword.sendKeys("12345");
+		WebElement submitBtn=driver.findElement(By.id("sg.com.blu.android.uat:id/submit_btn"));
+		submitBtn.click();
+		WebElement currentPasswordError=driver.findElement(By.xpath("//android.widget.LinearLayout[@resource-id='sg.com.blu.android.uat:id/current_password_inputField']//android.widget.TextView"));
+		Assert.assertEquals(currentPasswordError.getText(), "Password should be 8 or more letters, with at least one uppercase letter, one lowercase letter, and one number or symbol.");
+		WebElement newPasswordError=driver.findElement(By.xpath("//android.widget.LinearLayout[@resource-id='sg.com.blu.android.uat:id/new_password_inputField']//android.widget.TextView"));
+		Assert.assertEquals(newPasswordError.getText(), "Password should be 8 or more letters, with at least one uppercase letter, one lowercase letter, and one number or symbol.");
+		WebElement confirmPasswordError=driver.findElement(By.xpath("//android.widget.LinearLayout[@resource-id='sg.com.blu.android.uat:id/confirm_password_inputField']//android.widget.TextView"));
+		Assert.assertEquals(confirmPasswordError.getText(), "Confirm new password.");
+		
+	}
+	@Test
+	public void tc06_deactivateAccount()
+	{
+		System.out.println("tc06_deactivateAccount");
+		extentTest = extentReports.createTest("tc06_deactivateAccount");
 		ms.clickOnSettings();
 		WebElement deactivateAccount=driver.findElement(By.id("sg.com.blu.android.uat:id/deactivate_account_container"));
 		List<WebElement> list=driver.findElements(By.className("android.widget.RadioGroup"));
 		deactivateAccount.click();
 		WebElement reason=driver.findElement(By.xpath("//android.widget.RadioGroup[@resource-id='sg.com.blu.android.uat:id/radioGroup']//android.widget.RelativeLayout"));
 		reason.click();
-		swipeInListFromLastToFirst(list);	 
+		cf.swipeUp(list);	 
 	}
 	@AfterMethod
 	public void getResult(ITestResult testResult) throws IOException {

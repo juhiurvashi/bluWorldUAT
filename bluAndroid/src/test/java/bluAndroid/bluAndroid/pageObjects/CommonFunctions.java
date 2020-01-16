@@ -71,12 +71,12 @@ public  void screenSwipe() {
 	
 	
 }
-public static void swipeInListFromLastToFirst(List<WebElement> list) {
+public static void swipeUp(List<WebElement> list) {
 	int items = list.size();
 	//System.out.println("List Size is: "+ items);
 	TouchAction action = new TouchAction(driver);
 	PointOption p1 = new PointOption();
-	org.openqa.selenium.Point centerOfFirstElement = ((MobileElement) list.get(items - 4)).getCenter();
+	org.openqa.selenium.Point centerOfFirstElement = ((MobileElement) list.get(0)).getCenter();
 	org.openqa.selenium.Point centerOfLastElement = ((MobileElement) list.get(items - 1)).getCenter();
 	//System.out.println("center of first element: "+centerOfFirstElement+ "  center of last element: "+centerOfLastElement);
 	new TouchAction(driver).longPress(p1.point(centerOfFirstElement.x, centerOfFirstElement.y+800))
@@ -108,7 +108,7 @@ public static void swipeInListTillExpectedTextAndTap1(List<WebElement> list, Str
 public static void swipeInListTillExpectedTextAndTap(List<WebElement> list, String expectedText, int time) {
 	int i = 1;
 	while (!driver.getPageSource().contains(expectedText)) {
-		swipeInListFromLastToFirst(list);
+		swipeUp(list);
 		i++;
 		if (i == time)
 			break;

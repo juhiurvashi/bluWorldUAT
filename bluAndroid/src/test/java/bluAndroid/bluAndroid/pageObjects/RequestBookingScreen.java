@@ -1,5 +1,7 @@
 package bluAndroid.bluAndroid.pageObjects;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -56,5 +58,20 @@ public class RequestBookingScreen {
 	public void clickOnCancelRequest()
 	{
 		driver.findElement(By.id("requestActionTextView")).click();
+	}
+	public WebElement AddressIsDisplayed()
+	{
+		WebElement address=driver.findElement(By.id("sg.com.blu.android.uat:id/address1TextView"));
+		return address;
+	}
+	public List<WebElement> requestStatus()
+	{
+		List<WebElement> status=driver.findElements(By.xpath("//android.widget.LinearLayout[@resource-id='sg.com.blu.android.uat:id/bookingRequestDetailsContainer']//android.widget.TextView"));
+		return status;
+	}
+	public WebElement sttus()
+	{
+		WebElement address=driver.findElement(By.id("sg.com.blu.android.uat:id/bookingTitleTextView"));
+		return address;
 	}
 }

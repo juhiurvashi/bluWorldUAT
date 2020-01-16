@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" ignored="1" total="2" passed="0">
+<testng-results skipped="0" failed="1" ignored="19" total="20" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="88259" started-at="2020-01-15T17:52:19 SGT" finished-at="2020-01-15T17:53:47 SGT">
+  <suite name="Default suite" duration-ms="108243" started-at="2020-01-16T17:45:36 SGT" finished-at="2020-01-16T17:47:24 SGT">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="88259" started-at="2020-01-15T17:52:19 SGT" finished-at="2020-01-15T17:53:47 SGT">
-      <class name="bluAndroid.bluAndroid.TestScripts.CreateRequestTestRunner">
-        <test-method status="PASS" signature="SetUp()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.CreateRequestTestRunner@7cbd213e]" name="SetUp" is-config="true" duration-ms="165" started-at="2020-01-15T17:52:19 SGT" finished-at="2020-01-15T17:52:19 SGT">
+    <test name="Default test" duration-ms="108243" started-at="2020-01-16T17:45:36 SGT" finished-at="2020-01-16T17:47:24 SGT">
+      <class name="bluAndroid.bluAndroid.TestScripts.CreateBookingTestRunner">
+        <test-method status="PASS" signature="SetUp()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.CreateBookingTestRunner@3ecd23d9]" name="SetUp" is-config="true" duration-ms="134" started-at="2020-01-16T17:45:36 SGT" finished-at="2020-01-16T17:45:36 SGT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SetUp -->
-        <test-method status="PASS" signature="preCondition()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.CreateRequestTestRunner@7cbd213e]" name="preCondition" is-config="true" duration-ms="47285" started-at="2020-01-15T17:52:19 SGT" finished-at="2020-01-15T17:53:06 SGT">
+        <test-method status="PASS" signature="preCondition()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.CreateBookingTestRunner@3ecd23d9]" name="preCondition" is-config="true" duration-ms="43326" started-at="2020-01-16T17:45:36 SGT" finished-at="2020-01-16T17:46:19 SGT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- preCondition -->
-        <test-method status="FAIL" signature="B_S13_TC02_CreateRequestViaBluPortWithMobileNo()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.CreateRequestTestRunner@7cbd213e]" name="B_S13_TC02_CreateRequestViaBluPortWithMobileNo" duration-ms="39052" started-at="2020-01-15T17:53:06 SGT" finished-at="2020-01-15T17:53:45 SGT">
+        <test-method status="FAIL" signature="B_S09_TC03_EditDestinationBluHome()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.CreateBookingTestRunner@3ecd23d9]" name="B_S09_TC03_EditDestinationBluHome" duration-ms="62979" started-at="2020-01-16T17:46:19 SGT" finished-at="2020-01-16T17:47:22 SGT">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[expected [We have sent a reminder to] but found [R200115954392]]]>
+              <![CDATA[expected [Destination bluHome] but found []]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [We have sent a reminder to] but found [R200115954392]
+              <![CDATA[java.lang.AssertionError: expected [Destination bluHome] but found []
 at org.testng.Assert.fail(Assert.java:97)
 at org.testng.Assert.assertEqualsImpl(Assert.java:136)
 at org.testng.Assert.assertEquals(Assert.java:118)
 at org.testng.Assert.assertEquals(Assert.java:575)
 at org.testng.Assert.assertEquals(Assert.java:585)
-at bluAndroid.bluAndroid.TestScripts.CreateRequestTestRunner.B_S13_TC02_CreateRequestViaBluPortWithMobileNo(CreateRequestTestRunner.java:146)
+at bluAndroid.bluAndroid.TestScripts.CreateBookingTestRunner.B_S09_TC03_EditDestinationBluHome(CreateBookingTestRunner.java:796)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -61,23 +61,23 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- B_S13_TC02_CreateRequestViaBluPortWithMobileNo -->
-        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:bluAndroid.bluAndroid.TestScripts.CreateRequestTestRunner@7cbd213e]" name="getResult" is-config="true" duration-ms="1881" started-at="2020-01-15T17:53:45 SGT" finished-at="2020-01-15T17:53:47 SGT">
+        </test-method> <!-- B_S09_TC03_EditDestinationBluHome -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:bluAndroid.bluAndroid.TestScripts.CreateBookingTestRunner@3ecd23d9]" name="getResult" is-config="true" duration-ms="1896" started-at="2020-01-16T17:47:22 SGT" finished-at="2020-01-16T17:47:24 SGT">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=B_S13_TC02_CreateRequestViaBluPortWithMobileNo status=FAILURE method=CreateRequestTestRunner.B_S13_TC02_CreateRequestViaBluPortWithMobileNo()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.CreateRequestTestRunner@7cbd213e] output={null}]]]>
+                <![CDATA[[TestResult name=B_S09_TC03_EditDestinationBluHome status=FAILURE method=CreateBookingTestRunner.B_S09_TC03_EditDestinationBluHome()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.CreateBookingTestRunner@3ecd23d9] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.CreateRequestTestRunner@7cbd213e]" name="tearDown" is-config="true" duration-ms="466" started-at="2020-01-15T17:53:47 SGT" finished-at="2020-01-15T17:53:48 SGT">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.CreateBookingTestRunner@3ecd23d9]" name="tearDown" is-config="true" duration-ms="467" started-at="2020-01-16T17:47:24 SGT" finished-at="2020-01-16T17:47:25 SGT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- bluAndroid.bluAndroid.TestScripts.CreateRequestTestRunner -->
+      </class> <!-- bluAndroid.bluAndroid.TestScripts.CreateBookingTestRunner -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

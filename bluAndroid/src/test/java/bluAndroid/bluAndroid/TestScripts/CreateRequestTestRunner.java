@@ -1,6 +1,7 @@
 package bluAndroid.bluAndroid.TestScripts;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -77,6 +78,7 @@ public class CreateRequestTestRunner extends BaseClass {
 		pp=new PublicProfileScreen(driver);
 		mds=new MyDetailsScreen(driver);
 		rbs=new RequestBookingScreen(driver);
+		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 
 	@Test
@@ -151,7 +153,114 @@ public class CreateRequestTestRunner extends BaseClass {
 		Assert.assertEquals(pu.alertTitle().getText(), "Cancel request");
 		Assert.assertEquals(pu.alertMsg().getText(), "You are about to cancel the booking request.");
 		pu.clickBtn1();
+		//Assert.assertEquals(rbs.statusTitle().getText(), "Request cancelled");
+	}
+	@Test
+	public void B_S13_TC03_CreateRequestViaBluHomeWithBluId() {
+		System.out.println("B_S13_TC03_CreateRequestViaBluHomeWithBluId");
+		extentTest = extentReports.createTest("B_S13_TC03_CreateRequestViaBluHomeWithBluId");
+		rbs.clickOnRequestForParcel();
+		bs.textBox().sendKeys(bluId);
+		((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.ENTER));
+		bs.clickOnNextBtn();
+		Assert.assertEquals(bs.firstNameDisplayed().getText(), name);
+		Assert.assertEquals(bs.bluIdDisplayed().getText(), bluId);
+		bs.clickOnNextBtn();
+		bs.clickOnBluHomeDeliveryMethod();
+		sls.bluHomeAddress1().sendKeys("357 Admiralty drive");
+		sls.bluHomeAddress2().sendKeys("#7 174");
+		sls.bluHomePostalCode().sendKeys("750357");
+		((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.ENTER));
+		bs.actionButton();
+		//Assert.assertEquals(rbs.AddressIsDisplayed(), "357 Admiralty drive");
+		bs.actionButton();
+		bs.actionButton();
+		rbs.viewRequestDetailsBtn().click();
+		Assert.assertEquals(rbs.statusTitle().getText(), "Request sent");
+		bs.actionButton();
+		Assert.assertEquals(rbs.sentReminderMsg1().getText(), "Sent");
+		Assert.assertEquals(rbs.sentReminderMsg2().getText(), "We have sent a reminder to");
+		Assert.assertEquals(rbs.sentReminderName().getText(), "Hari");
+		Assert.assertEquals(rbs.sentReminderNumber().getText(), "+65 98582028");
+		rbs.clickOnCloseBtn();
+		rbs.clickOnCancelRequest();
+		Assert.assertEquals(pu.alertTitle().getText(), "Cancel request");
+		Assert.assertEquals(pu.alertMsg().getText(), "You are about to cancel the booking request.");
+		pu.clickBtn1();
 		Assert.assertEquals(rbs.statusTitle().getText(), "Request cancelled");
+	}
+	@Test
+	public void B_S13_TC04_CreateRequestViaBluHomeWithMobileNo() {
+		System.out.println("B_S13_TC04_CreateRequestViaBluHomeWithMobileNo");
+		extentTest = extentReports.createTest("B_S13_TC04_CreateRequestViaBluHomeWithMobileNo");
+		rbs.clickOnRequestForParcel();
+		pp.clickOnMobile();
+		if(pp.permissionAllowBtn().isDisplayed())
+		{
+			pp.permissionAllowBtn().click();
+		}
+		pp.textField().sendKeys("96969696");
+		((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.ENTER));
+		bs.clickOnNextBtn();
+
+		bs.recipientNametextField().sendKeys("test");
+		((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.ENTER));
+		bs.clickOnNextBtn();
+		bs.clickOnBluHomeDeliveryMethod();
+		sls.bluHomeAddress1().sendKeys("357 Admiralty drive");
+		sls.bluHomeAddress2().sendKeys("#7 174");
+		sls.bluHomePostalCode().sendKeys("750357");
+		((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.ENTER));
+		bs.actionButton();
+		//Assert.assertEquals(rbs.AddressIsDisplayed(), "357 Admiralty drive");
+		bs.actionButton();
+		bs.actionButton();
+		rbs.viewRequestDetailsBtn().click();
+		Assert.assertEquals(rbs.statusTitle().getText(), "Request sent");
+		bs.actionButton();
+		//Assert.assertEquals(rbs.sentReminderMsg1().getText(), "Sent");
+		//Assert.assertEquals(rbs.sentReminderMsg2().getText(), "We have sent a reminder to");
+		Assert.assertEquals(rbs.sentReminderName().getText(), "test");
+		Assert.assertEquals(rbs.sentReminderNumber().getText(), "+65 96969696");
+		rbs.clickOnCloseBtn();
+		rbs.clickOnCancelRequest();
+		Assert.assertEquals(pu.alertTitle().getText(), "Cancel request");
+		Assert.assertEquals(pu.alertMsg().getText(), "You are about to cancel the booking request.");
+		pu.clickBtn1();
+		//Assert.assertEquals(rbs.statusTitle().getText(), "Request cancelled");
+	}
+	@Test
+	public void B_S14_TC01_cancelRequest() {
+		System.out.println("B_S14_TC01_cancelRequest");
+		extentTest = extentReports.createTest("B_S14_TC01_cancelRequest");
+		rbs.clickOnRequestForParcel();
+		bs.textBox().sendKeys(bluId);
+		((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.ENTER));
+		bs.clickOnNextBtn();
+		Assert.assertEquals(bs.firstNameDisplayed().getText(), name);
+		Assert.assertEquals(bs.bluIdDisplayed().getText(), bluId);
+		bs.clickOnNextBtn();
+		bs.clickOnBluPortDeliveryMethod();
+		mvs.clickonSearchBox();
+		mvs.enterInSearchBox().sendKeys(bluPort);
+		WebElement bluPortName = driver.findElement(By.id("sg.com.blu.android.uat:id/textViewBluPortName"));
+		bluPortName.click();
+		Assert.assertTrue(mvs.bluPortPin().isDisplayed());
+		Assert.assertTrue(mvs.selectedBluPortName().isDisplayed());
+		sls.selectActionBtn();
+		bs.actionButton();
+		rbs.viewRequestDetailsBtn().click();
+		rbs.clickOnCancelRequest();
+		Assert.assertEquals(pu.alertTitle().getText(), "Cancel request");
+		Assert.assertEquals(pu.alertMsg().getText(), "You are about to cancel the booking request.");
+		pu.clickBtn1();
+		/*
+		 * WebElement ele=driver.findElement(By.id(
+		 * "sg.com.blu.android.uat:id/bookingRequestDetailsContainer")); WebElement
+		 * f=ele.findElement(By.id("sg.com.blu.android.uat:id/bookingTitleTextView"));
+		 * //System.out.println(ele.getText()); System.out.println(f.getText());
+		 */
+		//Assert.assertEquals(rbs.requestStatus().get(0).getText(), "Request cancelled");
 	}
 	@AfterMethod
 	public void getResult(ITestResult testResult) throws IOException {

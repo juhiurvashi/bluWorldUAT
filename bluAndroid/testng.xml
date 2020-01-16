@@ -10,6 +10,8 @@
 			<class name="bluAndroid.bluAndroid.TestScripts.WalletTestRunner" />
 			<class name="bluAndroid.bluAndroid.TestScripts.CheckOutWithBluTestRunner" />
 			<class name="bluAndroid.bluAndroid.TestScripts.SavedLocationsTestRunner" />
+			<class name="bluAndroid.bluAndroid.TestScripts.CreateBookingTestRunner" />
+			<class name="bluAndroid.bluAndroid.TestScripts.CreateRequestTestRunner" />
 		</classes>
 	</test>
 

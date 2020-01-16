@@ -78,9 +78,14 @@ public class BookingScreen {
 		WebElement remarks=driver.findElement(By.id("sg.com.blu.android.uat:id/remarksEditText"));
 		return remarks;
 	}
-	public void selectBoxSize()
+	public void selectBoxSizeXS()
 	{
 		WebElement xs=driver.findElement(By.xpath("//androidx.recyclerview.widget.RecyclerView//android.widget.FrameLayout[1]"));
+		xs.click();
+	}
+	public void selectBoxSizeS()
+	{
+		WebElement xs=driver.findElement(By.xpath("//androidx.recyclerview.widget.RecyclerView//android.widget.FrameLayout[2]"));
 		xs.click();
 	}
 	public void clickOnContinue()
@@ -124,7 +129,7 @@ public class BookingScreen {
 		WebElement error=driver.findElement(By.xpath("//android.widget.LinearLayout[@resource-id='recipientNameInputField']//android.widget.TextView[1]"));
 		return error;
 	}
-	public WebElement mobileNotextFieldError()
+	public WebElement textFieldError()
 	{
 		WebElement error=driver.findElement(By.id("sg.com.blu.android.uat:id/error_tv"));
 		return error;
@@ -133,5 +138,70 @@ public class BookingScreen {
 	{
 		WebElement textField=driver.findElement(By.id("sg.com.blu.android.uat:id/input_mobile_number_et"));
 		return textField;
+	}
+	public void clickOnChangeMobileNumberLink()
+	{
+		WebElement x=driver.findElement(By.id("sg.com.blu.android.uat:id/changeMobileNumberTextView"));
+		x.click();
+	}
+	public WebElement remarksTextFieldError()
+	{
+		WebElement error=driver.findElement(By.id("sg.com.blu.android.uat:id/remarksErrorTextView"));
+		return error;
+	}
+	public List<WebElement> redeemedRewardsList()
+	{
+		List<WebElement> error=driver.findElements(By.xpath("//androidx.recyclerview.widget.RecyclerView[@resource-id='sg.com.blu.android.uat:id/recyclerView']//android.widget.RelativeLayout"));
+		return error;
+	}
+	public WebElement editIconOfOrigin()
+	{
+		WebElement icon=driver.findElement(By.xpath("//android.widget.RelativeLayout[@resource-id='sg.com.blu.android.uat:id/bookingLocationsView']//android.widget.LinearLayout[1]//android.widget.ImageButton"));
+		return icon;
+	}
+	public WebElement editIconOfDestination()
+	{
+		WebElement icon=driver.findElement(By.xpath("//android.widget.RelativeLayout[@resource-id='sg.com.blu.android.uat:id/bookingLocationsView']//android.widget.LinearLayout[2]//android.widget.ImageButton"));
+		return icon;
+	}
+	public WebElement editIconOfBoxSize()
+	{
+		WebElement icon=driver.findElement(By.xpath("//android.widget.LinearLayout[@resource-id='sg.com.blu.android.uat:id/boxSizeBookingDisplayField']//android.widget.ImageButton"));
+		return icon;
+	}
+	public WebElement editIconOfProductCatagory()
+	{
+		WebElement icon=driver.findElement(By.xpath("//android.widget.LinearLayout[@resource-id='sg.com.blu.android.uat:id/productCategoryBookingDisplayField']//android.widget.ImageButton"));
+		return icon;
+	}
+	public WebElement editIconOfRemarks()
+	{
+		WebElement icon=driver.findElement(By.xpath("//android.widget.LinearLayout[@resource-id='sg.com.blu.android.uat:id/remarksBookingDisplayField']//android.widget.ImageButton"));
+		return icon;
+	}
+	public WebElement editIconOfReward()
+	{
+		WebElement icon=driver.findElement(By.xpath("//android.widget.LinearLayout[@resource-id='sg.com.blu.android.uat:id/rewardBookingDisplayField']//android.widget.ImageButton"));
+		return icon;
+	}
+	public WebElement firstTextOfScreen()
+	{
+		WebElement text=driver.findElement(By.xpath("//android.widget.LinearLayout[@resource-id='sg.com.blu.android.uat:id/booking_header']//android.widget.TextView"));
+		return text;
+	}
+	public List<WebElement> displayedDots()
+	{
+		List<WebElement> dots=driver.findElements(By.xpath("//android.widget.LinearLayout[@resource-id='sg.com.blu.android.uat:id/bookingIndicator']//android.widget.ImageView"));
+		return dots;
+	}
+	public List<WebElement> reviewBookingScreenContainer()
+	{
+		List<WebElement> dots=driver.findElements(By.xpath("//android.widget.LinearLayout[@resource-id='sg.com.blu.android.uat:id/bookingHeader']//android.widget.LinearLayout"));
+		return dots;
+	}
+	public WebElement destinationBluHomeTitleTextView()
+	{
+		WebElement text=driver.findElement(By.id("sg.com.blu.android.uat:id/titleTextView"));
+		return text;
 	}
 }
