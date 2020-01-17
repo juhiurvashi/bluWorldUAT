@@ -121,4 +121,9 @@ public void clickOnBackButton()
 {
 	driver.findElement(By.id("sg.com.blu.android.uat:id/back_btn")).click();
 }
+public void clickOnCloseBtn()
+{
+	WebElement x=driver.findElement(By.id("sg.com.blu.android.uat:id/closeButton"));
+	x.click();
+}
 }

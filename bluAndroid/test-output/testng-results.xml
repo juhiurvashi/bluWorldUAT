@@ -1,40 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="1" total="2" passed="1">
+<testng-results skipped="0" failed="0" ignored="4" total="5" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="226675" started-at="2020-01-17T10:57:42 SGT" finished-at="2020-01-17T11:01:29 SGT">
+  <suite name="Default suite" duration-ms="60934" started-at="2020-01-17T17:38:35 SGT" finished-at="2020-01-17T17:39:36 SGT">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="226675" started-at="2020-01-17T10:57:42 SGT" finished-at="2020-01-17T11:01:29 SGT">
-      <class name="bluAndroid.bluAndroid.TestScripts.CreateBookingViaRequestTestRunner">
-        <test-method status="PASS" signature="SetUp()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.CreateBookingViaRequestTestRunner@7cbd213e]" name="SetUp" is-config="true" duration-ms="133" started-at="2020-01-17T10:57:42 SGT" finished-at="2020-01-17T10:57:42 SGT">
+    <test name="Default test" duration-ms="60934" started-at="2020-01-17T17:38:35 SGT" finished-at="2020-01-17T17:39:36 SGT">
+      <class name="bluAndroid.bluAndroid.TestScripts.RewardsTestRunner">
+        <test-method status="PASS" signature="SetUp()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.RewardsTestRunner@52f759d7]" name="SetUp" is-config="true" duration-ms="130" started-at="2020-01-17T17:38:35 SGT" finished-at="2020-01-17T17:38:35 SGT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SetUp -->
-        <test-method status="PASS" signature="preCondition()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.CreateBookingViaRequestTestRunner@7cbd213e]" name="preCondition" is-config="true" duration-ms="44717" started-at="2020-01-17T10:57:42 SGT" finished-at="2020-01-17T10:58:27 SGT">
+        <test-method status="PASS" signature="preCondition()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.RewardsTestRunner@52f759d7]" name="preCondition" is-config="true" duration-ms="44775" started-at="2020-01-17T17:38:35 SGT" finished-at="2020-01-17T17:39:20 SGT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- preCondition -->
-        <test-method status="PASS" signature="B_S15_TC01_MakeBookingViaRequest()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.CreateBookingViaRequestTestRunner@7cbd213e]" name="B_S15_TC01_MakeBookingViaRequest" duration-ms="179945" started-at="2020-01-17T10:58:27 SGT" finished-at="2020-01-17T11:01:27 SGT">
+        <test-method status="PASS" signature="G_S06_TC05_promoCode()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.RewardsTestRunner@52f759d7]" name="G_S06_TC05_promoCode" duration-ms="16130" started-at="2020-01-17T17:39:20 SGT" finished-at="2020-01-17T17:39:36 SGT">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- B_S15_TC01_MakeBookingViaRequest -->
-        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:bluAndroid.bluAndroid.TestScripts.CreateBookingViaRequestTestRunner@7cbd213e]" name="getResult" is-config="true" duration-ms="1981" started-at="2020-01-17T11:01:27 SGT" finished-at="2020-01-17T11:01:29 SGT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=B_S15_TC01_MakeBookingViaRequest status=SUCCESS method=CreateBookingViaRequestTestRunner.B_S15_TC01_MakeBookingViaRequest()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.CreateBookingViaRequestTestRunner@7cbd213e] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getResult -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.CreateBookingViaRequestTestRunner@7cbd213e]" name="tearDown" is-config="true" duration-ms="462" started-at="2020-01-17T11:01:29 SGT" finished-at="2020-01-17T11:01:30 SGT">
+        </test-method> <!-- G_S06_TC05_promoCode -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.RewardsTestRunner@52f759d7]" name="tearDown" is-config="true" duration-ms="410" started-at="2020-01-17T17:39:36 SGT" finished-at="2020-01-17T17:39:37 SGT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- bluAndroid.bluAndroid.TestScripts.CreateBookingViaRequestTestRunner -->
+      </class> <!-- bluAndroid.bluAndroid.TestScripts.RewardsTestRunner -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

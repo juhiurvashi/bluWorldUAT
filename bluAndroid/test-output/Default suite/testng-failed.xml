@@ -3,15 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="bluAndroid.bluAndroid.TestScripts.CreateBookingViaRequestTestRunner">
+      <class name="bluAndroid.bluAndroid.TestScripts.RewardsTestRunner">
         <methods>
           <include name="SetUp"/>
-          <include name="B_S15_TC01_MakeBookingViaRequest"/>
-          <include name="preCondition"/>
-          <include name="getResult"/>
+          <include name="G_S06_TC05_promoCode"/>
           <include name="tearDown"/>
+          <include name="preCondition"/>
         </methods>
-      </class> <!-- bluAndroid.bluAndroid.TestScripts.CreateBookingViaRequestTestRunner -->
+      </class> <!-- bluAndroid.bluAndroid.TestScripts.RewardsTestRunner -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
