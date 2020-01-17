@@ -74,4 +74,10 @@ public class RequestBookingScreen {
 		WebElement address=driver.findElement(By.id("sg.com.blu.android.uat:id/bookingTitleTextView"));
 		return address;
 	}
+	public void clickOnRejectRequest()
+	{
+		WebElement rqst=driver.findElement(By.id("sg.com.blu.android.uat:id/requestActionTextView"));
+		rqst.click();
+	}
+	
 }

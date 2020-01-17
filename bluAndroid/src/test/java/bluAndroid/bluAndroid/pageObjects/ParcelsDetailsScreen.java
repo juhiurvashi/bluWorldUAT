@@ -135,4 +135,9 @@ public class ParcelsDetailsScreen {
 		WebElement status=driver.findElement(By.id("sg.com.blu.android.uat:id/statusTextView"));
 		return status;
 	}
+	public WebElement searchParcelsTextBox()
+	{
+		WebElement searchParcelTextBox=driver.findElement(By.id("sg.com.blu.android.uat:id/searchEditText"));
+		return searchParcelTextBox;
+	}
 }

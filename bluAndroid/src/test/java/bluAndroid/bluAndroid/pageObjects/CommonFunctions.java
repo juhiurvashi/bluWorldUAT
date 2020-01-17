@@ -2,6 +2,7 @@ package bluAndroid.bluAndroid.pageObjects;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 
@@ -114,5 +115,10 @@ public static void swipeInListTillExpectedTextAndTap(List<WebElement> list, Stri
 			break;
 	}
 	driver.findElement(MobileBy.AndroidUIAutomator("new UiSelector().textContains(\"" +expectedText + "\")")).click();;
+}
+
+public void clickOnBackButton()
+{
+	driver.findElement(By.id("sg.com.blu.android.uat:id/back_btn")).click();
 }
 }
