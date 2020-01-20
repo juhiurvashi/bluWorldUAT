@@ -22,7 +22,7 @@ public CommonFunctions(AppiumDriver<WebElement> driver)
 {
 	this.driver=driver;
 }
-public static void swipe(WebElement startPoint,WebElement endPoint)
+public void swipe(WebElement startPoint,WebElement endPoint)
 {
 	TouchAction action = new TouchAction(driver);
 	PointOption p1 = new PointOption();
@@ -84,6 +84,32 @@ public static void swipeUp(List<WebElement> list) {
 			.moveTo(p1.point(centerOfLastElement.x, centerOfLastElement.y-1000)).release().perform();
 	
 }
+public void swiptToBottom()
+{
+	PointOption p1 = new PointOption();
+	Dimension dim = driver.manage().window().getSize();
+	int height = dim.getHeight();
+	int width = dim.getWidth();
+	int x = width/2;
+	int top_y = (int)(height*0.80);
+	int bottom_y = (int)(height*0.05);
+	System.out.println("coordinates :" + x + "  "+ top_y + " "+ bottom_y);
+	TouchAction ts = new TouchAction(driver);
+	ts.longPress(p1.point(x, top_y)).moveTo(p1.point(x, bottom_y)).release().perform();
+}
+public void swiptToTop()
+{
+	PointOption p1 = new PointOption();
+	Dimension dim = driver.manage().window().getSize();
+	int height = dim.getHeight();
+	int width = dim.getWidth();
+	int x = width/2;
+	int top_y = (int)(height*0.80);
+	int bottom_y = (int)(height*0.25);
+	System.out.println("coordinates :" + x + "  "+ top_y + " "+ bottom_y);
+	TouchAction ts = new TouchAction(driver);
+	ts.longPress(p1.point(x, bottom_y)).moveTo(p1.point(x, top_y)).release().perform();
+}
 public static void swipeInListFromFirstToLast(List<WebElement> list) {
 	int items = list.size();
 	//System.out.println("List Size is: "+ items);
@@ -106,7 +132,7 @@ public static void swipeInListTillExpectedTextAndTap1(List<WebElement> list, Str
 	}
 	driver.findElement(MobileBy.AndroidUIAutomator("new UiSelector().textContains(\"" +expectedText + "\")")).click();;
 }
-public static void swipeInListTillExpectedTextAndTap(List<WebElement> list, String expectedText, int time) {
+public void swipeInListTillExpectedTextAndTap(List<WebElement> list, String expectedText, int time) {
 	int i = 1;
 	while (!driver.getPageSource().contains(expectedText)) {
 		swipeUp(list);
@@ -125,5 +151,10 @@ public void clickOnCloseBtn()
 {
 	WebElement x=driver.findElement(By.id("sg.com.blu.android.uat:id/closeButton"));
 	x.click();
+}
+public void actionButton()
+{
+	WebElement actionBtn=driver.findElement(By.id("sg.com.blu.android.uat:id/actionButton"));
+	actionBtn.click();
 }
 }

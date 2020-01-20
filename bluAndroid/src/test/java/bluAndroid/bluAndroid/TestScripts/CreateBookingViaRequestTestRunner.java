@@ -32,7 +32,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 
-public class CreateBookingViaRequestTestRunner extends BaseClass{
+public class CreateBookingViaRequestTestRunner extends BaseClass {
 	static AppiumDriver<WebElement> driver;
 	LoginScreen ls;
 	String mobileNo, password, bluId, name, bluPort, extectedText, ownBluId, ownName,
@@ -77,7 +77,7 @@ public class CreateBookingViaRequestTestRunner extends BaseClass{
 		pds = new ParcelsDetailsScreen(driver);
 		pp = new PublicProfileScreen(driver);
 		mds = new MyDetailsScreen(driver);
-		rbs=new RequestBookingScreen(driver);
+		rbs = new RequestBookingScreen(driver);
 
 	}
 
@@ -108,10 +108,9 @@ public class CreateBookingViaRequestTestRunner extends BaseClass{
 		WebElement status = driver.findElement(By.xpath(
 				"//androidx.recyclerview.widget.RecyclerView//android.widget.LinearLayout[1]//android.widget.TextView[1]"));
 		status.click();
-		
-		
-		bs.actionButton();//click on Make Booking
-		
+
+		bs.actionButton();// click on Make Booking
+
 		bs.selectProductCatagory();
 		bs.enterRemarks().sendKeys("remarks");
 		cf.swipe(bs.enterRemarks(), bs.enterRemarks());
@@ -158,9 +157,9 @@ public class CreateBookingViaRequestTestRunner extends BaseClass{
 		pds.cancelReason();
 		pds.cancelBookingButton();
 		pds.makeNewBookingClickOnNo();
-		//Assert.assertEquals(pds.parcelDetailsScreenStatus().getText(), "Cancelled");
+		// Assert.assertEquals(pds.parcelDetailsScreenStatus().getText(), "Cancelled");
 	}
-	
+
 	@Test
 	public void B_S15_TC02_RejectRequest() throws IOException {
 		System.out.println("B_S15_TC02_RejectRequest");
@@ -192,13 +191,52 @@ public class CreateBookingViaRequestTestRunner extends BaseClass{
 		WebElement status = driver.findElement(By.xpath(
 				"//androidx.recyclerview.widget.RecyclerView//android.widget.LinearLayout[1]//android.widget.TextView[1]"));
 		status.click();
-		
+
 		rbs.clickOnRejectRequest();
 		Assert.assertEquals(pu.alertTitle().getText(), "Reject request");
 		Assert.assertEquals(pu.alertMsg().getText(), "You are about to reject the booking request.");
 		pu.clickBtn1();
-		
+
 	}
+	/*
+	 * @Test public void B_S15_TC03_EditDestination() throws IOException {
+	 * System.out.println("B_S01_TC01_CreateBookingViaBluPortWithBluId"); extentTest
+	 * = extentReports.createTest("B_S01_TC01_CreateBookingViaBluPortWithBluId");
+	 * 
+	 * rbs.clickOnRequestForParcel(); bs.textBox().sendKeys("BLU147735");
+	 * ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.ENTER));
+	 * bs.clickOnNextBtn(); Assert.assertEquals(bs.firstNameDisplayed().getText(),
+	 * "Urvashi"); Assert.assertEquals(bs.bluIdDisplayed().getText(), "BLU147735");
+	 * bs.clickOnNextBtn(); bs.clickOnBluPortDeliveryMethod();
+	 * mvs.clickonSearchBox(); mvs.enterInSearchBox().sendKeys(bluPort); WebElement
+	 * bluPortName =
+	 * driver.findElement(By.id("sg.com.blu.android.uat:id/textViewBluPortName"));
+	 * bluPortName.click(); Assert.assertTrue(mvs.bluPortPin().isDisplayed());
+	 * Assert.assertTrue(mvs.selectedBluPortName().isDisplayed());
+	 * sls.selectActionBtn(); bs.actionButton();
+	 * rbs.viewRequestDetailsBtn().click(); cf.clickOnBackButton();
+	 * cf.clickOnBackButton();
+	 * 
+	 * ms.logout(); ls.clickLoginLink(); ls.bluLogin(mobileNo, password);
+	 * ms.clickOnMenu(); ms.clickOnMyParcels(); WebElement status =
+	 * driver.findElement(By.xpath(
+	 * "//androidx.recyclerview.widget.RecyclerView//android.widget.LinearLayout[1]//android.widget.TextView[1]"
+	 * )); status.click();
+	 * 
+	 * 
+	 * bs.actionButton();//click on Make Booking
+	 * 
+	 * bs.selectProductCatagory(); // bs.enterRemarks().sendKeys("remarks"); //
+	 * cf.swipe(bs.enterRemarks(), bs.enterRemarks()); bs.clickOnNextBtn();
+	 * mvs.clickonSearchBox(); mvs.enterInSearchBox().sendKeys(bluPort); WebElement
+	 * bluPortName1 =
+	 * driver.findElement(By.id("sg.com.blu.android.uat:id/textViewBluPortName"));
+	 * bluPortName1.click(); Assert.assertTrue(mvs.bluPortPin().isDisplayed());
+	 * Assert.assertTrue(mvs.selectedBluPortName().isDisplayed());
+	 * sls.selectActionBtn(); bs.selectBoxSizeXS(); bs.clickOnNextBtn();
+	 * //Assert.assertFalse(bs.editIconOfDestination().isDisplayed()); }
+	 */
+
 	@AfterMethod
 	public void getResult(ITestResult testResult) throws IOException {
 		if (testResult.getStatus() == ITestResult.SKIP) {

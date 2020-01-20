@@ -85,6 +85,45 @@ public class SavedLocationsTestRunner extends BaseClass {
 		}
 		
 	}
+	@Test
+	public void tc01_saveALocationByClickingOnHeartIcon() throws IOException
+	{
+		System.out.println("tc01_saveALocation");
+		extentTest = extentReports.createTest("tc01_saveALocation");
+		mds.clickOnMenu();
+		ms.clickOnSavedLocations();
+		sls.clickOnSaveALocationLink();
+		mvs.clickonSearchBox();
+		String bluPort=CommonUtil.getPropertyValue("bluPortDetails", "bluPort");
+		mvs.enterInSearchBox().sendKeys(bluPort);
+		WebElement bluPortName=driver.findElement(By.id("sg.com.blu.android.uat:id/textViewBluPortName"));
+		for (int i = 0; i < sls.listOfhearticons().size(); i++) {
+			sls.listOfhearticons().get(sls.listOfhearticons().size()-1).click();
+	}
+		mvs.enterInSearchBox().clear();
+		((AndroidDriver<WebElement>) driver).pressKey(new KeyEvent(AndroidKey.ENTER));
+		System.out.println(sls.listOfSavedAddress().size());
+		for (int i = 0; i < sls.listOfSavedAddress().size(); i++) {
+			System.out.println(sls.listOfSavedAddress().get(i).getText());
+			if(i==sls.listOfSavedAddress().size()-1)
+			{
+				System.out.println(sls.listOfSavedAddress().get(sls.listOfSavedAddress().size()-1).getText());
+				Assert.assertEquals(sls.listOfSavedAddress().get(sls.listOfSavedAddress().size()-1).getText(), bluPort);
+			}
+		}
+		for (int i = 0; i < sls.listOfhearticons().size(); i++) {
+			sls.listOfhearticons().get(sls.listOfhearticons().size()-1).click();
+	}
+	Assert.assertEquals(pu.alertTitle().getText(), "Remove location");
+	Assert.assertEquals(pu.alertMsg().getText(), "Are you sure you want to remove this from your saved locations?");
+	pu.clickBtn1();
+	System.out.println(sls.listOfSavedAddress().size());
+	for (int i = 0; i < sls.listOfSavedAddress().size(); i++) {
+		String bluPort1=CommonUtil.getPropertyValue("bluPortDetails", "bluPort");
+		System.out.println(sls.listOfSavedAddress().get(i).getText());
+			Assert.assertNotEquals(sls.listOfSavedAddress().get(i).getText(), bluPort1);
+	}	
+	}
 	@Test(dependsOnMethods = "tc01_saveALocation" )
 	public void tc02_removeALocation() throws IOException
 	{

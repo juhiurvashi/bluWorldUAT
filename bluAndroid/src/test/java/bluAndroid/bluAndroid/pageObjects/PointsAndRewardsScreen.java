@@ -46,7 +46,7 @@ public WebElement rewardDescription()
 }
 public WebElement requiredText1()
 {
-	WebElement c=driver.findElement(By.xpath("//android.widget.LinearLayout[@resource-id='sg.com.blu.android.uat:id/containerCredits'][1]//android.widget.LinearLayout[1]//android.widget.TextView[1]"));
+	WebElement c=driver.findElement(By.xpath("//android.widget.LinearLayout[@resource-id='sg.com.blu.android.uat:id/containerCredits']//android.widget.LinearLayout[1]//android.widget.TextView[1]"));
 	return c;	
 }
 public WebElement requiredValue1()
@@ -109,9 +109,19 @@ public WebElement myRewards()
 	WebElement x=driver.findElement(By.xpath("//android.widget.HorizontalScrollView[@resource-id='sg.com.blu.android.uat:id/tabLayout']//androidx.appcompat.app.ActionBar.Tab[2]"));
 	return x;
 }
+public WebElement myRewardsUtilizedRewards()
+{
+	WebElement x=driver.findElement(By.xpath("//android.widget.FrameLayout[@resource-id='sg.com.blu.android.uat:id/fragment_container']//android.widget.HorizontalScrollView[@resource-id='sg.com.blu.android.uat:id/tabLayout']//androidx.appcompat.app.ActionBar.Tab[2]"));
+	return x;
+}
 public WebElement rewardDiscoverableViaPromoCode()
 {
 	WebElement promoCodeReward=driver.findElement(By.xpath("//android.widget.FrameLayout[@resource-id='sg.com.blu.android.uat:id/promoCodeContainer']//androidx.recyclerview.widget.RecyclerView[@resource-id='sg.com.blu.android.uat:id/recyclerView']//android.widget.TextView[1]"));
 	return promoCodeReward;
+}
+public WebElement latestRedeemedOrUtilizedReward()
+{
+	WebElement x=driver.findElement(By.xpath("//androidx.recyclerview.widget.RecyclerView[@resource-id='sg.com.blu.android.uat:id/recyclerView']//android.widget.RelativeLayout[1]//android.widget.LinearLayout//android.widget.TextView[1]"));
+	return x;
 }
 }

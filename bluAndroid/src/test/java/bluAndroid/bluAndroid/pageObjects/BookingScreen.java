@@ -18,7 +18,7 @@ public class BookingScreen {
 	public BookingScreen(AppiumDriver<WebElement> driver) {
 		this.driver = driver;
 	}
-	
+
 	public WebElement textBox()
 	{
 		WebElement textBox=driver.findElement(By.id("sg.com.blu.android.uat:id/input_text_et"));
@@ -71,6 +71,13 @@ public class BookingScreen {
 		 * )); for(int i=0;i<productList.size();i++) { if(i==2)
 		 * productList.get(2).click(); }
 		 */
+	}
+	public void selectProductCatagorySecondItem()
+	{
+		WebElement productCatagory=driver.findElement(By.id("sg.com.blu.android.uat:id/productCategorySpinner"));
+		productCatagory.click();
+		WebElement dropdown=driver.findElement(By.xpath("//android.widget.ListView//android.widget.CheckedTextView[3]"));
+		dropdown.click();
 	}
 
 	public WebElement enterRemarks()
@@ -151,22 +158,47 @@ public class BookingScreen {
 	}
 	public List<WebElement> redeemedRewardsList()
 	{
-		List<WebElement> error=driver.findElements(By.xpath("//androidx.recyclerview.widget.RecyclerView[@resource-id='sg.com.blu.android.uat:id/recyclerView']//android.widget.RelativeLayout"));
-		return error;
+		List<WebElement> list=driver.findElements(By.xpath("//androidx.recyclerview.widget.RecyclerView[@resource-id='sg.com.blu.android.uat:id/recyclerView']//android.widget.RelativeLayout"));
+		return list;
+	}
+	public WebElement latestRedeemedReward()
+	{
+		WebElement latestRedeemedReward=driver.findElement(By.xpath("//androidx.recyclerview.widget.RecyclerView[@resource-id='sg.com.blu.android.uat:id/recyclerView']//android.widget.RelativeLayout[1]"));
+		return latestRedeemedReward;
+	}
+	public WebElement secondlatestRedeemedReward()
+	{
+		WebElement latestRedeemedReward=driver.findElement(By.xpath("//androidx.recyclerview.widget.RecyclerView[@resource-id='sg.com.blu.android.uat:id/recyclerView']//android.widget.RelativeLayout[2]//android.widget.LinearLayout//android.widget.TextView[1]"));
+		return latestRedeemedReward;
 	}
 	public WebElement editIconOfOrigin()
 	{
 		WebElement icon=driver.findElement(By.xpath("//android.widget.RelativeLayout[@resource-id='sg.com.blu.android.uat:id/bookingLocationsView']//android.widget.LinearLayout[1]//android.widget.ImageButton"));
 		return icon;
 	}
+	public WebElement originNameOnReviewBooking()
+	{
+		WebElement t=driver.findElement(By.xpath("//android.widget.RelativeLayout[@resource-id='sg.com.blu.android.uat:id/bookingLocationsView']//android.widget.LinearLayout[1]//android.widget.TextView[2]"));
+		return t;
+	}
 	public WebElement editIconOfDestination()
 	{
 		WebElement icon=driver.findElement(By.xpath("//android.widget.RelativeLayout[@resource-id='sg.com.blu.android.uat:id/bookingLocationsView']//android.widget.LinearLayout[2]//android.widget.ImageButton"));
 		return icon;
 	}
+	public WebElement destinationNameOnReviewBooking()
+	{
+		WebElement t=driver.findElement(By.xpath("//android.widget.RelativeLayout[@resource-id='sg.com.blu.android.uat:id/bookingLocationsView']//android.widget.LinearLayout[2]//android.widget.TextView[2]"));
+		return t;
+	}
 	public WebElement editIconOfBoxSize()
 	{
 		WebElement icon=driver.findElement(By.xpath("//android.widget.LinearLayout[@resource-id='sg.com.blu.android.uat:id/boxSizeBookingDisplayField']//android.widget.ImageButton"));
+		return icon;
+	}
+	public WebElement boxSizeOnReviewBooking()
+	{
+		WebElement icon=driver.findElement(By.xpath("//android.widget.LinearLayout[@resource-id='sg.com.blu.android.uat:id/boxSizeBookingDisplayField']//android.widget.TextView[2]"));
 		return icon;
 	}
 	public WebElement editIconOfProductCatagory()
@@ -174,15 +206,30 @@ public class BookingScreen {
 		WebElement icon=driver.findElement(By.xpath("//android.widget.LinearLayout[@resource-id='sg.com.blu.android.uat:id/productCategoryBookingDisplayField']//android.widget.ImageButton"));
 		return icon;
 	}
+	public WebElement productCatagoryOnReviewBooking()
+	{
+		WebElement text=driver.findElement(By.xpath("//android.widget.LinearLayout[@resource-id='sg.com.blu.android.uat:id/productCategoryBookingDisplayField']//android.widget.TextView[2]"));
+		return text;
+	}
 	public WebElement editIconOfRemarks()
 	{
 		WebElement icon=driver.findElement(By.xpath("//android.widget.LinearLayout[@resource-id='sg.com.blu.android.uat:id/remarksBookingDisplayField']//android.widget.ImageButton"));
 		return icon;
 	}
+	public WebElement remarksOnReviewBooking()
+	{
+		WebElement text=driver.findElement(By.xpath("//android.widget.LinearLayout[@resource-id='sg.com.blu.android.uat:id/remarksBookingDisplayField']//android.widget.TextView[2]"));
+		return text;
+	}
 	public WebElement editIconOfReward()
 	{
 		WebElement icon=driver.findElement(By.xpath("//android.widget.LinearLayout[@resource-id='sg.com.blu.android.uat:id/rewardBookingDisplayField']//android.widget.ImageButton"));
 		return icon;
+	}
+	public WebElement rewardNameOfSeletedRewardForBooking()
+	{
+		WebElement name=driver.findElement(By.xpath("//android.widget.LinearLayout[@resource-id='sg.com.blu.android.uat:id/rewardBookingDisplayField']//android.widget.TextView[2]"));
+		return name;
 	}
 	public WebElement firstTextOfScreen()
 	{

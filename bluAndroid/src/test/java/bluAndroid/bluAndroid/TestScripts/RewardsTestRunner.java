@@ -128,10 +128,13 @@ public class RewardsTestRunner extends BaseClass {
 		Assert.assertEquals(prs.availableText1().getText(), "Available credits");
 		Assert.assertEquals(prs.redeemBtn().getText(), "REDEEM WITH CREDITS");
 		prs.redeemBtn().click();
-		Assert.assertEquals(prs.alertTitle().getText(), "Redeem reward");
+		Assert.assertEquals(prs.alertTitle().getText(), "Redeem reward?");
 		pu.clickBtn1();	
 		cf.clickOnCloseBtn();
 		//assertTrue(ls.sendParcel().isDisplayed());	
+		prs.myRewards().click();
+		System.out.println(prs.latestRedeemedOrUtilizedReward().getText());
+		Assert.assertEquals(prs.latestRedeemedOrUtilizedReward().getText(), creditRewardName);
 	}
 	@Test
 	public void G_S06_TC02_redeemRewardWithPoints() {
@@ -144,16 +147,19 @@ public class RewardsTestRunner extends BaseClass {
 		//System.out.println(prs.rewardName().getText());
 		Assert.assertEquals(prs.rewardDescription().getText(), pointsRewardDes);
 		//System.out.println(prs.rewardDescription().getText());
-		Assert.assertEquals(prs.requiredText1().getText(), "Points required");
+		Assert.assertEquals(prs.requiredText2().getText(), "Points required");
 		//System.out.println(prs.requiredText1().getText());
-		Assert.assertEquals(prs.availableText1().getText(), "Available points");
+		Assert.assertEquals(prs.availableText2().getText(), "Available points");
 		//System.out.println(prs.availableText1().getText());
 		Assert.assertEquals(prs.redeemBtn().getText(), "REDEEM WITH POINTS");
 		prs.redeemBtn().click();
-		Assert.assertEquals(prs.alertTitle().getText(), "Redeem reward");
+		Assert.assertEquals(prs.alertTitle().getText(), "Redeem reward?");
 		pu.clickBtn1();	
 		cf.clickOnCloseBtn();
 		//assertTrue(ls.sendParcel().isDisplayed());
+		prs.myRewards().click();
+		System.out.println(prs.latestRedeemedOrUtilizedReward().getText());
+		Assert.assertEquals(prs.latestRedeemedOrUtilizedReward().getText(), pointsRewardName);
 	}
 	@Test
 	public void G_S06_TC03_redeemRewardWithPointsAndCredits() {
@@ -176,6 +182,10 @@ public class RewardsTestRunner extends BaseClass {
 		//System.out.println(driver.findElement(By.xpath("sg.com.blu.android.uat:id/closeButton/following-sibling::android.widget.TextView[1]")));
 		cf.clickOnCloseBtn();
 		//assertTrue(ls.sendParcel().isDisplayed());
+		prs.myRewards().click();
+		System.out.println(prs.latestRedeemedOrUtilizedReward().getText());
+		Assert.assertEquals(prs.latestRedeemedOrUtilizedReward().getText(), pointsAndCreditsRewardName);
+		
 	}
 	@Test
 	public void G_S06_TC04_redeemPhysicalReward() {
@@ -194,9 +204,10 @@ public class RewardsTestRunner extends BaseClass {
 		Assert.assertTrue(mvs.bluPortPin().isDisplayed());
 		Assert.assertTrue(mvs.selectedBluPortName().isDisplayed());
 		sls.selectActionBtn();
-		Assert.assertEquals(prs.redeemedRewardTextMsg(),"You can apply this reward to your booking.");
+		//Assert.assertEquals(prs.redeemedRewardTextMsg(),"You can apply this reward to your booking.");
 		cf.clickOnCloseBtn();
 		//assertTrue(ls.sendParcel().isDisplayed());
+		
 	}
 	@Test
 	public void G_S06_TC05_promoCode() {
@@ -213,6 +224,15 @@ public class RewardsTestRunner extends BaseClass {
 		Assert.assertEquals(prs.alertTitle().getText(), "Redeem reward?");
 		prs.clickBtn1();
 		Assert.assertEquals(prs.redeemedRewardTextMsg().getText(),"You can apply this reward to your booking.");
+		cf.clickOnCloseBtn();
+		prs.myRewards().click();
+		System.out.println(prs.latestRedeemedOrUtilizedReward().getText());
+		Assert.assertEquals(prs.latestRedeemedOrUtilizedReward().getText(), promocodeRewardName);
+	}
+	@Test
+	public void G_S06_TC06_redeemedRewardDisplayedUnderRedeemedTab()
+	{
+		
 	}
 	
 	}
