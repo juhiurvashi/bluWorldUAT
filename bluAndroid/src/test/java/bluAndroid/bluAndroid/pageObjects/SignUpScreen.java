@@ -162,20 +162,7 @@ public class SignUpScreen {
 		System.out.println(selectGender());
 		selectGender().click();
 		enterReferralCode().sendKeys(referralCode);
-		/*
-		 * TouchAction tAction=new TouchAction(driver); WebElement
-		 * fromElement=driver.findElement(By.
-		 * xpath("//android.widget.LinearLayout[@resource-id ='sg.com.blu.android.uat:id/last_name_inputField']"
-		 * )); WebElement
-		 * toElement=driver.findElement(By.id("sg.com.blu.android.uat:id/sign_up_btn"));
-		 * 
-		 * tAction.press(fromElement).moveTo(toElement).release().perform(); String
-		 * str="SIGN"; configuration.driver
-		 * .findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""
-		 * + str + "\").instance(0))"); clickSignUpBtn();
-		 * 
-		 * tAction.press(fromElement).moveTo(toElement).release();
-		 */
+		((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.ENTER));
 		clickSignUpBtn();
 	}
 	public void bluSignUpManDetails() throws IOException

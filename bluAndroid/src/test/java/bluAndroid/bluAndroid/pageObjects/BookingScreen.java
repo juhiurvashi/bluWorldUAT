@@ -251,4 +251,14 @@ public class BookingScreen {
 		WebElement text=driver.findElement(By.id("sg.com.blu.android.uat:id/titleTextView"));
 		return text;
 	}
+	public WebElement topUpOnBookingScreen()
+	{
+		WebElement btn=driver.findElement(By.id("sg.com.blu.android.uat:id/submitButton"));
+		return btn;
+	}
+	public WebElement insufficientBalanceError()
+	{
+		WebElement error=driver.findElement(By.id("sg.com.blu.android.uat:id/errorTextView"));
+		return error;
+	}
 }

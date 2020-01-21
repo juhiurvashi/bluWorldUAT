@@ -44,7 +44,7 @@ public class LoginScreen {
 	} 
 	
 	public String inlineErrorBelowUsername() {
-		String errorMsg = driver.findElement(By.id("sg.com.blu.android.uat.uat:id/error_tv")).getText();
+		String errorMsg = driver.findElement(By.id("sg.com.blu.android.uat:id/error_tv")).getText();
 		return errorMsg;
 	}
 	public String inlineErrorBelowPassword() {

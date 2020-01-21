@@ -30,6 +30,7 @@ import bluAndroid.bluAndroid.pageObjects.PublicProfileScreen;
 import bluAndroid.bluAndroid.pageObjects.RequestBookingScreen;
 import bluAndroid.bluAndroid.pageObjects.SavedLocationsScreen;
 import bluAndroid.bluAndroid.pageObjects.SignUpScreen;
+import bluAndroid.bluAndroid.pageObjects.Wallet;
 import bluAndroid.bluAndroid.util.BaseClass;
 import bluAndroid.bluAndroid.util.CommonUtil;
 import io.appium.java_client.AppiumDriver;
@@ -44,7 +45,7 @@ public class CreateBookingTestRunner extends BaseClass {
 	static AppiumDriver<WebElement> driver;
 	LoginScreen ls;
 	String mobileNo, password, bluId, name, bluPort, extectedText, ownBluId, ownName,
-			mobilefromPublicProfilePropertiesValue,pointsAndCreditsRewardName;
+			mobilefromPublicProfilePropertiesValue, pointsAndCreditsRewardName;
 	MapViewScreen mvs;
 	SavedLocationsScreen sls;
 	SignUpScreen sus;
@@ -58,6 +59,7 @@ public class CreateBookingTestRunner extends BaseClass {
 	RequestBookingScreen rbs;
 	HomeScreen hs;
 	PointsAndRewardsScreen prs;
+	Wallet w;
 
 	@BeforeMethod
 	public void preCondition() throws IOException
@@ -88,9 +90,10 @@ public class CreateBookingTestRunner extends BaseClass {
 		pds = new ParcelsDetailsScreen(driver);
 		pp = new PublicProfileScreen(driver);
 		mds = new MyDetailsScreen(driver);
-		rbs=new RequestBookingScreen(driver);
-		hs=new HomeScreen(driver);
-		prs=new PointsAndRewardsScreen(driver);
+		rbs = new RequestBookingScreen(driver);
+		hs = new HomeScreen(driver);
+		prs = new PointsAndRewardsScreen(driver);
+		w = new Wallet(driver);
 
 	}
 
@@ -114,8 +117,8 @@ public class CreateBookingTestRunner extends BaseClass {
 		Assert.assertTrue(mvs.selectedBluPortName().isDisplayed());
 		sls.selectActionBtn();
 		bs.selectProductCatagory();
-		bs.enterRemarks().sendKeys("remarks");
-		cf.swipe(bs.enterRemarks(), bs.enterRemarks());
+		// bs.enterRemarks().sendKeys("remarks");
+		// cf.swipe(bs.enterRemarks(), bs.enterRemarks());
 		bs.clickOnNextBtn();
 		mvs.clickonSearchBox();
 		mvs.enterInSearchBox().sendKeys(bluPort);
@@ -134,6 +137,25 @@ public class CreateBookingTestRunner extends BaseClass {
 			e.printStackTrace();
 		}
 		bs.clickOnMakePaymentBtn();
+		if (bs.topUpOnBookingScreen().isDisplayed()) {
+			bs.topUpOnBookingScreen().click();
+			w.selectValues();
+			if((w.topUpSibling().getText()).equalsIgnoreCase("4242 (expires 04/20)"))
+			{
+				w.selectPreferredMethod();
+			}
+			else if (w.topUpSibling().getText().equalsIgnoreCase("ADD PAYMENT METHOD")) 
+			{
+				w.clickOnAddPaymentMethod();
+				w.addCardDetails();
+				w.clickOnConfirm();
+				w.selectPreferredMethod();
+			}
+			w.clickOnSubmit();
+			cf.clickOnCloseBtn();
+			bs.topUpOnBookingScreen().click();
+
+		}
 		bs.clickOnViewBookingDetails();
 		for (int i = 0; i < pds.viewAlertContainer().size(); i++) {
 			if (i == 0)
@@ -187,8 +209,8 @@ public class CreateBookingTestRunner extends BaseClass {
 		Assert.assertTrue(mvs.selectedBluPortName().isDisplayed());
 		sls.selectActionBtn();
 		bs.selectProductCatagory();
-		//bs.enterRemarks().sendKeys("remarks");
-		//cf.swipe(bs.enterRemarks(), bs.enterRemarks());
+		// bs.enterRemarks().sendKeys("remarks");
+		// cf.swipe(bs.enterRemarks(), bs.enterRemarks());
 		bs.clickOnNextBtn();
 		mvs.clickonSearchBox();
 		mvs.enterInSearchBox().sendKeys(bluPort);
@@ -207,6 +229,16 @@ public class CreateBookingTestRunner extends BaseClass {
 			e.printStackTrace();
 		}
 		bs.clickOnMakePaymentBtn();
+		if (bs.topUpOnBookingScreen().isDisplayed()) {
+			bs.topUpOnBookingScreen().click();
+			w.selectValues();
+			w.selectPreferredMethod();
+			w.clickOnSubmit();
+			cf.clickOnCloseBtn();
+			bs.topUpOnBookingScreen().click();
+
+		}
+
 		bs.clickOnViewBookingDetails();
 		for (int i = 0; i < pds.viewAlertContainer().size(); i++) {
 			if (i == 0)
@@ -255,8 +287,8 @@ public class CreateBookingTestRunner extends BaseClass {
 		Assert.assertTrue(mvs.selectedBluPortName().isDisplayed());
 		sls.selectActionBtn();
 		bs.selectProductCatagory();
-		bs.enterRemarks().sendKeys("remarks");
-		cf.swipe(bs.enterRemarks(), bs.enterRemarks());
+		// bs.enterRemarks().sendKeys("remarks");
+		// cf.swipe(bs.enterRemarks(), bs.enterRemarks());
 		bs.clickOnNextBtn();
 		mvs.clickonSearchBox();
 		mvs.enterInSearchBox().sendKeys(bluPort);
@@ -275,6 +307,15 @@ public class CreateBookingTestRunner extends BaseClass {
 			e.printStackTrace();
 		}
 		bs.clickOnMakePaymentBtn();
+		if (bs.topUpOnBookingScreen().isDisplayed()) {
+			bs.topUpOnBookingScreen().click();
+			w.selectValues();
+			w.selectPreferredMethod();
+			w.clickOnSubmit();
+			cf.clickOnCloseBtn();
+			bs.topUpOnBookingScreen().click();
+
+		}
 		bs.clickOnViewBookingDetails();
 		for (int i = 0; i < pds.viewAlertContainer().size(); i++) {
 			if (i == 0)
@@ -318,15 +359,15 @@ public class CreateBookingTestRunner extends BaseClass {
 		sls.bluHomeAddress1().sendKeys("357 Admiralty drive");
 		sls.bluHomeAddress2().sendKeys("#7 174");
 		sls.bluHomePostalCode().sendKeys("750357");
-	    //((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.ENTER));
-		cf.swipe(sls.bluHomeAddress1(),sls.bluHomeAddress1());
+		// ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.ENTER));
+		cf.swipe(sls.bluHomeAddress1(), sls.bluHomeAddress1());
 		bs.actionButton();
 		WebElement address = driver.findElement(By.id("sg.com.blu.android.uat:id/address1TextView"));
 		Assert.assertEquals(address.getText(), "357 Admiralty drive");
 		bs.actionButton();
 		bs.selectProductCatagory();
-		bs.enterRemarks().sendKeys("remarks");
-		cf.swipe(bs.enterRemarks(), bs.enterRemarks());
+		// bs.enterRemarks().sendKeys("remarks");
+		// cf.swipe(bs.enterRemarks(), bs.enterRemarks());
 		bs.clickOnNextBtn();
 		mvs.clickonSearchBox();
 		mvs.enterInSearchBox().sendKeys(bluPort);
@@ -346,6 +387,15 @@ public class CreateBookingTestRunner extends BaseClass {
 			e.printStackTrace();
 		}
 		bs.clickOnMakePaymentBtn();
+		if (bs.topUpOnBookingScreen().isDisplayed()) {
+			bs.topUpOnBookingScreen().click();
+			w.selectValues();
+			w.selectPreferredMethod();
+			w.clickOnSubmit();
+			cf.clickOnCloseBtn();
+			bs.topUpOnBookingScreen().click();
+
+		}
 		bs.clickOnViewBookingDetails();
 		for (int i = 0; i < pds.viewAlertContainer().size(); i++) {
 			if (i == 0)
@@ -371,7 +421,7 @@ public class CreateBookingTestRunner extends BaseClass {
 		pds.cancelBookingButton();
 		pds.makeNewBookingClickOnNo();
 		cf.swiptToTop();
-		Assert.assertEquals(pds.parcelDetailsScreenStatus().getText(),"Cancelled");
+		Assert.assertEquals(pds.parcelDetailsScreenStatus().getText(), "Cancelled");
 	}
 
 	@Test
@@ -399,8 +449,8 @@ public class CreateBookingTestRunner extends BaseClass {
 		bs.actionButton();
 		bs.actionButton();
 		bs.selectProductCatagory();
-		bs.enterRemarks().sendKeys("remarks");
-		cf.swipe(bs.enterRemarks(), bs.enterRemarks());
+		// bs.enterRemarks().sendKeys("remarks");
+		// cf.swipe(bs.enterRemarks(), bs.enterRemarks());
 		bs.clickOnNextBtn();
 		mvs.clickonSearchBox();
 		mvs.enterInSearchBox().sendKeys(bluPort);
@@ -420,6 +470,15 @@ public class CreateBookingTestRunner extends BaseClass {
 			e.printStackTrace();
 		}
 		bs.clickOnMakePaymentBtn();
+		if (bs.topUpOnBookingScreen().isDisplayed()) {
+			bs.topUpOnBookingScreen().click();
+			w.selectValues();
+			w.selectPreferredMethod();
+			w.clickOnSubmit();
+			cf.clickOnCloseBtn();
+			bs.topUpOnBookingScreen().click();
+
+		}
 		bs.clickOnViewBookingDetails();
 		for (int i = 0; i < pds.viewAlertContainer().size(); i++) {
 			if (i == 0)
@@ -445,7 +504,7 @@ public class CreateBookingTestRunner extends BaseClass {
 		pds.cancelBookingButton();
 		pds.makeNewBookingClickOnNo();
 		cf.swiptToTop();
-		Assert.assertEquals(pds.parcelDetailsScreenStatus().getText(),"Cancelled");
+		Assert.assertEquals(pds.parcelDetailsScreenStatus().getText(), "Cancelled");
 	}
 
 	@Test
@@ -467,8 +526,8 @@ public class CreateBookingTestRunner extends BaseClass {
 		bs.actionButton();
 		bs.actionButton();
 		bs.selectProductCatagory();
-		bs.enterRemarks().sendKeys("remarks");
-		cf.swipe(bs.enterRemarks(), bs.enterRemarks());
+		// bs.enterRemarks().sendKeys("remarks");
+		// cf.swipe(bs.enterRemarks(), bs.enterRemarks());
 		bs.clickOnNextBtn();
 		mvs.clickonSearchBox();
 		mvs.enterInSearchBox().sendKeys(bluPort);
@@ -488,6 +547,15 @@ public class CreateBookingTestRunner extends BaseClass {
 			e.printStackTrace();
 		}
 		bs.clickOnMakePaymentBtn();
+		if (bs.topUpOnBookingScreen().isDisplayed()) {
+			bs.topUpOnBookingScreen().click();
+			w.selectValues();
+			w.selectPreferredMethod();
+			w.clickOnSubmit();
+			cf.clickOnCloseBtn();
+			bs.topUpOnBookingScreen().click();
+
+		}
 		bs.clickOnViewBookingDetails();
 		for (int i = 0; i < pds.viewAlertContainer().size(); i++) {
 			if (i == 0)
@@ -513,10 +581,10 @@ public class CreateBookingTestRunner extends BaseClass {
 		pds.cancelBookingButton();
 		pds.makeNewBookingClickOnNo();
 		cf.swiptToTop();
-		Assert.assertEquals(pds.parcelDetailsScreenStatus().getText(),"Cancelled");
+		Assert.assertEquals(pds.parcelDetailsScreenStatus().getText(), "Cancelled");
 	}
 
-	//@Test
+	// @Test
 	public void clickOnParcels() {
 		extentTest = extentReports.createTest("clickOnParcels");
 		ms.clickOnMenu();
@@ -526,7 +594,7 @@ public class CreateBookingTestRunner extends BaseClass {
 		status.click();
 		cf.swiptToBottom();
 		cf.swiptToTop();
-		
+
 		/*
 		 * for(int i=0;i<pds.viewAlertContainer().size();i++) { if(i==0)
 		 * {Assert.assertEquals(pds.viewAlertContainer().get(0).getText(),
@@ -567,11 +635,11 @@ public class CreateBookingTestRunner extends BaseClass {
 		Assert.assertEquals(pu.alertMsg().getText(), "You are about to cancel the booking request.");
 		pu.clickBtn1();
 		System.out.println();
-		WebElement ele=driver.findElement(By.id("sg.com.blu.android.uat:id/bookingRequestDetailsContainer"));
-		WebElement f=ele.findElement(By.id("bookingTitleTextView"));
+		WebElement ele = driver.findElement(By.id("sg.com.blu.android.uat:id/bookingRequestDetailsContainer"));
+		WebElement f = ele.findElement(By.id("bookingTitleTextView"));
 		System.out.println(ele.getText());
 		System.out.println(f.getText());
-		//Assert.assertEquals(f.getText(), "Request cancelled");
+		// Assert.assertEquals(f.getText(), "Request cancelled");
 	}
 
 	@Test
@@ -629,6 +697,7 @@ public class CreateBookingTestRunner extends BaseClass {
 		Assert.assertEquals(bs.textFieldError().getText(), "Enter a valid mobile number.");
 
 	}
+
 	@Test
 	public void B_S02_TC05_ChangeRecipientLink() {
 		System.out.println("B_S02_TC05_ChangeRecipientLink");
@@ -649,8 +718,9 @@ public class CreateBookingTestRunner extends BaseClass {
 		Assert.assertTrue(pp.textField().isDisplayed());
 		System.out.println(pp.textField().getText());
 		Assert.assertEquals(pp.textField().getText(), "91235555");
-		
+
 	}
+
 	@Test
 	public void B_S08_TC01_ApplicableRewardsForBooking() {
 		System.out.println("B_S08_TC01_ApplicableRewardsForBooking");
@@ -671,8 +741,8 @@ public class CreateBookingTestRunner extends BaseClass {
 		Assert.assertTrue(mvs.selectedBluPortName().isDisplayed());
 		sls.selectActionBtn();
 		bs.selectProductCatagory();
-		bs.enterRemarks().sendKeys("remarks");
-		cf.swipe(bs.enterRemarks(), bs.enterRemarks());
+		// bs.enterRemarks().sendKeys("remarks");
+		// cf.swipe(bs.enterRemarks(), bs.enterRemarks());
 		bs.clickOnNextBtn();
 		mvs.clickonSearchBox();
 		mvs.enterInSearchBox().sendKeys(bluPort);
@@ -681,15 +751,13 @@ public class CreateBookingTestRunner extends BaseClass {
 		Assert.assertTrue(mvs.selectedBluPortName().isDisplayed());
 		sls.selectActionBtn();
 		bs.selectBoxSizeXS();
-		for(int i=0;i<bs.redeemedRewardsList().size();i++)
-		{
+		for (int i = 0; i < bs.redeemedRewardsList().size(); i++) {
 			System.out.println(bs.redeemedRewardsList().get(i).getText());
-			if(i==0)
-			{
+			if (i == 0) {
 				Assert.assertEquals(bs.redeemedRewardsList().get(0).getText(), bs.latestRedeemedReward().getText());
 			}
 		}
-	
+
 	}
 
 	@Test
@@ -711,11 +779,12 @@ public class CreateBookingTestRunner extends BaseClass {
 		Assert.assertTrue(mvs.bluPortPin().isDisplayed());
 		Assert.assertTrue(mvs.selectedBluPortName().isDisplayed());
 		sls.selectActionBtn();
-		//bs.selectProductCatagory();
-		//bs.enterRemarks().sendKeys("remarks");
+		// bs.selectProductCatagory();
+		// bs.enterRemarks().sendKeys("remarks");
 		Assert.assertFalse(driver.findElement(By.id("sg.com.blu.android.uat:id/nextButton")).isEnabled());
-		
+
 	}
+
 	@Test
 	public void B_S06_TC02_VerifyProductCatagoryScreenRemarksField() {
 		System.out.println("B_S01_TC01_CreateBookingViaBluPortWithBluId");
@@ -736,11 +805,13 @@ public class CreateBookingTestRunner extends BaseClass {
 		Assert.assertTrue(mvs.selectedBluPortName().isDisplayed());
 		sls.selectActionBtn();
 		bs.selectProductCatagory();
-		bs.enterRemarks().sendKeys("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+		bs.enterRemarks().sendKeys(
+				"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 		cf.swipe(bs.enterRemarks(), bs.enterRemarks());
 		bs.clickOnNextBtn();
-		Assert.assertEquals(bs.remarksTextFieldError().getText(),"Remarks must not exceed 100 characters.");
+		Assert.assertEquals(bs.remarksTextFieldError().getText(), "Remarks must not exceed 100 characters.");
 	}
+
 	@Test
 	public void B_S09_TC01_EditOrigin() {
 		System.out.println("B_S09_TC01_EditOrigin");
@@ -761,8 +832,8 @@ public class CreateBookingTestRunner extends BaseClass {
 		Assert.assertTrue(mvs.selectedBluPortName().isDisplayed());
 		sls.selectActionBtn();
 		bs.selectProductCatagory();
-		bs.enterRemarks().sendKeys("remarks");
-		cf.swipe(bs.enterRemarks(), bs.enterRemarks());
+		// bs.enterRemarks().sendKeys("remarks");
+		// cf.swipe(bs.enterRemarks(), bs.enterRemarks());
 		bs.clickOnNextBtn();
 		mvs.clickonSearchBox();
 		mvs.enterInSearchBox().sendKeys(bluPort);
@@ -775,13 +846,15 @@ public class CreateBookingTestRunner extends BaseClass {
 		bs.editIconOfOrigin().click();
 		mvs.clickonSearchBox();
 		mvs.enterInSearchBox().sendKeys("bluPort - HQ2");
-		//WebElement bluPortName = driver.findElement(By.id("sg.com.blu.android.uat:id/textViewBluPortName"));
+		// WebElement bluPortName =
+		// driver.findElement(By.id("sg.com.blu.android.uat:id/textViewBluPortName"));
 		bluPortName.click();
 		Assert.assertTrue(mvs.bluPortPin().isDisplayed());
 		Assert.assertTrue(mvs.selectedBluPortName().isDisplayed());
 		sls.selectActionBtn();
 		Assert.assertEquals(bs.originNameOnReviewBooking().getText(), "bluPort - HQ2");
 	}
+
 	@Test
 	public void B_S09_TC02_EditDestination() {
 		System.out.println("B_S09_TC02_EditDestination");
@@ -802,8 +875,8 @@ public class CreateBookingTestRunner extends BaseClass {
 		Assert.assertTrue(mvs.selectedBluPortName().isDisplayed());
 		sls.selectActionBtn();
 		bs.selectProductCatagory();
-		bs.enterRemarks().sendKeys("remarks");
-		cf.swipe(bs.enterRemarks(), bs.enterRemarks());
+		// bs.enterRemarks().sendKeys("remarks");
+		// cf.swipe(bs.enterRemarks(), bs.enterRemarks());
 		bs.clickOnNextBtn();
 		mvs.clickonSearchBox();
 		mvs.enterInSearchBox().sendKeys(bluPort);
@@ -816,13 +889,15 @@ public class CreateBookingTestRunner extends BaseClass {
 		bs.editIconOfDestination().click();
 		mvs.clickonSearchBox();
 		mvs.enterInSearchBox().sendKeys("bluPort - HQ2");
-		//WebElement bluPortName = driver.findElement(By.id("sg.com.blu.android.uat:id/textViewBluPortName"));
+		// WebElement bluPortName =
+		// driver.findElement(By.id("sg.com.blu.android.uat:id/textViewBluPortName"));
 		bluPortName.click();
 		Assert.assertTrue(mvs.bluPortPin().isDisplayed());
 		Assert.assertTrue(mvs.selectedBluPortName().isDisplayed());
 		sls.selectActionBtn();
 		Assert.assertEquals(bs.destinationNameOnReviewBooking().getText(), "bluPort - HQ2");
 	}
+
 	@Test
 	public void B_S09_TC03_EditDestinationBluHome() {
 		System.out.println("B_S01_TC04_CreateBookingViaBluHomeWithBluId");
@@ -844,8 +919,8 @@ public class CreateBookingTestRunner extends BaseClass {
 		Assert.assertEquals(address.getText(), "357 Admiralty drive");
 		bs.actionButton();
 		bs.selectProductCatagory();
-		bs.enterRemarks().sendKeys("remarks");
-		cf.swipe(bs.enterRemarks(), bs.enterRemarks());
+		// bs.enterRemarks().sendKeys("remarks");
+		// cf.swipe(bs.enterRemarks(), bs.enterRemarks());
 		bs.clickOnNextBtn();
 		mvs.clickonSearchBox();
 		mvs.enterInSearchBox().sendKeys(bluPort);
@@ -858,7 +933,7 @@ public class CreateBookingTestRunner extends BaseClass {
 		bs.clickOnNextBtn();
 		bs.editIconOfDestination().click();
 		Assert.assertEquals(bs.destinationBluHomeTitleTextView().getText(), "Destination bluHome");
-	} 
+	}
 
 	@Test
 	public void B_S09_TC04_EditBoxSize() {
@@ -880,8 +955,8 @@ public class CreateBookingTestRunner extends BaseClass {
 		Assert.assertTrue(mvs.selectedBluPortName().isDisplayed());
 		sls.selectActionBtn();
 		bs.selectProductCatagory();
-		//bs.enterRemarks().sendKeys("remarks");
-		//cf.swipe(bs.enterRemarks(), bs.enterRemarks());
+		// bs.enterRemarks().sendKeys("remarks");
+		// cf.swipe(bs.enterRemarks(), bs.enterRemarks());
 		bs.clickOnNextBtn();
 		mvs.clickonSearchBox();
 		mvs.enterInSearchBox().sendKeys(bluPort);
@@ -896,6 +971,7 @@ public class CreateBookingTestRunner extends BaseClass {
 		bs.selectBoxSizeS();
 		Assert.assertEquals(bs.boxSizeOnReviewBooking().getText(), "S 44cm x 8cm x 60cm");
 	}
+
 	@Test
 	public void B_S09_TC05_EditProductCatagory() {
 		System.out.println("B_S09_TC05_EditProductCatagory");
@@ -916,8 +992,8 @@ public class CreateBookingTestRunner extends BaseClass {
 		Assert.assertTrue(mvs.selectedBluPortName().isDisplayed());
 		sls.selectActionBtn();
 		bs.selectProductCatagory();
-		//bs.enterRemarks().sendKeys("remarks");
-		//cf.swipe(bs.enterRemarks(), bs.enterRemarks());
+		// bs.enterRemarks().sendKeys("remarks");
+		// cf.swipe(bs.enterRemarks(), bs.enterRemarks());
 		bs.clickOnNextBtn();
 		mvs.clickonSearchBox();
 		mvs.enterInSearchBox().sendKeys(bluPort);
@@ -934,6 +1010,7 @@ public class CreateBookingTestRunner extends BaseClass {
 		bs.clickOnNextBtn();
 		Assert.assertEquals(bs.productCatagoryOnReviewBooking().getText(), "Shoes & bags");
 	}
+
 	@Test
 	public void B_S09_TC06_EditRemarks() {
 		System.out.println("B_S09_TC06_EditRemarks");
@@ -968,11 +1045,13 @@ public class CreateBookingTestRunner extends BaseClass {
 		cf.swipeInListTillExpectedTextAndTap(bs.reviewBookingScreenContainer(), "Total", 20);
 		bs.editIconOfRemarks().click();
 		Assert.assertEquals(bs.enterRemarks().getText(), "remarks");
+		bs.enterRemarks().clear();
 		bs.enterRemarks().sendKeys("Edited remarks");
 		cf.swipe(bs.enterRemarks(), bs.enterRemarks());
 		bs.clickOnNextBtn();
 		Assert.assertEquals(bs.remarksOnReviewBooking().getText(), "Edited remarks");
 	}
+
 	@Test
 	public void B_S09_TC07_EditReward() {
 		System.out.println("B_S09_TC07_EditReward");
@@ -993,8 +1072,8 @@ public class CreateBookingTestRunner extends BaseClass {
 		Assert.assertTrue(mvs.selectedBluPortName().isDisplayed());
 		sls.selectActionBtn();
 		bs.selectProductCatagory();
-		//bs.enterRemarks().sendKeys("remarks");
-		//cf.swipe(bs.enterRemarks(), bs.enterRemarks());
+		// bs.enterRemarks().sendKeys("remarks");
+		// cf.swipe(bs.enterRemarks(), bs.enterRemarks());
 		bs.clickOnNextBtn();
 		mvs.clickonSearchBox();
 		mvs.enterInSearchBox().sendKeys(bluPort);
@@ -1007,17 +1086,17 @@ public class CreateBookingTestRunner extends BaseClass {
 		cf.swipeInListTillExpectedTextAndTap(bs.reviewBookingScreenContainer(), "Total", 20);
 		bs.editIconOfReward().click();
 		Assert.assertEquals(bs.firstTextOfScreen().getText(), "Redeemed rewards");
-		String expected=bs.secondlatestRedeemedReward().getText();
+		String expected = bs.secondlatestRedeemedReward().getText();
 		bs.secondlatestRedeemedReward().click();
 		System.out.println();
-		Assert.assertEquals(bs.rewardNameOfSeletedRewardForBooking().getText(),expected);
-		
-		
+		Assert.assertEquals(bs.rewardNameOfSeletedRewardForBooking().getText(), expected);
+
 	}
+
 	@Test
-	public void B_S01_TC07_RedeemedRewardCanBeUsesInBooking() {
-		System.out.println("B_S01_TC07_RedeemedRewardCanBeUsesInBooking");
-		extentTest = extentReports.createTest("B_S01_TC07_RedeemedRewardCanBeUsesInBooking");
+	public void B_S01_TC07_RedeemedRewardCanBeUsedInBooking() {
+		System.out.println("B_S01_TC07_RedeemedRewardCanBeUsedInBooking");
+		extentTest = extentReports.createTest("B_S01_TC07_RedeemedRewardCanBeUsedInBooking");
 		ms.clickOnMenu();
 		ms.clickOnPointsAndRewards();
 		cf.swipeInListTillExpectedTextAndTap(prs.rewardNameList(), pointsAndCreditsRewardName, 20);
@@ -1025,15 +1104,15 @@ public class CreateBookingTestRunner extends BaseClass {
 		prs.redeemBtn().click();
 		Assert.assertEquals(prs.alertTitle().getText(), "Redeem reward?");
 		prs.clickBtn1();
-		Assert.assertEquals(prs.redeemedRewardTextMsg().getText(),"You can apply this reward to your booking.");
+		Assert.assertEquals(prs.redeemedRewardTextMsg().getText(), "You can apply this reward to your booking.");
 		cf.clickOnCloseBtn();
 		prs.myRewards().click();
 		System.out.println(prs.latestRedeemedOrUtilizedReward().getText());
 		Assert.assertEquals(prs.latestRedeemedOrUtilizedReward().getText(), pointsAndCreditsRewardName);
 		Assert.assertTrue(driver.findElement(By.id("sg.com.blu.android.uat:id/closeButton")).isDisplayed());
 		cf.clickOnCloseBtn();
-		if(driver.findElement(By.id("sg.com.blu.android.uat:id/closeButton")).isDisplayed())
-		cf.clickOnCloseBtn();
+		if (driver.findElement(By.id("sg.com.blu.android.uat:id/closeButton")).isDisplayed())
+			cf.clickOnCloseBtn();
 		ls.sendParcel().click();
 		bs.textBox().sendKeys(bluId);
 		((AndroidDriver<WebElement>) driver).pressKey(new KeyEvent(AndroidKey.ENTER));
@@ -1050,8 +1129,8 @@ public class CreateBookingTestRunner extends BaseClass {
 		Assert.assertTrue(mvs.selectedBluPortName().isDisplayed());
 		sls.selectActionBtn();
 		bs.selectProductCatagory();
-		//bs.enterRemarks().sendKeys("remarks");
-	//	cf.swipe(bs.enterRemarks(), bs.enterRemarks());
+		// bs.enterRemarks().sendKeys("remarks");
+		// cf.swipe(bs.enterRemarks(), bs.enterRemarks());
 		bs.clickOnNextBtn();
 		mvs.clickonSearchBox();
 		mvs.enterInSearchBox().sendKeys(bluPort);
@@ -1070,18 +1149,20 @@ public class CreateBookingTestRunner extends BaseClass {
 			e.printStackTrace();
 		}
 		bs.clickOnMakePaymentBtn();
-		bs.clickOnViewBookingDetails();
-		for (int i = 0; i < pds.viewAlertContainer().size(); i++) {
-			if (i == 0)
-				Assert.assertEquals(pds.viewAlertContainer().get(0).getText(), "Drop-off by");
-			if (i == 1)
-				Assert.assertTrue(pds.viewAlertContainer().get(1).isDisplayed());
-			if (i == 2)
-				Assert.assertEquals(pds.viewAlertContainer().get(2).getText(), "Extend");
+		if (bs.topUpOnBookingScreen().isDisplayed()) {
+			bs.topUpOnBookingScreen().click();
+			w.selectValues();
+			w.selectPreferredMethod();
+			w.clickOnSubmit();
+			cf.clickOnCloseBtn();
+			bs.topUpOnBookingScreen().click();
+
 		}
-		Assert.assertTrue(pds.viewDropCodeBtn().isDisplayed());
+		bs.clickOnViewBookingDetails();
+
 		Assert.assertEquals(pds.parcelDetailsScreenStatus().getText(), "Awaiting drop-off");
-		//cf.swipeInListTillExpectedTextAndTap(pds.parcelDetailsViewContainer(), "Total", 20);
+		// cf.swipeInListTillExpectedTextAndTap(pds.parcelDetailsViewContainer(),
+		// "Total", 20);
 		cf.swiptToBottom();
 		for (int i = 0; i < pds.footerOptions().size(); i++) {
 			System.out.println(pds.footerOptions().get(i).getText());
@@ -1104,9 +1185,9 @@ public class CreateBookingTestRunner extends BaseClass {
 		prs.myRewards().click();
 		prs.myRewardsUtilizedRewards().click();
 		Assert.assertEquals(prs.latestRedeemedOrUtilizedReward().getText(), pointsAndCreditsRewardName);
-		
+
 	}
-	
+
 	@AfterMethod
 	public void getResult(ITestResult testResult) throws IOException {
 		if (testResult.getStatus() == ITestResult.SKIP) {

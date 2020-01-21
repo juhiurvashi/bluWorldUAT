@@ -7,6 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 
 public class Wallet {
 	private static AppiumDriver<WebElement> driver;
@@ -23,6 +26,12 @@ public class Wallet {
 			WebElement wallet= driver.findElement(By.id("sg.com.blu.android.uat:id/walletButton"));
 			wallet.click();
 		}
+		public WebElement topUpBtn()
+		{
+			WebElement topUpBtn= driver.findElement(By.id("sg.com.blu.android.uat:id/topUpWalletButtonContainer"));
+			return topUpBtn;
+		}
+		
 		public void clickOnTopUp()
 		{
 			WebElement topUp= driver.findElement(By.id("sg.com.blu.android.uat:id/topUpWalletButtonContainer"));
@@ -32,6 +41,11 @@ public class Wallet {
 		{
 			WebElement paymentMethods= driver.findElement(By.id("sg.com.blu.android.uat:id/paymentMethodsButtonContainer"));
 			paymentMethods.click();
+		}
+		public WebElement checkAddPaymentMethodBtn()
+		{
+			WebElement paymentMethods= driver.findElement(By.xpath("//android.widget.LinearLayout[@resource-id='sg.com.blu.android.uat:id/addPaymentMethodContainer']//android.widget.TextView"));
+			return paymentMethods;
 		}
 		public WebElement recentActivity()
 		{
@@ -69,6 +83,16 @@ public class Wallet {
 			WebElement topUpvalue=driver.findElement(By.xpath("//android.widget.LinearLayout[@resource-id='sg.com.blu.android.uat:id/topUpVolumeContainer']//android.widget.Button[1]"));
 			topUpvalue.click();
 		}
+		public WebElement topUpSibling()
+		{
+			WebElement topUpvalue=driver.findElement(By.xpath("//android.widget.LinearLayout[@resource-id='sg.com.blu.android.uat:id/topUpVolumeContainer']/following-sibling::*//android.widget.TextView"));
+			return topUpvalue;
+		}
+		public WebElement topUpSibling1()
+		{
+			WebElement topUpvalue=driver.findElement(By.xpath("//android.widget.LinearLayout[@resource-id='sg.com.blu.android.uat:id/topUpVolumeContainer']/following-sibling::*//android.widget.TextView"));
+			return topUpvalue;
+		}
 		public void clickOnSubmit()
 		{
 			WebElement submit=driver.findElement(By.id("sg.com.blu.android.uat:id/submitButton"));
@@ -88,6 +112,11 @@ public class Wallet {
 		{
 			WebElement ok=driver.findElement(By.id("android:id/button1"));
 			ok.click();
+		}
+		public WebElement checkPrefferedMethod()
+		{
+			WebElement preferredMethod=driver.findElement(By.xpath("//androidx.recyclerview.widget.RecyclerView[@resource-id='sg.com.blu.android.uat:id/paymentMethodsRecyclerView']//android.widget.LinearLayout"));
+			return preferredMethod;
 		}
 		public void selectPreferredMethod()
 		{
@@ -161,7 +190,7 @@ public class Wallet {
 		}
 		public WebElement enterExpiry()
 		{
-			WebElement expiry=driver.findElement(By.id("sg.com.blu.android.uat:id/sg.com.blu.android.uat:id/et_expiry_date"));
+			WebElement expiry=driver.findElement(By.id("sg.com.blu.android.uat:id/et_expiry_date"));
 			return expiry;
 		}
 		public WebElement enterCVC()
@@ -174,10 +203,43 @@ public class Wallet {
 			WebElement card=driver.findElement(By.id("sg.com.blu.android.uat:id/cardNumberTextView"));
 			return card;
 		}
+		
 		public void clickOnConfirm()
 		{
 			WebElement confirm=driver.findElement(By.id("sg.com.blu.android.uat:id/submitButton"));
 			Assert.assertTrue(confirm.isDisplayed());
 			confirm.click();
+		}
+		public void addCardDetails()
+		{
+			((AndroidDriver<WebElement>) driver).pressKey(new KeyEvent(AndroidKey.DIGIT_4));
+			((AndroidDriver<WebElement>) driver).pressKey(new KeyEvent(AndroidKey.DIGIT_2));
+			((AndroidDriver<WebElement>) driver).pressKey(new KeyEvent(AndroidKey.DIGIT_4));
+			((AndroidDriver<WebElement>) driver).pressKey(new KeyEvent(AndroidKey.DIGIT_2));
+			
+			((AndroidDriver<WebElement>) driver).pressKey(new KeyEvent(AndroidKey.DIGIT_4));
+			((AndroidDriver<WebElement>) driver).pressKey(new KeyEvent(AndroidKey.DIGIT_2));
+			((AndroidDriver<WebElement>) driver).pressKey(new KeyEvent(AndroidKey.DIGIT_4));
+			((AndroidDriver<WebElement>) driver).pressKey(new KeyEvent(AndroidKey.DIGIT_2));
+			
+			((AndroidDriver<WebElement>) driver).pressKey(new KeyEvent(AndroidKey.DIGIT_4));
+			((AndroidDriver<WebElement>) driver).pressKey(new KeyEvent(AndroidKey.DIGIT_2));
+			((AndroidDriver<WebElement>) driver).pressKey(new KeyEvent(AndroidKey.DIGIT_4));
+			((AndroidDriver<WebElement>) driver).pressKey(new KeyEvent(AndroidKey.DIGIT_2));
+			
+			((AndroidDriver<WebElement>) driver).pressKey(new KeyEvent(AndroidKey.DIGIT_4));
+			((AndroidDriver<WebElement>) driver).pressKey(new KeyEvent(AndroidKey.DIGIT_2));
+			((AndroidDriver<WebElement>) driver).pressKey(new KeyEvent(AndroidKey.DIGIT_4));
+			((AndroidDriver<WebElement>) driver).pressKey(new KeyEvent(AndroidKey.DIGIT_2));
+			
+			((AndroidDriver<WebElement>) driver).pressKey(new KeyEvent(AndroidKey.DIGIT_0));
+			((AndroidDriver<WebElement>) driver).pressKey(new KeyEvent(AndroidKey.DIGIT_4));
+			((AndroidDriver<WebElement>) driver).pressKey(new KeyEvent(AndroidKey.DIGIT_2));
+			((AndroidDriver<WebElement>) driver).pressKey(new KeyEvent(AndroidKey.DIGIT_0));
+			
+			((AndroidDriver<WebElement>) driver).pressKey(new KeyEvent(AndroidKey.DIGIT_1));
+			((AndroidDriver<WebElement>) driver).pressKey(new KeyEvent(AndroidKey.DIGIT_2));
+			((AndroidDriver<WebElement>) driver).pressKey(new KeyEvent(AndroidKey.DIGIT_3));
+			
 		}
 }

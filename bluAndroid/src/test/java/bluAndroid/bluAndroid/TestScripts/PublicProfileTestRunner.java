@@ -60,7 +60,7 @@ public class PublicProfileTestRunner extends BaseClass {
 		WebElement firstName=driver.findElement(By.id("sg.com.blu.android.uat:id/first_name_tv"));
 		Assert.assertEquals(firstName.getText(), "Urvashi", "FirstName displayed");
 		WebElement bluId=driver.findElement(By.id("sg.com.blu.android.uat:id/blu_id_tv"));
-		Assert.assertEquals(bluId.getText(), "BLU452385", "bluId displayed");
+		Assert.assertEquals(bluId.getText(), "BLU147735", "bluId displayed");
 		List<WebElement> list=driver.findElements(By.xpath("//android.widget.LinearLayout[2]//android.widget.TextView"));
 		assertTrue(list.size()>0) ;
 
@@ -97,7 +97,7 @@ public class PublicProfileTestRunner extends BaseClass {
 		String friendName=CommonUtil.getPropertyValue("publicProfile", "friendName");
 		Assert.assertEquals(pp.getFriendName().getText(), friendName, "FirstName displayed");
 		WebElement bluId1=driver.findElement(By.id("sg.com.blu.android.uat:id/bluIdTextView"));
-		Assert.assertEquals(bluId1.getText(), "BLU864092", "bluId displayed");
+		Assert.assertEquals(bluId1.getText(), "BLU136621", "bluId displayed");
 		List<WebElement> list=driver.findElements(By.xpath("//android.widget.LinearLayout[@resource-id='sg.com.blu.android.uat:id/content']//android.widget.LinearLayout[1]//android.widget.TextView[1]"));
 		assertTrue(list.size()>0) ;
 
@@ -142,7 +142,7 @@ public class PublicProfileTestRunner extends BaseClass {
 		WebElement firstName=driver.findElement(By.id("sg.com.blu.android.uat:id/firstNameTextView"));
 		Assert.assertEquals(firstName.getText(), "Hari", "FirstName displayed");
 		WebElement bluId1=driver.findElement(By.id("sg.com.blu.android.uat:id/bluIdTextView"));
-		Assert.assertEquals(bluId1.getText(), "BLU864092", "bluId displayed");
+		Assert.assertEquals(bluId1.getText(), "BLU136621", "bluId displayed");
 		List<WebElement> list=driver.findElements(By.xpath("//android.widget.LinearLayout[@resource-id='sg.com.blu.android.uat:id/content']//android.widget.LinearLayout[1]//android.widget.TextView[1]"));
 		assertTrue(list.size()>0) ;
 

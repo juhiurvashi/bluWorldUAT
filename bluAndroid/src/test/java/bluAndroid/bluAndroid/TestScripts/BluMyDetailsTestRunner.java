@@ -184,7 +184,7 @@ public class BluMyDetailsTestRunner extends BaseClass {
 		selectTick.click();
 		WebElement displayMsg=driver.findElement(By.id("android:id/message"));
 		System.out.println(displayMsg.getText());
-		Assert.assertEquals(displayMsg.getText(), "Mobile number already used.");
+		Assert.assertEquals(displayMsg.getText(), "Mobile Number already used.");
 		driver.findElement(By.id("android:id/button1")).click();
 		WebElement displayMobile=driver.findElement(By.xpath("//android.widget.FrameLayout[@resource-id='sg.com.blu.android.uat:id/mobile_number_profileDisplayField']//android.widget.TextView[@resource-id='sg.com.blu.android.uat:id/display_tv']"));
 		Assert.assertEquals(displayMobile.getText(), "94561718");
@@ -234,7 +234,7 @@ public class BluMyDetailsTestRunner extends BaseClass {
 		WebElement referAFriend=driver.findElement(By.id("sg.com.blu.android.uat:id/title_tv"));
 		WebElement bluID=driver.findElement(By.id("sg.com.blu.android.uat:id/promoCodeTextView"));
 		Assert.assertEquals(referAFriend.getText(), "Refer a friend");
-		Assert.assertEquals(bluID.getText(), "BLU452385");
+		Assert.assertEquals(bluID.getText(), "BLU147735");
 		WebElement shareCode=driver.findElement(By.id("sg.com.blu.android.uat:id/sharePromoCodeButton"));
 		shareCode.click();
 	}

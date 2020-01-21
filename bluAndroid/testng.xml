@@ -12,6 +12,9 @@
 			<class name="bluAndroid.bluAndroid.TestScripts.SavedLocationsTestRunner" />
 			<class name="bluAndroid.bluAndroid.TestScripts.CreateBookingTestRunner" />
 			<class name="bluAndroid.bluAndroid.TestScripts.CreateRequestTestRunner" />
+			<class name="bluAndroid.bluAndroid.TestScripts.CreateBookingViaRequestTestRunner" />
+			<class name="bluAndroid.bluAndroid.TestScripts.RewardsTestRunner" />
+			<class name="bluAndroid.bluAndroid.TestScripts.BluLogoutTestRunner" />
 		</classes>
 	</test>
 

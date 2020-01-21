@@ -76,7 +76,7 @@ public class RewardsTestRunner extends BaseClass {
 		promocodeRewardDes=CommonUtil.getPropertyValue("reward", "promocodeRewardDes");
 		ls = new LoginScreen(driver);
 		ls.clickLoginLink();
-		ls.bluLogin(mobileNo, password);
+		
 		mvs = new MapViewScreen(driver);
 		sls = new SavedLocationsScreen(driver);
 		sus = new SignUpScreen(driver);
@@ -116,9 +116,10 @@ public class RewardsTestRunner extends BaseClass {
 	 */
 
 	@Test
-	public void G_S06_TC01_redeemRewardWithCredits() {
+	public void G_S06_TC01_redeemRewardWithCredits() throws IOException {
 		System.out.println("G_S06_TC01_redeemRewardWithCredits");
 		extentTest = extentReports.createTest("G_S06_TC01_redeemRewardWithCredits");
+		ls.bluLogin(mobileNo, password);
 		ms.clickOnMenu();
 		ms.clickOnPointsAndRewards();
 		cf.swipeInListTillExpectedTextAndTap(prs.rewardNameList(), creditRewardName, 20);
@@ -137,9 +138,10 @@ public class RewardsTestRunner extends BaseClass {
 		Assert.assertEquals(prs.latestRedeemedOrUtilizedReward().getText(), creditRewardName);
 	}
 	@Test
-	public void G_S06_TC02_redeemRewardWithPoints() {
+	public void G_S06_TC02_redeemRewardWithPoints() throws IOException {
 		System.out.println("G_S06_TC02_redeemRewardWithPoints");
 		extentTest = extentReports.createTest("G_S06_TC02_redeemRewardWithPoints");
+		ls.bluLogin(mobileNo, password);
 		ms.clickOnMenu();
 		ms.clickOnPointsAndRewards();
 		cf.swipeInListTillExpectedTextAndTap(prs.rewardNameList(), pointsRewardName, 20);
@@ -162,9 +164,10 @@ public class RewardsTestRunner extends BaseClass {
 		Assert.assertEquals(prs.latestRedeemedOrUtilizedReward().getText(), pointsRewardName);
 	}
 	@Test
-	public void G_S06_TC03_redeemRewardWithPointsAndCredits() {
+	public void G_S06_TC03_redeemRewardWithPointsAndCredits() throws IOException {
 		System.out.println("G_S06_TC03_redeemRewardWithPointsAndCredits");
 		extentTest = extentReports.createTest("G_S06_TC03_redeemRewardWithPointsAndCredits");
+		ls.bluLogin(mobileNo, password);
 		ms.clickOnMenu();
 		ms.clickOnPointsAndRewards();
 		cf.swipeInListTillExpectedTextAndTap(prs.rewardNameList(), pointsAndCreditsRewardName, 20);
@@ -188,9 +191,10 @@ public class RewardsTestRunner extends BaseClass {
 		
 	}
 	@Test
-	public void G_S06_TC04_redeemPhysicalReward() {
+	public void G_S06_TC04_redeemPhysicalReward() throws IOException {
 		System.out.println("G_S06_TC04_redeemPhysicalReward");
 		extentTest = extentReports.createTest("G_S06_TC04_redeemPhysicalReward");
+		ls.bluLogin(mobileNo, password);
 		ms.clickOnMenu();
 		ms.clickOnPointsAndRewards();
 		cf.swipeInListTillExpectedTextAndTap(prs.rewardNameList(), physicalRewardName, 20);
@@ -210,9 +214,10 @@ public class RewardsTestRunner extends BaseClass {
 		
 	}
 	@Test
-	public void G_S06_TC05_promoCode() {
+	public void G_S06_TC05_promoCode() throws IOException {
 		System.out.println("G_S06_TC05_promoCode");
 		extentTest = extentReports.createTest("G_S06_TC05_promoCode");
+		ls.bluLogin(mobileNo, password);
 		ms.clickOnMenu();
 		ms.clickOnPointsAndRewards();
 		prs.promoCodeTab().click();
@@ -230,11 +235,62 @@ public class RewardsTestRunner extends BaseClass {
 		Assert.assertEquals(prs.latestRedeemedOrUtilizedReward().getText(), promocodeRewardName);
 	}
 	@Test
-	public void G_S06_TC06_redeemedRewardDisplayedUnderRedeemedTab()
+	public void G_S06_TC06_InsufficientCredits() throws IOException
 	{
-		
+		System.out.println("G_S06_TC06_InsufficientCredits");
+		extentTest = extentReports.createTest("G_S06_TC06_InsufficientCredits");
+		ls.bluLogin("81437794", "Abcd1234");
+		ms.clickOnMenu();
+		ms.clickOnPointsAndRewards();
+		cf.swipeInListTillExpectedTextAndTap(prs.rewardNameList(), creditRewardName, 20);
+		Assert.assertEquals(prs.rewardName().getText(), creditRewardName);
+		Assert.assertEquals(prs.rewardDescription().getText(), creditRewardDes);
+		Assert.assertEquals(prs.requiredText1().getText(), "Credits required");
+		Assert.assertEquals(prs.availableText1().getText(), "Available credits");
+		Assert.assertEquals(prs.redeemBtn().getText(), "REDEEM WITH CREDITS");
+		prs.redeemBtn().click();
+		Assert.assertEquals(pu.alertMsg().getText(), "Insufficient credits to redeem this reward. Top up your wallet to redeem.");
+		pu.clickBtn1();
 	}
 	
+	@Test
+	public void G_S06_TC07_InsufficientPoints() throws IOException
+	{
+		System.out.println("G_S06_TC07_InsufficientPoints");
+		extentTest = extentReports.createTest("G_S06_TC07_InsufficientPoints");
+		ls.bluLogin("81437794", "Abcd1234");
+		ms.clickOnMenu();
+		ms.clickOnPointsAndRewards();
+		cf.swipeInListTillExpectedTextAndTap(prs.rewardNameList(), pointsRewardName, 20);
+		Assert.assertEquals(prs.rewardName().getText(), pointsRewardName);
+		Assert.assertEquals(prs.rewardDescription().getText(), pointsRewardDes);
+		Assert.assertEquals(prs.requiredText2().getText(), "Points required");
+		Assert.assertEquals(prs.availableText2().getText(), "Available points");
+		Assert.assertEquals(prs.redeemBtn().getText(), "REDEEM WITH POINTS");
+		prs.redeemBtn().click();
+		Assert.assertEquals(pu.alertMsg().getText(), "Insufficient points to redeem this reward. Earn more points to redeem.");
+		pu.clickBtn1();
+	}
+	@Test
+	public void G_S06_TC08_InsufficientPointsOrCredits() throws IOException
+	{
+		System.out.println("G_S06_TC08_InsufficientPointsOrCredits");
+		extentTest = extentReports.createTest("G_S06_TC08_InsufficientPointsOrCredits");
+		ls.bluLogin("81437794", "Abcd1234");
+		ms.clickOnMenu();
+		ms.clickOnPointsAndRewards();
+		cf.swipeInListTillExpectedTextAndTap(prs.rewardNameList(), pointsAndCreditsRewardName, 20);
+		Assert.assertEquals(prs.rewardName().getText(), pointsAndCreditsRewardName);
+		Assert.assertEquals(prs.rewardDescription().getText(), pointsAndCreditsRewardDes);
+		Assert.assertEquals(prs.requiredText2().getText(), "Points required");
+		Assert.assertEquals(prs.availableText2().getText(), "Available points");
+		Assert.assertEquals(prs.requiredText1().getText(), "Credits required");
+		Assert.assertEquals(prs.availableText1().getText(), "Available credits");
+		Assert.assertEquals(prs.redeemBtn().getText(), "REDEEM WITH POINTS AND CREDITS");
+		prs.redeemBtn().click();
+		Assert.assertEquals(pu.alertMsg().getText(), "Insufficient points and/or credits to redeem this reward. Top up your wallet or earn more points to redeem.");
+		pu.clickBtn1();
+	}
 	}
 	
 

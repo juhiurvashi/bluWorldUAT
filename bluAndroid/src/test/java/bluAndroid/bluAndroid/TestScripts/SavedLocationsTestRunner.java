@@ -88,8 +88,8 @@ public class SavedLocationsTestRunner extends BaseClass {
 	@Test
 	public void tc01_saveALocationByClickingOnHeartIcon() throws IOException
 	{
-		System.out.println("tc01_saveALocation");
-		extentTest = extentReports.createTest("tc01_saveALocation");
+		System.out.println("tc01_saveALocationByClickingOnHeartIcon");
+		extentTest = extentReports.createTest("tc01_saveALocationByClickingOnHeartIcon");
 		mds.clickOnMenu();
 		ms.clickOnSavedLocations();
 		sls.clickOnSaveALocationLink();

@@ -1,0 +1,1432 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+	<link href='https://cdn.rawgit.com/extent-framework/extent-github-cdn/b65cd69/v3html/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>AutomationTesting Blu Report</title>
+
+	<style type='text/css'>
+		/* json-tree */
+		.jstBracket,.jstComma,.jstValue{white-space:pre-wrap}.jstValue{font-size:10px;font-weight:400;font-family:"Lucida Console",Monaco,monospace}.jstProperty{color:#666;word-wrap:break-word}.jstBool{color:#2525CC}.jstNum{color:#D036D0}.jstNull{color:gray}.jstStr{color:#2DB669}.jstFold:after{content:' -';cursor:pointer}.jstExpand{white-space:normal}.jstExpand:after{content:' +';cursor:pointer}.jstFolded{white-space:normal!important}.jstHiddenBlock{display:none}
+	</style>
+	
+	<script type="text/javascript">
+		/*! json-tree - v0.2.2 - 2017-09-25, MIT LICENSE */
+		var JSONTree=function(){var n={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#x27;","/":"&#x2F;"},t=0,r=0;this.create=function(n,t){return r+=1,N(u(n,0,!1),{class:"jstValue"})};var e=function(t){return t.replace(/[&<>'"]/g,function(t){return n[t]})},s=function(){return r+"_"+t++},u=function(n,t,r){if(null===n)return f(r?t:0);switch(typeof n){case"boolean":return l(n,r?t:0);case"number":return i(n,r?t:0);case"string":return o(n,r?t:0);default:return n instanceof Array?a(n,t,r):c(n,t,r)}},c=function(n,t,r){var e=s(),u=Object.keys(n).map(function(r){return j(r,n[r],t+1,!0)}).join(m()),c=[g("{",r?t:0,e),N(u,{id:e}),p("}",t)].join("\n");return N(c,{})},a=function(n,t,r){var e=s(),c=n.map(function(n){return u(n,t+1,!0)}).join(m());return[g("[",r?t:0,e),N(c,{id:e}),p("]",t)].join("\n")},o=function(n,t){var r=e(JSON.stringify(n));return N(v(r,t),{class:"jstStr"})},i=function(n,t){return N(v(n,t),{class:"jstNum"})},l=function(n,t){return N(v(n,t),{class:"jstBool"})},f=function(n){return N(v("null",n),{class:"jstNull"})},j=function(n,t,r){var s=v(e(JSON.stringify(n))+": ",r),c=N(u(t,r,!1),{});return N(s+c,{class:"jstProperty"})},m=function(){return N(",\n",{class:"jstComma"})},N=function(n,t){return d("span",t,n)},d=function(n,t,r){return"<"+n+Object.keys(t).map(function(n){return" "+n+'="'+t[n]+'"'}).join("")+">"+r+"</"+n+">"},g=function(n,t,r){return N(v(n,t),{class:"jstBracket"})+N("",{class:"jstFold",onclick:"JSONTree.toggle('"+r+"')"})};this.toggle=function(n){var t=document.getElementById(n),r=t.parentNode,e=t.previousElementSibling;""===t.className?(t.className="jstHiddenBlock",r.className="jstFolded",e.className="jstExpand"):(t.className="",r.className="",e.className="jstFold")};var p=function(n,t){return N(v(n,t),{})},v=function(n,t){return Array(2*t+1).join(" ")+n};return this}();
+	</script>
+</head>
+	<body class='extent standard default hide-overflow '>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo black"><img src="https://cdn.rawgit.com/extent-framework/extent-github-cdn/d74480e/commons/img/logo.png"></a>
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></a></li>
+		</ul>
+		<!-- report name -->
+		<span class='report-name'>Test Report</span>
+		<!-- report headline -->
+		<span class='report-headline'></span>
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<a href='#!'>
+			<span class='label blue darken-3 suite-start-time'>Jan 21, 2020 10:03:35 AM</span>
+			</a>
+		</ul>
+	</div>
+</nav>		<!-- container -->
+		<div class='container'>
+<div id='test-view' class='view'>
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+				<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+										<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+					<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+			<!-- category toggle -->
+			<!-- category toggle -->
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+				<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+				<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+				<i class='material-icons'>search</i> Search
+				</a>
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+<div id='test-view-charts' class='subview-full'>
+    <div id='charts-row' class='row nm-v nm-h'>
+        <div class='col s12 m12 l12 np-h'>
+            <div class='card-panel nm-v'>
+                <div class='left panel-name'>Tests</div>
+                <div class='chart-box' style="max-height:94px;">
+                    <canvas id='parent-analysis' width='90' height='70'></canvas>
+                </div>
+                <div class='block text-small'>
+                    <span class='tooltipped' data-position='top' data-tooltip='85.714%'><span class='strong'>18</span> test(s) passed</span>
+                </div>
+                <div class='block text-small'>
+                    <span class='strong tooltipped' data-position='top' data-tooltip='14.286%'>3</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="timeline-chart" class="row nm-v nm-h">
+        <div class="col s12 m12 l12 np-h">
+            <div class="card-panel">
+                <div class='left panel-name'>Timeline (seconds)</div>
+                <div class="chart-box" style="width:98%;max-height:145px;">
+                    <canvas id="timeline" height="120"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>	<div class='subview-left left'>
+		<div class='view-summary'>
+			<ul id='test-collection' class='test-collection'>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>B_S01_TC01_CreateBookingViaBluPortWithBluId</span>
+						<span class='test-time'>Jan 21, 2020 10:04:15 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 21, 2020 10:04:15 AM</span>
+	<span class='label end-time'>Jan 21, 2020 10:05:34 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 19s+374ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>10:05:34 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text green'>B_S01_TC01_CreateBookingViaBluPortWithBluId Test Case PASSED</span>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+						<ul class='screenshots'>
+							<li><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S01_TC01_CreateBookingViaBluPortWithBluId 21_Jan_2020 10_05_34.png' src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S01_TC01_CreateBookingViaBluPortWithBluId 21_Jan_2020 10_05_34.png' data-src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S01_TC01_CreateBookingViaBluPortWithBluId 21_Jan_2020 10_05_34.png'></li>
+						</ul>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='2'>
+					<div class='test-heading'>
+						<span class='test-name'>B_S01_TC02_CreateBookingViaBluPortWithMobileNo</span>
+						<span class='test-time'>Jan 21, 2020 10:06:16 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 21, 2020 10:06:16 AM</span>
+	<span class='label end-time'>Jan 21, 2020 10:07:50 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 33s+303ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>10:07:50 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text green'>B_S01_TC02_CreateBookingViaBluPortWithMobileNo Test Case PASSED</span>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+						<ul class='screenshots'>
+							<li><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S01_TC02_CreateBookingViaBluPortWithMobileNo 21_Jan_2020 10_07_50.png' src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S01_TC02_CreateBookingViaBluPortWithMobileNo 21_Jan_2020 10_07_50.png' data-src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S01_TC02_CreateBookingViaBluPortWithMobileNo 21_Jan_2020 10_07_50.png'></li>
+						</ul>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='3'>
+					<div class='test-heading'>
+						<span class='test-name'>B_S01_TC03_CreateBookingViaBluPortWithBluIdToOwnself</span>
+						<span class='test-time'>Jan 21, 2020 10:08:32 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 21, 2020 10:08:32 AM</span>
+	<span class='label end-time'>Jan 21, 2020 10:09:52 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 20s+3ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>10:09:52 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text green'>B_S01_TC03_CreateBookingViaBluPortWithBluIdToOwnself Test Case PASSED</span>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+						<ul class='screenshots'>
+							<li><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S01_TC03_CreateBookingViaBluPortWithBluIdToOwnself 21_Jan_2020 10_09_52.png' src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S01_TC03_CreateBookingViaBluPortWithBluIdToOwnself 21_Jan_2020 10_09_52.png' data-src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S01_TC03_CreateBookingViaBluPortWithBluIdToOwnself 21_Jan_2020 10_09_52.png'></li>
+						</ul>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='4'>
+					<div class='test-heading'>
+						<span class='test-name'>B_S01_TC04_CreateBookingViaBluHomeWithBluId</span>
+						<span class='test-time'>Jan 21, 2020 10:10:36 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 21, 2020 10:10:36 AM</span>
+	<span class='label end-time'>Jan 21, 2020 10:12:26 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 50s+717ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>10:12:26 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text green'>B_S01_TC04_CreateBookingViaBluHomeWithBluId Test Case PASSED</span>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+						<ul class='screenshots'>
+							<li><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S01_TC04_CreateBookingViaBluHomeWithBluId 21_Jan_2020 10_12_26.png' src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S01_TC04_CreateBookingViaBluHomeWithBluId 21_Jan_2020 10_12_26.png' data-src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S01_TC04_CreateBookingViaBluHomeWithBluId 21_Jan_2020 10_12_26.png'></li>
+						</ul>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='5'>
+					<div class='test-heading'>
+						<span class='test-name'>B_S01_TC05_CreateBookingViaBluHomeWithMobileNo</span>
+						<span class='test-time'>Jan 21, 2020 10:13:52 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 21, 2020 10:13:52 AM</span>
+	<span class='label end-time'>Jan 21, 2020 10:15:53 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 2m 0s+210ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>10:15:53 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text green'>B_S01_TC05_CreateBookingViaBluHomeWithMobileNo Test Case PASSED</span>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+						<ul class='screenshots'>
+							<li><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S01_TC05_CreateBookingViaBluHomeWithMobileNo 21_Jan_2020 10_15_53.png' src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S01_TC05_CreateBookingViaBluHomeWithMobileNo 21_Jan_2020 10_15_53.png' data-src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S01_TC05_CreateBookingViaBluHomeWithMobileNo 21_Jan_2020 10_15_53.png'></li>
+						</ul>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='6'>
+					<div class='test-heading'>
+						<span class='test-name'>B_S01_TC06_CreateBookingViaBluHomeWithBluIdToOwnself</span>
+						<span class='test-time'>Jan 21, 2020 10:17:28 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 21, 2020 10:17:28 AM</span>
+	<span class='label end-time'>Jan 21, 2020 10:19:04 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 35s+798ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>10:19:04 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text green'>B_S01_TC06_CreateBookingViaBluHomeWithBluIdToOwnself Test Case PASSED</span>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+						<ul class='screenshots'>
+							<li><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S01_TC06_CreateBookingViaBluHomeWithBluIdToOwnself 21_Jan_2020 10_19_04.png' src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S01_TC06_CreateBookingViaBluHomeWithBluIdToOwnself 21_Jan_2020 10_19_04.png' data-src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S01_TC06_CreateBookingViaBluHomeWithBluIdToOwnself 21_Jan_2020 10_19_04.png'></li>
+						</ul>
+					</div>
+				</li>
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='7'>
+					<div class='test-heading'>
+						<span class='test-name'>B_S01_TC07_RedeemedRewardCanBeUsesInBooking</span>
+						<span class='test-time'>Jan 21, 2020 10:19:46 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 21, 2020 10:19:46 AM</span>
+	<span class='label end-time'>Jan 21, 2020 10:22:05 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 2m 18s+250ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>10:22:05 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text red'>B_S01_TC07_RedeemedRewardCanBeUsesInBooking Test case FAILED due to below issues:</span>
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>10:22:05 AM</td>
+				<td class='step-details'>
+						<textarea disabled class="code-block">org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'BLU-LP-00004', ip: '192.168.56.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_221'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: sg.com.blu.android.features..., appPackage: sg.com.blu.android.uat, databaseEnabled: false, desired: {appActivity: sg.com.blu.android.features..., appPackage: sg.com.blu.android.uat, deviceName: Galaxy S8+, platformName: android, platformVersion: 8.0.0, resetKeyboard: true, udid: ce031713d5fad93001, unicodeKeyboard: true}, deviceManufacturer: samsung, deviceModel: SM-G955F, deviceName: ce031713d5fad93001, deviceScreenSize: 1440x2960, deviceUDID: ce031713d5fad93001, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, platform: LINUX, platformName: Android, platformVersion: 8.0.0, resetKeyboard: true, takesScreenshot: true, udid: ce031713d5fad93001, unicodeKeyboard: true, warnings: {}, webStorageEnabled: false}
+Session ID: 5d961907-a670-4285-a91c-7f6718420af8
+*** Element info: {Using=id, value=sg.com.blu.android.uat:id/closeButton}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:41)
+	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:61)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElementById(DefaultGenericMobileDriver.java:69)
+	at io.appium.java_client.AppiumDriver.findElementById(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElementById(AndroidDriver.java:1)
+	at org.openqa.selenium.By$ById.findElement(By.java:188)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:57)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+	at bluAndroid.bluAndroid.TestScripts.CreateBookingTestRunner.B_S01_TC07_RedeemedRewardCanBeUsesInBooking(CreateBookingTestRunner.java:1037)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</textarea>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+						<ul class='screenshots'>
+							<li><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/Error_B_S01_TC07_RedeemedRewardCanBeUsesInBooking 21_Jan_2020 10_22_05.png' src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/Error_B_S01_TC07_RedeemedRewardCanBeUsesInBooking 21_Jan_2020 10_22_05.png' data-src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/Error_B_S01_TC07_RedeemedRewardCanBeUsesInBooking 21_Jan_2020 10_22_05.png'></li>
+						</ul>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='8'>
+					<div class='test-heading'>
+						<span class='test-name'>B_S02_TC01_InvaldBluId()</span>
+						<span class='test-time'>Jan 21, 2020 10:22:47 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 21, 2020 10:22:47 AM</span>
+	<span class='label end-time'>Jan 21, 2020 10:22:57 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 10s+423ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>10:22:57 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text green'>B_S02_TC01_InvaldBluId Test Case PASSED</span>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+						<ul class='screenshots'>
+							<li><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S02_TC01_InvaldBluId 21_Jan_2020 10_22_57.png' src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S02_TC01_InvaldBluId 21_Jan_2020 10_22_57.png' data-src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S02_TC01_InvaldBluId 21_Jan_2020 10_22_57.png'></li>
+						</ul>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='9'>
+					<div class='test-heading'>
+						<span class='test-name'>B_S02_TC02_InvaldMobile()</span>
+						<span class='test-time'>Jan 21, 2020 10:23:51 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 21, 2020 10:23:51 AM</span>
+	<span class='label end-time'>Jan 21, 2020 10:24:07 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 15s+704ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>10:24:07 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text green'>B_S02_TC02_NotRegisteredMobile Test Case PASSED</span>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+						<ul class='screenshots'>
+							<li><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S02_TC02_NotRegisteredMobile 21_Jan_2020 10_24_07.png' src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S02_TC02_NotRegisteredMobile 21_Jan_2020 10_24_07.png' data-src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S02_TC02_NotRegisteredMobile 21_Jan_2020 10_24_07.png'></li>
+						</ul>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='10'>
+					<div class='test-heading'>
+						<span class='test-name'>B_S02_TC05_ChangeRecipientLink</span>
+						<span class='test-time'>Jan 21, 2020 10:25:05 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 21, 2020 10:25:05 AM</span>
+	<span class='label end-time'>Jan 21, 2020 10:25:32 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 26s+297ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>10:25:32 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text green'>B_S02_TC05_ChangeRecipientLink Test Case PASSED</span>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+						<ul class='screenshots'>
+							<li><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S02_TC05_ChangeRecipientLink 21_Jan_2020 10_25_32.png' src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S02_TC05_ChangeRecipientLink 21_Jan_2020 10_25_32.png' data-src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S02_TC05_ChangeRecipientLink 21_Jan_2020 10_25_32.png'></li>
+						</ul>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='11'>
+					<div class='test-heading'>
+						<span class='test-name'>B_S02_TC05_InvalidMobileAndRecipientName()</span>
+						<span class='test-time'>Jan 21, 2020 10:26:25 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 21, 2020 10:26:25 AM</span>
+	<span class='label end-time'>Jan 21, 2020 10:26:58 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 33s+73ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>10:26:58 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text green'>B_S02_TC05_InvalidMobileAndRecipientName Test Case PASSED</span>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+						<ul class='screenshots'>
+							<li><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S02_TC05_InvalidMobileAndRecipientName 21_Jan_2020 10_26_58.png' src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S02_TC05_InvalidMobileAndRecipientName 21_Jan_2020 10_26_58.png' data-src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S02_TC05_InvalidMobileAndRecipientName 21_Jan_2020 10_26_58.png'></li>
+						</ul>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='12'>
+					<div class='test-heading'>
+						<span class='test-name'>B_S01_TC01_CreateBookingViaBluPortWithBluId</span>
+						<span class='test-time'>Jan 21, 2020 10:27:41 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 21, 2020 10:27:41 AM</span>
+	<span class='label end-time'>Jan 21, 2020 10:28:05 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 24s+394ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>10:28:05 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text green'>B_S06_TC01_VerifyProductCatagoryScreen Test Case PASSED</span>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+						<ul class='screenshots'>
+							<li><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S06_TC01_VerifyProductCatagoryScreen 21_Jan_2020 10_28_05.png' src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S06_TC01_VerifyProductCatagoryScreen 21_Jan_2020 10_28_05.png' data-src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S06_TC01_VerifyProductCatagoryScreen 21_Jan_2020 10_28_05.png'></li>
+						</ul>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='13'>
+					<div class='test-heading'>
+						<span class='test-name'>B_S01_TC01_CreateBookingViaBluPortWithBluId</span>
+						<span class='test-time'>Jan 21, 2020 10:28:50 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 21, 2020 10:28:50 AM</span>
+	<span class='label end-time'>Jan 21, 2020 10:29:29 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 38s+968ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>10:29:29 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text green'>B_S06_TC02_VerifyProductCatagoryScreenRemarksField Test Case PASSED</span>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+						<ul class='screenshots'>
+							<li><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S06_TC02_VerifyProductCatagoryScreenRemarksField 21_Jan_2020 10_29_29.png' src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S06_TC02_VerifyProductCatagoryScreenRemarksField 21_Jan_2020 10_29_29.png' data-src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S06_TC02_VerifyProductCatagoryScreenRemarksField 21_Jan_2020 10_29_29.png'></li>
+						</ul>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='14'>
+					<div class='test-heading'>
+						<span class='test-name'>B_S08_TC01_ApplicableRewardsForBooking</span>
+						<span class='test-time'>Jan 21, 2020 10:30:12 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 21, 2020 10:30:12 AM</span>
+	<span class='label end-time'>Jan 21, 2020 10:31:04 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 51s+485ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>10:31:04 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text green'>B_S08_TC01_ApplicableRewardsForBooking Test Case PASSED</span>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+						<ul class='screenshots'>
+							<li><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S08_TC01_ApplicableRewardsForBooking 21_Jan_2020 10_31_04.png' src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S08_TC01_ApplicableRewardsForBooking 21_Jan_2020 10_31_04.png' data-src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S08_TC01_ApplicableRewardsForBooking 21_Jan_2020 10_31_04.png'></li>
+						</ul>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='15'>
+					<div class='test-heading'>
+						<span class='test-name'>B_S09_TC01_EditOrigin</span>
+						<span class='test-time'>Jan 21, 2020 10:31:46 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 21, 2020 10:31:46 AM</span>
+	<span class='label end-time'>Jan 21, 2020 10:32:42 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 55s+673ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>10:32:42 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text green'>B_S09_TC01_EditOrigin Test Case PASSED</span>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+						<ul class='screenshots'>
+							<li><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S09_TC01_EditOrigin 21_Jan_2020 10_32_42.png' src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S09_TC01_EditOrigin 21_Jan_2020 10_32_42.png' data-src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S09_TC01_EditOrigin 21_Jan_2020 10_32_42.png'></li>
+						</ul>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='16'>
+					<div class='test-heading'>
+						<span class='test-name'>B_S09_TC02_EditDestination</span>
+						<span class='test-time'>Jan 21, 2020 10:33:24 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 21, 2020 10:33:24 AM</span>
+	<span class='label end-time'>Jan 21, 2020 10:34:17 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 52s+711ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>10:34:17 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text green'>B_S09_TC02_EditDestination Test Case PASSED</span>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+						<ul class='screenshots'>
+							<li><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S09_TC02_EditDestination 21_Jan_2020 10_34_17.png' src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S09_TC02_EditDestination 21_Jan_2020 10_34_17.png' data-src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S09_TC02_EditDestination 21_Jan_2020 10_34_17.png'></li>
+						</ul>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='17'>
+					<div class='test-heading'>
+						<span class='test-name'>B_S01_TC04_CreateBookingViaBluHomeWithBluId</span>
+						<span class='test-time'>Jan 21, 2020 10:34:59 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 21, 2020 10:34:59 AM</span>
+	<span class='label end-time'>Jan 21, 2020 10:35:54 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 54s+910ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>10:35:54 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text green'>B_S09_TC03_EditDestinationBluHome Test Case PASSED</span>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+						<ul class='screenshots'>
+							<li><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S09_TC03_EditDestinationBluHome 21_Jan_2020 10_35_54.png' src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S09_TC03_EditDestinationBluHome 21_Jan_2020 10_35_54.png' data-src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S09_TC03_EditDestinationBluHome 21_Jan_2020 10_35_54.png'></li>
+						</ul>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='18'>
+					<div class='test-heading'>
+						<span class='test-name'>B_S09_TC04_EditBoxSize</span>
+						<span class='test-time'>Jan 21, 2020 10:36:36 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 21, 2020 10:36:36 AM</span>
+	<span class='label end-time'>Jan 21, 2020 10:37:22 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 45s+268ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>10:37:22 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text green'>B_S09_TC04_EditBoxSize Test Case PASSED</span>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+						<ul class='screenshots'>
+							<li><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S09_TC04_EditBoxSize 21_Jan_2020 10_37_22.png' src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S09_TC04_EditBoxSize 21_Jan_2020 10_37_22.png' data-src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S09_TC04_EditBoxSize 21_Jan_2020 10_37_22.png'></li>
+						</ul>
+					</div>
+				</li>
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='19'>
+					<div class='test-heading'>
+						<span class='test-name'>B_S09_TC05_EditProductCatagory</span>
+						<span class='test-time'>Jan 21, 2020 10:38:04 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 21, 2020 10:38:04 AM</span>
+	<span class='label end-time'>Jan 21, 2020 10:39:09 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 5s+53ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>10:39:09 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text red'>B_S09_TC05_EditProductCatagory Test case FAILED due to below issues:</span>
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>10:39:09 AM</td>
+				<td class='step-details'>
+						<textarea disabled class="code-block">java.lang.AssertionError: expected [Shoes & bags] but found [Sport]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:575)
+	at org.testng.Assert.assertEquals(Assert.java:585)
+	at bluAndroid.bluAndroid.TestScripts.CreateBookingTestRunner.B_S09_TC05_EditProductCatagory(CreateBookingTestRunner.java:937)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</textarea>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+						<ul class='screenshots'>
+							<li><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/Error_B_S09_TC05_EditProductCatagory 21_Jan_2020 10_39_09.png' src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/Error_B_S09_TC05_EditProductCatagory 21_Jan_2020 10_39_09.png' data-src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/Error_B_S09_TC05_EditProductCatagory 21_Jan_2020 10_39_09.png'></li>
+						</ul>
+					</div>
+				</li>
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='20'>
+					<div class='test-heading'>
+						<span class='test-name'>B_S09_TC06_EditRemarks</span>
+						<span class='test-time'>Jan 21, 2020 10:39:50 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 21, 2020 10:39:50 AM</span>
+	<span class='label end-time'>Jan 21, 2020 10:41:14 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 23s+977ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>10:41:14 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text red'>B_S09_TC06_EditRemarks Test case FAILED due to below issues:</span>
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>10:41:14 AM</td>
+				<td class='step-details'>
+						<textarea disabled class="code-block">java.lang.AssertionError: expected [Edited remarks] but found [remarksEdited remarks]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:575)
+	at org.testng.Assert.assertEquals(Assert.java:585)
+	at bluAndroid.bluAndroid.TestScripts.CreateBookingTestRunner.B_S09_TC06_EditRemarks(CreateBookingTestRunner.java:976)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</textarea>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+						<ul class='screenshots'>
+							<li><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/Error_B_S09_TC06_EditRemarks 21_Jan_2020 10_41_14.png' src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/Error_B_S09_TC06_EditRemarks 21_Jan_2020 10_41_14.png' data-src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/Error_B_S09_TC06_EditRemarks 21_Jan_2020 10_41_14.png'></li>
+						</ul>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='21'>
+					<div class='test-heading'>
+						<span class='test-name'>B_S09_TC07_EditReward</span>
+						<span class='test-time'>Jan 21, 2020 10:41:56 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 21, 2020 10:41:56 AM</span>
+	<span class='label end-time'>Jan 21, 2020 10:42:58 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 2s+321ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>10:42:58 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text green'>B_S09_TC07_EditReward Test Case PASSED</span>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+						<ul class='screenshots'>
+							<li><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S09_TC07_EditReward 21_Jan_2020 10_42_58.png' src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S09_TC07_EditReward 21_Jan_2020 10_42_58.png' data-src='C:\Users\urvashi\git\LocalRepositoryUAT\bluAndroid/Screenshot/B_S09_TC07_EditReward 21_Jan_2020 10_42_58.png'></li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<div id='step-filters' class="right sr-filters">
+				<a class="btn-floating waves-effect waves-light green" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></a>
+				<a class="btn-floating waves-effect waves-light red" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></a>
+				<a class="btn-floating waves-effect waves-light red darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></a>
+				<a class="btn-floating waves-effect waves-light pink text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></a>
+				<a class="btn-floating waves-effect waves-light orange" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></a>
+				<a class="btn-floating waves-effect waves-light teal" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></a>
+				<a class="btn-floating waves-effect waves-light grey" status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></a>
+			</div>
+			<h5 class='test-name'></h5>
+		</div>
+	</div>
+	<!-- subview right -->
+</div>
+<!-- test view --><!-- category view --><div id='exception-view' class='view hide'>
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+				<i class='material-icons'>search</i> Search
+				</a>
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+	<div class='subview-left left'>
+		<div class='view-summary'>
+			<ul id='exception-collection' class='exception-collection'>
+				<li class='exception displayed active'>
+					<div class='exception-heading'>
+						<span class='exception-name'>org.openqa.selenium.NoSuchElementException</span>
+						<span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
+					</div>
+					<div class='exception-content hide'>
+						<div class='exception-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 21, 2020 10:19:46 AM</td>
+										<td class='linked' test-id='7'>B_S01_TC07_RedeemedRewardCanBeUsesInBooking</td>
+										<td>
+											<textarea disabled class="code-block">org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'BLU-LP-00004', ip: '192.168.56.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_221'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: sg.com.blu.android.features..., appPackage: sg.com.blu.android.uat, databaseEnabled: false, desired: {appActivity: sg.com.blu.android.features..., appPackage: sg.com.blu.android.uat, deviceName: Galaxy S8+, platformName: android, platformVersion: 8.0.0, resetKeyboard: true, udid: ce031713d5fad93001, unicodeKeyboard: true}, deviceManufacturer: samsung, deviceModel: SM-G955F, deviceName: ce031713d5fad93001, deviceScreenSize: 1440x2960, deviceUDID: ce031713d5fad93001, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, platform: LINUX, platformName: Android, platformVersion: 8.0.0, resetKeyboard: true, takesScreenshot: true, udid: ce031713d5fad93001, unicodeKeyboard: true, warnings: {}, webStorageEnabled: false}
+Session ID: 5d961907-a670-4285-a91c-7f6718420af8
+*** Element info: {Using=id, value=sg.com.blu.android.uat:id/closeButton}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:41)
+	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:61)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElementById(DefaultGenericMobileDriver.java:69)
+	at io.appium.java_client.AppiumDriver.findElementById(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElementById(AndroidDriver.java:1)
+	at org.openqa.selenium.By$ById.findElement(By.java:188)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:57)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+	at bluAndroid.bluAndroid.TestScripts.CreateBookingTestRunner.B_S01_TC07_RedeemedRewardCanBeUsesInBooking(CreateBookingTestRunner.java:1037)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</textarea>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='exception displayed active'>
+					<div class='exception-heading'>
+						<span class='exception-name'>java.lang.AssertionError</span>
+						<span class='exception-count right'><span class='label red lighten-1 white-text'>2</span></span>
+					</div>
+					<div class='exception-content hide'>
+						<div class='exception-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 21, 2020 10:38:04 AM</td>
+										<td class='linked' test-id='19'>B_S09_TC05_EditProductCatagory</td>
+										<td>
+											<textarea disabled class="code-block">java.lang.AssertionError: expected [Shoes & bags] but found [Sport]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:575)
+	at org.testng.Assert.assertEquals(Assert.java:585)
+	at bluAndroid.bluAndroid.TestScripts.CreateBookingTestRunner.B_S09_TC05_EditProductCatagory(CreateBookingTestRunner.java:937)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</textarea>
+										</td>
+									</tr>
+									<tr>
+										<td>Jan 21, 2020 10:39:50 AM</td>
+										<td class='linked' test-id='20'>B_S09_TC06_EditRemarks</td>
+										<td>
+											<textarea disabled class="code-block">java.lang.AssertionError: expected [Edited remarks] but found [remarksEdited remarks]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:575)
+	at org.testng.Assert.assertEquals(Assert.java:585)
+	at bluAndroid.bluAndroid.TestScripts.CreateBookingTestRunner.B_S09_TC06_EditRemarks(CreateBookingTestRunner.java:976)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</textarea>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='exception-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- exception view --><div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Tests
+					<div class='panel-lead'>21</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>0</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Jan 21, 2020 10:03:35 AM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Jan 21, 2020 10:43:00 AM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>0h 39m 25s+588ms</div>
+				</div>
+			</div>
+			<div class='col s4'>
+				<div class='card-panel dashboard-environment'>
+					<span class='right label cyan white-text'>Environment</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Value</th>
+						</tr>
+							<tr>
+								<td>Host Name</td>
+								<td>Urvashi PC</td>
+							</tr>
+							<tr>
+								<td>Username</td>
+								<td>Urvashi</td>
+							</tr>
+							<tr>
+								<td>Environment</td>
+								<td>UAT</td>
+							</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->		</div>
+		<!-- container -->
+		<script>
+			var statusGroup = {
+                parentCount: 21,
+				passParent: 18,
+				failParent: 3,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 3,
+				childCount: 0,
+				passChild: 0,
+				failChild: 0,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 0,
+				debugChild: 0,
+				exceptionsChild: 0,
+				grandChildCount: 0,
+				passGrandChild: 0,
+				failGrandChild: 0,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 0,
+				infoGrandChild: 0,
+				debugGrandChild: 0,
+				exceptionsGrandChild: 0,
+			};
+		</script>
+		<script>
+			var timeline = {
+			        "B_S01_TC01_CreateBookingViaBluPortWithBluId":79.374,"B_S01_TC02_CreateBookingViaBluPortWithMobileNo":93.303,"B_S01_TC03_CreateBookingViaBluPortWithBluIdToOwnself":80.003,"B_S01_TC04_CreateBookingViaBluHomeWithBluId":110.717,"B_S01_TC05_CreateBookingViaBluHomeWithMobileNo":120.21,"B_S01_TC06_CreateBookingViaBluHomeWithBluIdToOwnself":95.798,"B_S01_TC07_RedeemedRewardCanBeUsesInBooking":138.25,"B_S02_TC01_InvaldBluId()":10.423,"B_S02_TC02_InvaldMobile()":15.704,"B_S02_TC05_ChangeRecipientLink":26.297,"B_S02_TC05_InvalidMobileAndRecipientName()":33.073,"B_S01_TC01_CreateBookingViaBluPortWithBluId":24.394,"B_S01_TC01_CreateBookingViaBluPortWithBluId":38.968,"B_S08_TC01_ApplicableRewardsForBooking":51.485,"B_S09_TC01_EditOrigin":55.673,"B_S09_TC02_EditDestination":52.711,"B_S01_TC04_CreateBookingViaBluHomeWithBluId":54.91,"B_S09_TC04_EditBoxSize":45.268,"B_S09_TC05_EditProductCatagory":65.053,"B_S09_TC06_EditRemarks":83.977,"B_S09_TC07_EditReward":62.321
+			};
+		</script>
+		<script src='https://cdn.rawgit.com/extent-framework/extent-github-cdn/b65cd69/v3html/js/extent.js' type='text/javascript'></script>
+		<script type='text/javascript'>
+		</script>
+	</body>
+</html>

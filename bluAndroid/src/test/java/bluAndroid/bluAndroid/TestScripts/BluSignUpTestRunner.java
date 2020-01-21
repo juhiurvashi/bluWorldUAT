@@ -21,6 +21,7 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 
+import bluAndroid.bluAndroid.pageObjects.CommonFunctions;
 import bluAndroid.bluAndroid.pageObjects.SignUpScreen;
 import bluAndroid.bluAndroid.util.BaseClass;
 import bluAndroid.bluAndroid.util.CommonUtil;
@@ -38,6 +39,7 @@ import io.appium.java_client.touch.offset.PointOption;
 public class BluSignUpTestRunner extends BaseClass {
 	public static AppiumDriver<WebElement> driver;
 	SignUpScreen su;
+	CommonFunctions cf;
 	@BeforeMethod
 	public void preCondition() throws IOException
 
@@ -46,6 +48,7 @@ public class BluSignUpTestRunner extends BaseClass {
 		BluSignUpTestRunner.driver = BaseClass.getAppCapabilities();
 
 		su = new SignUpScreen(driver);
+		cf=new CommonFunctions(driver);
 	}
 	
 
@@ -147,6 +150,7 @@ public class BluSignUpTestRunner extends BaseClass {
 		su.enterConPassword().sendKeys(conPassword);
 		su.enterFirstName().sendKeys(firstName);
 		su.enterMobile().sendKeys(mobile);
+		((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.ENTER));
 		su.clickSignUpBtn();
 		String expected2="Email address already used.";
 		WebElement error= driver.findElement(By.id("sg.com.blu.android.uat:id/error_tv"));
@@ -193,7 +197,7 @@ public class BluSignUpTestRunner extends BaseClass {
 		su.enterConPassword().sendKeys(conPassword);
 		su.enterFirstName().sendKeys(firstName);
 		su.enterMobile().sendKeys(mobile);
-		((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.ENTER));
+		cf.swiptToBottom();
 		su.clickSignUpBtn();
 		String expected="Passwords do not match";
 		WebElement passError = driver.findElement(
@@ -243,7 +247,7 @@ public class BluSignUpTestRunner extends BaseClass {
 		su.enterConPassword().sendKeys(conPassword);
 		su.enterFirstName().sendKeys(firstName);
 		su.enterMobile().sendKeys(mobile);
-		((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.ENTER));
+		cf.swiptToBottom();
 		su.clickSignUpBtn();
 		//	Enter your date of birth.
 		String expected="Enter a valid mobile number.";
@@ -295,7 +299,7 @@ public class BluSignUpTestRunner extends BaseClass {
 		su.enterConPassword().sendKeys(conPassword);
 		su.enterFirstName().sendKeys(firstName);
 		su.enterMobile().sendKeys(mobile);
-		((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.ENTER));
+		cf.swiptToBottom();
 		su.enterReferralCode().sendKeys(invalidreferralCode);
 		su.clickSignUpBtn();
 		String expected="Enter a valid referral code.";
@@ -339,7 +343,7 @@ public class BluSignUpTestRunner extends BaseClass {
 		su.enterConPassword().sendKeys(conPassword);
 		su.enterFirstName().sendKeys(firstName);
 		su.enterMobile().sendKeys(mobile);	
-		((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.ENTER));
+		cf.swiptToBottom();
 		su.clickSignUpBtn();
 		String expected="Enter password.";
 		WebElement passError = driver.findElement(
@@ -388,7 +392,7 @@ public class BluSignUpTestRunner extends BaseClass {
 		su.enterPassword().sendKeys(password);
 		su.enterConPassword().sendKeys(conPassword);
 		su.enterMobile().sendKeys(mobile);
-		((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.ENTER));
+		cf.swiptToBottom();
 		su.clickSignUpBtn();
 		String expected="Enter your first name.";
 		WebElement mobileError = driver.findElement(

@@ -35,7 +35,7 @@ public class BaseClass {
 			caps.setCapability("appActivity", "sg.com.blu.android.features.account.SplashActivity");
 			caps.setCapability("unicodeKeyboard", true);
 			caps.setCapability("resetKeyboard", true);
-
+			//caps.setCapability("maxTypingFrequency",50);
 			driver = new AndroidDriver<WebElement>(new URL("http://0.0.0.0:4723/wd/hub"), caps);
 			driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 		} catch (MalformedURLException e) {
@@ -60,7 +60,7 @@ public class BaseClass {
 		
 		extentReports.setSystemInfo("Host Name", "Urvashi PC");
 		extentReports.setSystemInfo("Username", "Urvashi");
-		extentReports.setSystemInfo("Environment", "Production");
+		extentReports.setSystemInfo("Environment", "UAT");
 
 		
 		htmlReporter.config().setDocumentTitle("AutomationTesting Blu Report");
