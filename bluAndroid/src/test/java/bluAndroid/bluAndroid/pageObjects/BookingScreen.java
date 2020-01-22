@@ -251,7 +251,7 @@ public class BookingScreen {
 		WebElement text=driver.findElement(By.id("sg.com.blu.android.uat:id/titleTextView"));
 		return text;
 	}
-	public WebElement topUpOnBookingScreen()
+	public WebElement topUpBtnOnBookingScreen()
 	{
 		WebElement btn=driver.findElement(By.id("sg.com.blu.android.uat:id/submitButton"));
 		return btn;

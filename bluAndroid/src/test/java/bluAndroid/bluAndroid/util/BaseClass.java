@@ -35,9 +35,9 @@ public class BaseClass {
 			caps.setCapability("appActivity", "sg.com.blu.android.features.account.SplashActivity");
 			caps.setCapability("unicodeKeyboard", true);
 			caps.setCapability("resetKeyboard", true);
-			//caps.setCapability("maxTypingFrequency",50);
+			caps.setCapability("maxTypingFrequency",30);
 			driver = new AndroidDriver<WebElement>(new URL("http://0.0.0.0:4723/wd/hub"), caps);
-			driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(180, TimeUnit.SECONDS);
 		} catch (MalformedURLException e) {
 			System.out.println("Cause is :" + e.getCause());
 			System.out.println("Message is :" + e.getMessage());

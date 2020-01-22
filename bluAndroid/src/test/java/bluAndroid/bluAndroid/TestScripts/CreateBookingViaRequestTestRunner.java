@@ -25,6 +25,7 @@ import bluAndroid.bluAndroid.pageObjects.PublicProfileScreen;
 import bluAndroid.bluAndroid.pageObjects.RequestBookingScreen;
 import bluAndroid.bluAndroid.pageObjects.SavedLocationsScreen;
 import bluAndroid.bluAndroid.pageObjects.SignUpScreen;
+import bluAndroid.bluAndroid.pageObjects.Wallet;
 import bluAndroid.bluAndroid.util.BaseClass;
 import bluAndroid.bluAndroid.util.CommonUtil;
 import io.appium.java_client.AppiumDriver;
@@ -48,6 +49,7 @@ public class CreateBookingViaRequestTestRunner extends BaseClass {
 	PublicProfileScreen pp;
 	MyDetailsScreen mds;
 	RequestBookingScreen rbs;
+	Wallet w;
 
 	@BeforeMethod
 	public void preCondition() throws IOException
@@ -78,6 +80,7 @@ public class CreateBookingViaRequestTestRunner extends BaseClass {
 		pp = new PublicProfileScreen(driver);
 		mds = new MyDetailsScreen(driver);
 		rbs = new RequestBookingScreen(driver);
+		w=new Wallet(driver);
 
 	}
 
@@ -85,21 +88,26 @@ public class CreateBookingViaRequestTestRunner extends BaseClass {
 	public void B_S15_TC01_MakeBookingViaRequest() throws IOException {
 		System.out.println("B_S01_TC01_CreateBookingViaBluPortWithBluId");
 		extentTest = extentReports.createTest("B_S01_TC01_CreateBookingViaBluPortWithBluId");
-		/*
-		 * rbs.clickOnRequestForParcel(); bs.textBox().sendKeys("BLU147735");
-		 * ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.ENTER));
-		 * bs.clickOnNextBtn(); Assert.assertEquals(bs.firstNameDisplayed().getText(),
-		 * "Urvashi"); Assert.assertEquals(bs.bluIdDisplayed().getText(), "BLU147735");
-		 * bs.clickOnNextBtn(); bs.clickOnBluPortDeliveryMethod();
-		 * mvs.clickonSearchBox(); mvs.enterInSearchBox().sendKeys(bluPort); WebElement
-		 * bluPortName =
-		 * driver.findElement(By.id("sg.com.blu.android.uat:id/textViewBluPortName"));
-		 * bluPortName.click(); Assert.assertTrue(mvs.bluPortPin().isDisplayed());
-		 * Assert.assertTrue(mvs.selectedBluPortName().isDisplayed());
-		 * sls.selectActionBtn(); bs.actionButton();
-		 * rbs.viewRequestDetailsBtn().click(); cf.clickOnBackButton();
-		 * cf.clickOnBackButton();
-		 */
+		rbs.clickOnRequestForParcel();
+		bs.textBox().sendKeys("BLU147735");
+		((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.ENTER));
+		bs.clickOnNextBtn();
+		Assert.assertEquals(bs.firstNameDisplayed().getText(), "Urvashi");
+		Assert.assertEquals(bs.bluIdDisplayed().getText(), "BLU147735");
+		bs.clickOnNextBtn();
+		bs.clickOnBluPortDeliveryMethod();
+		mvs.clickonSearchBox();
+		mvs.enterInSearchBox().sendKeys(bluPort);
+		WebElement bluPortName = driver.findElement(By.id("sg.com.blu.android.uat:id/textViewBluPortName"));
+		bluPortName.click();
+		Assert.assertTrue(mvs.bluPortPin().isDisplayed());
+		Assert.assertTrue(mvs.selectedBluPortName().isDisplayed());
+		sls.selectActionBtn();
+		bs.actionButton();
+		rbs.viewRequestDetailsBtn().click();
+		cf.clickOnBackButton();
+		cf.clickOnBackButton();
+
 		ms.logout();
 		ls.clickLoginLink();
 		ls.bluLogin(mobileNo, password);
@@ -132,7 +140,40 @@ public class CreateBookingViaRequestTestRunner extends BaseClass {
 			System.out.println("Message is :" + e.getMessage());
 			e.printStackTrace();
 		}
-		bs.clickOnMakePaymentBtn();
+
+		System.out.println(bs.topUpBtnOnBookingScreen().getText());
+		if (bs.topUpBtnOnBookingScreen().getText().equalsIgnoreCase("TOP UP")) {
+			
+			System.out.println("Entered in 1st stage");
+			bs.topUpBtnOnBookingScreen().click();
+			
+			if((w.topUpSibling().getText()).equalsIgnoreCase("4242 (expires 04/20)")||(w.topUpSibling().getText()).equalsIgnoreCase("4242 (expires 04/22)"))
+			{
+				System.out.println("Payment method is added");
+				
+			}
+			else if (w.topUpSibling().getText().equalsIgnoreCase("ADD PAYMENT METHOD")) 
+			{
+				System.out.println("Add Payment method");
+				w.clickOnAddPaymentMethod();
+				w.addCardDetails();
+				w.clickOnConfirm();
+				
+			}
+			w.selectTopUpValue();
+			w.selectPreferredMethod();
+			bs.clickOnMakePaymentBtn();
+			cf.clickOnCloseBtn();
+			bs.clickOnMakePaymentBtn();
+			
+			
+		}
+		else if (bs.topUpBtnOnBookingScreen().getText().equalsIgnoreCase("MAKE PAYMENT")) {
+		
+			System.out.println("Wallet have sufficinent balance for booking");
+			bs.clickOnMakePaymentBtn();
+			
+		}
 		bs.clickOnViewBookingDetails();
 		for (int i = 0; i < pds.viewAlertContainer().size(); i++) {
 			if (i == 0)

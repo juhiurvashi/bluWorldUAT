@@ -6,8 +6,8 @@
       <class name="bluAndroid.bluAndroid.TestScripts.WalletTestRunner">
         <methods>
           <include name="SetUp"/>
-          <include name="tc02_paymentMethods"/>
           <include name="getResult"/>
+          <include name="F_S01_TC02_addPaymentMethods"/>
           <include name="tearDown"/>
           <include name="preCondition"/>
         </methods>
@@ -16,7 +16,6 @@
         <methods>
           <include name="SetUp"/>
           <include name="preCondition"/>
-          <include name="tc08_referAFriend"/>
           <include name="tearDown"/>
           <include name="getResult"/>
           <include name="tc07_editMobileAlreadyExists"/>
@@ -25,43 +24,25 @@
       <class name="bluAndroid.bluAndroid.TestScripts.CreateBookingTestRunner">
         <methods>
           <include name="SetUp"/>
-          <include name="getResult"/>
-          <include name="B_S01_TC03_CreateBookingViaBluPortWithBluIdToOwnself"/>
-          <include name="B_S09_TC01_EditOrigin"/>
-          <include name="B_S09_TC04_EditBoxSize"/>
-          <include name="B_S01_TC05_CreateBookingViaBluHomeWithMobileNo"/>
-          <include name="B_S08_TC01_ApplicableRewardsForBooking"/>
-          <include name="B_S06_TC02_VerifyProductCatagoryScreenRemarksField"/>
-          <include name="B_S02_TC02_NotRegisteredMobile"/>
-          <include name="preCondition"/>
-          <include name="B_S09_TC06_EditRemarks"/>
-          <include name="B_S01_TC07_RedeemedRewardCanBeUsesInBooking"/>
-          <include name="B_S09_TC07_EditReward"/>
+          <include name="B_S01_TC07_RedeemedRewardCanBeUsedInBooking"/>
           <include name="B_S09_TC05_EditProductCatagory"/>
-          <include name="B_S01_TC04_CreateBookingViaBluHomeWithBluId"/>
-          <include name="B_S09_TC03_EditDestinationBluHome"/>
-          <include name="B_S01_TC01_CreateBookingViaBluPortWithBluId"/>
-          <include name="B_S02_TC01_InvaldBluId"/>
-          <include name="tearDown"/>
-          <include name="B_S02_TC05_InvalidMobileAndRecipientName"/>
+          <include name="getResult"/>
           <include name="B_S01_TC02_CreateBookingViaBluPortWithMobileNo"/>
+          <include name="preCondition"/>
+          <include name="B_S01_TC03_CreateBookingViaBluPortWithBluIdToOwnself"/>
+          <include name="B_S01_TC04_CreateBookingViaBluHomeWithBluId"/>
           <include name="B_S01_TC06_CreateBookingViaBluHomeWithBluIdToOwnself"/>
-          <include name="B_S09_TC02_EditDestination"/>
-          <include name="B_S02_TC05_ChangeRecipientLink"/>
-          <include name="B_S06_TC01_VerifyProductCatagoryScreen"/>
+          <include name="B_S01_TC01_CreateBookingViaBluPortWithBluId"/>
+          <include name="tearDown"/>
+          <include name="B_S01_TC05_CreateBookingViaBluHomeWithMobileNo"/>
         </methods>
       </class> <!-- bluAndroid.bluAndroid.TestScripts.CreateBookingTestRunner -->
       <class name="bluAndroid.bluAndroid.TestScripts.BluLogoutTestRunner">
         <methods>
           <include name="SetUp"/>
           <include name="preCondition"/>
-          <include name="tc02_resetPassword"/>
-          <include name="tc03_resetPasswordErrorWhenActorhasNotProvidedAnythingAndClicksOnSubmit"/>
-          <include name="tc05_Invalidpassword"/>
-          <include name="tc01_logout"/>
           <include name="getResult"/>
           <include name="tc06_deactivateAccount"/>
-          <include name="tc04_NonMatchingPassword"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- bluAndroid.bluAndroid.TestScripts.BluLogoutTestRunner -->
@@ -69,7 +50,6 @@
         <methods>
           <include name="B_S13_TC04_CreateRequestViaBluHomeWithMobileNo"/>
           <include name="SetUp"/>
-          <include name="B_S13_TC02_CreateRequestViaBluPortWithMobileNo"/>
           <include name="preCondition"/>
           <include name="B_S13_TC03_CreateRequestViaBluHomeWithBluId"/>
           <include name="B_S14_TC01_cancelRequest"/>
@@ -82,8 +62,6 @@
         <methods>
           <include name="SetUp"/>
           <include name="preCondition"/>
-          <include name="tc04_removeBluHomeLocation"/>
-          <include name="tc03_saveABluHomeLocation"/>
           <include name="getResult"/>
           <include name="tearDown"/>
           <include name="tc01_saveALocationByClickingOnHeartIcon"/>
@@ -91,32 +69,25 @@
       </class> <!-- bluAndroid.bluAndroid.TestScripts.SavedLocationsTestRunner -->
       <class name="bluAndroid.bluAndroid.TestScripts.BluLoginTestRunner">
         <methods>
-          <include name="tc03_invalidMobileNumberValidPassword"/>
           <include name="SetUp"/>
           <include name="tc11_invalidMobileNumberInvalidPassword"/>
+          <include name="tc06_notRegisteredMobileNumber"/>
+          <include name="tc08_validEmailPassword"/>
+          <include name="tc10_validMobileNumberInvalidPassword"/>
+          <include name="tearDown"/>
+          <include name="tc03_invalidMobileNumberValidPassword"/>
+          <include name="tc09_validEmailInvalidPassword"/>
           <include name="tc02_invalidEmailValidPassword"/>
           <include name="getResult"/>
           <include name="tc04_withoutCredentials"/>
+          <include name="tc07_notRegisteredEmail"/>
           <include name="preCondition"/>
-          <include name="tearDown"/>
         </methods>
       </class> <!-- bluAndroid.bluAndroid.TestScripts.BluLoginTestRunner -->
-      <class name="bluAndroid.bluAndroid.TestScripts.PublicProfileTestRunner">
-        <methods>
-          <include name="SetUp"/>
-          <include name="tc01_ViewPublicProfile"/>
-          <include name="tc03_viewFriendProfileByMobile"/>
-          <include name="tc02_viewFriendProfileByBluID"/>
-          <include name="getResult"/>
-          <include name="tearDown"/>
-          <include name="preCondition"/>
-        </methods>
-      </class> <!-- bluAndroid.bluAndroid.TestScripts.PublicProfileTestRunner -->
       <class name="bluAndroid.bluAndroid.TestScripts.CreateBookingViaRequestTestRunner">
         <methods>
           <include name="SetUp"/>
           <include name="B_S15_TC01_MakeBookingViaRequest"/>
-          <include name="B_S15_TC02_RejectRequest"/>
           <include name="preCondition"/>
           <include name="getResult"/>
           <include name="tearDown"/>
@@ -125,29 +96,19 @@
       <class name="bluAndroid.bluAndroid.TestScripts.BluSignUpTestRunner">
         <methods>
           <include name="SetUp"/>
-          <include name="A_S02_TC01_signupWithAllDetails"/>
-          <include name="A_S02_TC11_signupInvalidMobile"/>
-          <include name="A_S02_TC15_signupWithoutPassword"/>
+          <include name="A_S02_TC18_signupWithoutMobileNumber"/>
           <include name="getResult"/>
-          <include name="A_S02_TC17_signupWithoutFirstName"/>
-          <include name="A_S02_TC09_signupNonMatchingPassword"/>
-          <include name="A_S02_TC07_signupRegisteredEmail"/>
           <include name="tearDown"/>
           <include name="preCondition"/>
-          <include name="A_S02_TC05_signupManDetails"/>
-          <include name="A_S02_TC13_signupInvalidRefferalCode"/>
         </methods>
       </class> <!-- bluAndroid.bluAndroid.TestScripts.BluSignUpTestRunner -->
       <class name="bluAndroid.bluAndroid.TestScripts.RewardsTestRunner">
         <methods>
           <include name="G_S06_TC01_redeemRewardWithCredits"/>
           <include name="SetUp"/>
-          <include name="G_S06_TC03_redeemRewardWithPointsAndCredits"/>
           <include name="G_S06_TC04_redeemPhysicalReward"/>
-          <include name="G_S06_TC05_promoCode"/>
-          <include name="G_S06_TC02_redeemRewardWithPoints"/>
+          <include name="G_S06_TC06_InsufficientCredits"/>
           <include name="tearDown"/>
-          <include name="G_S06_TC06_redeemedRewardDisplayedUnderRedeemedTab"/>
           <include name="preCondition"/>
         </methods>
       </class> <!-- bluAndroid.bluAndroid.TestScripts.RewardsTestRunner -->

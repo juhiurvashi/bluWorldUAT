@@ -136,25 +136,37 @@ public class CreateBookingTestRunner extends BaseClass {
 			System.out.println("Message is :" + e.getMessage());
 			e.printStackTrace();
 		}
-		bs.clickOnMakePaymentBtn();
-		if (bs.topUpOnBookingScreen().isDisplayed()) {
-			bs.topUpOnBookingScreen().click();
-			w.selectValues();
-			if((w.topUpSibling().getText()).equalsIgnoreCase("4242 (expires 04/20)"))
+
+		System.out.println(bs.topUpBtnOnBookingScreen().getText());
+		if (bs.topUpBtnOnBookingScreen().getText().equalsIgnoreCase("TOP UP")) {
+			
+			System.out.println("Entered in 1st stage");
+			bs.topUpBtnOnBookingScreen().click();
+			
+			if((w.topUpSibling().getText()).equalsIgnoreCase("4242 (expires 04/20)")||(w.topUpSibling().getText()).equalsIgnoreCase("4242 (expires 04/22)"))
 			{
-				w.selectPreferredMethod();
+				System.out.println("Payment method is added");
 			}
 			else if (w.topUpSibling().getText().equalsIgnoreCase("ADD PAYMENT METHOD")) 
 			{
+				System.out.println("Add Payment method");
 				w.clickOnAddPaymentMethod();
 				w.addCardDetails();
 				w.clickOnConfirm();
-				w.selectPreferredMethod();
 			}
-			w.clickOnSubmit();
+			w.selectTopUpValue();
+			w.selectPreferredMethod();
+			bs.clickOnMakePaymentBtn();
 			cf.clickOnCloseBtn();
-			bs.topUpOnBookingScreen().click();
-
+			bs.clickOnMakePaymentBtn();
+			
+			
+		}
+		else if (bs.topUpBtnOnBookingScreen().getText().equalsIgnoreCase("MAKE PAYMENT")) {
+		
+			System.out.println("Wallet have sufficinent balance for booking");
+			bs.clickOnMakePaymentBtn();
+	
 		}
 		bs.clickOnViewBookingDetails();
 		for (int i = 0; i < pds.viewAlertContainer().size(); i++) {
@@ -186,7 +198,7 @@ public class CreateBookingTestRunner extends BaseClass {
 
 	@Test
 	public void B_S01_TC02_CreateBookingViaBluPortWithMobileNo() {
-		System.out.println("B_S02_TC01_CreateBookingViaBluPortWithMobileNo");
+		System.out.println("B_S01_TC02_CreateBookingViaBluPortWithMobileNo");
 		extentTest = extentReports.createTest("B_S01_TC02_CreateBookingViaBluPortWithMobileNo");
 		ls.sendParcel().click();
 		pp.clickOnMobile();
@@ -228,17 +240,38 @@ public class CreateBookingTestRunner extends BaseClass {
 			System.out.println("Message is :" + e.getMessage());
 			e.printStackTrace();
 		}
-		bs.clickOnMakePaymentBtn();
-		if (bs.topUpOnBookingScreen().isDisplayed()) {
-			bs.topUpOnBookingScreen().click();
-			w.selectValues();
+
+		System.out.println(bs.topUpBtnOnBookingScreen().getText());
+		if (bs.topUpBtnOnBookingScreen().getText().equalsIgnoreCase("TOP UP")) {
+			
+			System.out.println("Entered in 1st stage");
+			bs.topUpBtnOnBookingScreen().click();
+			
+			if((w.topUpSibling().getText()).equalsIgnoreCase("4242 (expires 04/20)")||(w.topUpSibling().getText()).equalsIgnoreCase("4242 (expires 04/22)"))
+			{
+				System.out.println("Payment method is already added");
+			}
+			else if (w.topUpSibling().getText().equalsIgnoreCase("ADD PAYMENT METHOD")) 
+			{
+				System.out.println("Add Payment method");
+				w.clickOnAddPaymentMethod();
+				w.addCardDetails();
+				w.clickOnConfirm();
+			}
+			w.selectTopUpValue();
 			w.selectPreferredMethod();
-			w.clickOnSubmit();
+			bs.clickOnMakePaymentBtn();
 			cf.clickOnCloseBtn();
-			bs.topUpOnBookingScreen().click();
-
+			bs.clickOnMakePaymentBtn();
+			
+			
 		}
-
+		else if (bs.topUpBtnOnBookingScreen().getText().equalsIgnoreCase("MAKE PAYMENT")) {
+		
+			System.out.println("Wallet have sufficinent balance for booking");
+			bs.clickOnMakePaymentBtn();
+			
+		}
 		bs.clickOnViewBookingDetails();
 		for (int i = 0; i < pds.viewAlertContainer().size(); i++) {
 			if (i == 0)
@@ -266,7 +299,6 @@ public class CreateBookingTestRunner extends BaseClass {
 		cf.swiptToTop();
 		Assert.assertEquals(pds.parcelDetailsScreenStatus().getText(), "Cancelled");
 	}
-
 	@Test
 	public void B_S01_TC03_CreateBookingViaBluPortWithBluIdToOwnself() {
 		System.out.println("B_S01_TC03_CreateBookingViaBluPortWithBluIdToOwnself");
@@ -306,15 +338,38 @@ public class CreateBookingTestRunner extends BaseClass {
 			System.out.println("Message is :" + e.getMessage());
 			e.printStackTrace();
 		}
-		bs.clickOnMakePaymentBtn();
-		if (bs.topUpOnBookingScreen().isDisplayed()) {
-			bs.topUpOnBookingScreen().click();
-			w.selectValues();
-			w.selectPreferredMethod();
-			w.clickOnSubmit();
-			cf.clickOnCloseBtn();
-			bs.topUpOnBookingScreen().click();
 
+		System.out.println(bs.topUpBtnOnBookingScreen().getText());
+		if (bs.topUpBtnOnBookingScreen().getText().equalsIgnoreCase("TOP UP")) {
+			
+			System.out.println("Entered in 1st stage");
+			bs.topUpBtnOnBookingScreen().click();
+			
+			if((w.topUpSibling().getText()).equalsIgnoreCase("4242 (expires 04/20)")||(w.topUpSibling().getText()).equalsIgnoreCase("4242 (expires 04/22)"))
+			{
+				System.out.println("Payment method is added");
+			}
+			else if (w.topUpSibling().getText().equalsIgnoreCase("ADD PAYMENT METHOD")) 
+			{
+				System.out.println("Add Payment method");
+				w.clickOnAddPaymentMethod();
+				w.addCardDetails();
+				w.clickOnConfirm();
+				
+			}
+			w.selectTopUpValue();
+			w.selectPreferredMethod();
+			bs.clickOnMakePaymentBtn();
+			cf.clickOnCloseBtn();
+			bs.clickOnMakePaymentBtn();
+			
+			
+		}
+		else if (bs.topUpBtnOnBookingScreen().getText().equalsIgnoreCase("MAKE PAYMENT")) {
+		
+			System.out.println("Wallet have sufficinent balance for booking");
+			bs.clickOnMakePaymentBtn();
+		
 		}
 		bs.clickOnViewBookingDetails();
 		for (int i = 0; i < pds.viewAlertContainer().size(); i++) {
@@ -343,7 +398,6 @@ public class CreateBookingTestRunner extends BaseClass {
 		cf.swiptToTop();
 		Assert.assertEquals(pds.parcelDetailsScreenStatus().getText(), "Cancelled");
 	}
-
 	@Test
 	public void B_S01_TC04_CreateBookingViaBluHomeWithBluId() {
 		System.out.println("B_S01_TC04_CreateBookingViaBluHomeWithBluId");
@@ -386,15 +440,38 @@ public class CreateBookingTestRunner extends BaseClass {
 			System.out.println("Message is :" + e.getMessage());
 			e.printStackTrace();
 		}
-		bs.clickOnMakePaymentBtn();
-		if (bs.topUpOnBookingScreen().isDisplayed()) {
-			bs.topUpOnBookingScreen().click();
-			w.selectValues();
-			w.selectPreferredMethod();
-			w.clickOnSubmit();
-			cf.clickOnCloseBtn();
-			bs.topUpOnBookingScreen().click();
 
+		System.out.println(bs.topUpBtnOnBookingScreen().getText());
+		if (bs.topUpBtnOnBookingScreen().getText().equalsIgnoreCase("TOP UP")) {
+			
+			System.out.println("Entered in 1st stage");
+			bs.topUpBtnOnBookingScreen().click();
+			
+			if((w.topUpSibling().getText()).equalsIgnoreCase("4242 (expires 04/20)")||(w.topUpSibling().getText()).equalsIgnoreCase("4242 (expires 04/22)"))
+			{
+				System.out.println("Payment method is already added");
+			}
+			else if (w.topUpSibling().getText().equalsIgnoreCase("ADD PAYMENT METHOD")) 
+			{
+				System.out.println("Add Payment method");
+				w.clickOnAddPaymentMethod();
+				w.addCardDetails();
+				w.clickOnConfirm();
+				
+			}
+			w.selectTopUpValue();
+			w.selectPreferredMethod();
+			bs.clickOnMakePaymentBtn();
+			cf.clickOnCloseBtn();
+			bs.clickOnMakePaymentBtn();
+			
+			
+		}
+		else if (bs.topUpBtnOnBookingScreen().getText().equalsIgnoreCase("MAKE PAYMENT")) {
+		
+			System.out.println("Wallet have sufficinent balance for booking");
+			bs.clickOnMakePaymentBtn();
+			
 		}
 		bs.clickOnViewBookingDetails();
 		for (int i = 0; i < pds.viewAlertContainer().size(); i++) {
@@ -423,7 +500,6 @@ public class CreateBookingTestRunner extends BaseClass {
 		cf.swiptToTop();
 		Assert.assertEquals(pds.parcelDetailsScreenStatus().getText(), "Cancelled");
 	}
-
 	@Test
 	public void B_S01_TC05_CreateBookingViaBluHomeWithMobileNo() {
 		System.out.println("B_S01_TC05_CreateBookingViaBluHomeWithMobileNo");
@@ -469,15 +545,38 @@ public class CreateBookingTestRunner extends BaseClass {
 			System.out.println("Message is :" + e.getMessage());
 			e.printStackTrace();
 		}
-		bs.clickOnMakePaymentBtn();
-		if (bs.topUpOnBookingScreen().isDisplayed()) {
-			bs.topUpOnBookingScreen().click();
-			w.selectValues();
-			w.selectPreferredMethod();
-			w.clickOnSubmit();
-			cf.clickOnCloseBtn();
-			bs.topUpOnBookingScreen().click();
 
+		System.out.println(bs.topUpBtnOnBookingScreen().getText());
+		if (bs.topUpBtnOnBookingScreen().getText().equalsIgnoreCase("TOP UP")) {
+			
+			System.out.println("Entered in 1st stage");
+			bs.topUpBtnOnBookingScreen().click();
+			
+			if((w.topUpSibling().getText()).equalsIgnoreCase("4242 (expires 04/20)")||(w.topUpSibling().getText()).equalsIgnoreCase("4242 (expires 04/22)"))
+			{
+				System.out.println("Payment method is added");
+			}
+			else if (w.topUpSibling().getText().equalsIgnoreCase("ADD PAYMENT METHOD")) 
+			{
+				System.out.println("Add Payment method");
+				w.clickOnAddPaymentMethod();
+				w.addCardDetails();
+				w.clickOnConfirm();
+				
+			}
+			w.selectTopUpValue();
+			w.selectPreferredMethod();
+			bs.clickOnMakePaymentBtn();
+			cf.clickOnCloseBtn();
+			bs.clickOnMakePaymentBtn();
+			
+			
+		}
+		else if (bs.topUpBtnOnBookingScreen().getText().equalsIgnoreCase("MAKE PAYMENT")) {
+		
+			System.out.println("Wallet have sufficinent balance for booking");
+			bs.clickOnMakePaymentBtn();
+			
 		}
 		bs.clickOnViewBookingDetails();
 		for (int i = 0; i < pds.viewAlertContainer().size(); i++) {
@@ -506,7 +605,6 @@ public class CreateBookingTestRunner extends BaseClass {
 		cf.swiptToTop();
 		Assert.assertEquals(pds.parcelDetailsScreenStatus().getText(), "Cancelled");
 	}
-
 	@Test
 	public void B_S01_TC06_CreateBookingViaBluHomeWithBluIdToOwnself() {
 		System.out.println("B_S01_TC06_CreateBookingViaBluHomeWithBluIdToOwnself");
@@ -546,15 +644,39 @@ public class CreateBookingTestRunner extends BaseClass {
 			System.out.println("Message is :" + e.getMessage());
 			e.printStackTrace();
 		}
-		bs.clickOnMakePaymentBtn();
-		if (bs.topUpOnBookingScreen().isDisplayed()) {
-			bs.topUpOnBookingScreen().click();
-			w.selectValues();
-			w.selectPreferredMethod();
-			w.clickOnSubmit();
-			cf.clickOnCloseBtn();
-			bs.topUpOnBookingScreen().click();
 
+		System.out.println(bs.topUpBtnOnBookingScreen().getText());
+		if (bs.topUpBtnOnBookingScreen().getText().equalsIgnoreCase("TOP UP")) {
+			
+			System.out.println("Entered in 1st stage");
+			bs.topUpBtnOnBookingScreen().click();
+			
+			if((w.topUpSibling().getText()).equalsIgnoreCase("4242 (expires 04/20)")||(w.topUpSibling().getText()).equalsIgnoreCase("4242 (expires 04/22)"))
+			{
+				System.out.println("Payment method is added");
+				
+			}
+			else if (w.topUpSibling().getText().equalsIgnoreCase("ADD PAYMENT METHOD")) 
+			{
+				System.out.println("Add Payment method");
+				w.clickOnAddPaymentMethod();
+				w.addCardDetails();
+				w.clickOnConfirm();
+				
+			}
+			w.selectTopUpValue();
+			w.selectPreferredMethod();
+			bs.clickOnMakePaymentBtn();
+			cf.clickOnCloseBtn();
+			bs.clickOnMakePaymentBtn();
+			
+			
+		}
+		else if (bs.topUpBtnOnBookingScreen().getText().equalsIgnoreCase("MAKE PAYMENT")) {
+		
+			System.out.println("Wallet have sufficinent balance for booking");
+			bs.clickOnMakePaymentBtn();
+			
 		}
 		bs.clickOnViewBookingDetails();
 		for (int i = 0; i < pds.viewAlertContainer().size(); i++) {
@@ -1008,7 +1130,7 @@ public class CreateBookingTestRunner extends BaseClass {
 		Assert.assertEquals(bs.firstTextOfScreen().getText(), "Product category");
 		bs.selectProductCatagorySecondItem();
 		bs.clickOnNextBtn();
-		Assert.assertEquals(bs.productCatagoryOnReviewBooking().getText(), "Shoes & bags");
+		Assert.assertEquals(bs.productCatagoryOnReviewBooking().getText(), "Sport");
 	}
 
 	@Test
@@ -1148,18 +1270,46 @@ public class CreateBookingTestRunner extends BaseClass {
 			System.out.println("Message is :" + e.getMessage());
 			e.printStackTrace();
 		}
-		bs.clickOnMakePaymentBtn();
-		if (bs.topUpOnBookingScreen().isDisplayed()) {
-			bs.topUpOnBookingScreen().click();
-			w.selectValues();
-			w.selectPreferredMethod();
-			w.clickOnSubmit();
-			cf.clickOnCloseBtn();
-			bs.topUpOnBookingScreen().click();
 
+		System.out.println(bs.topUpBtnOnBookingScreen().getText());
+		if (bs.topUpBtnOnBookingScreen().getText().equalsIgnoreCase("TOP UP")) {
+			
+			System.out.println("Entered in 1st stage");
+			bs.topUpBtnOnBookingScreen().click();
+			
+			if((w.topUpSibling().getText()).equalsIgnoreCase("4242 (expires 04/20)")||(w.topUpSibling().getText()).equalsIgnoreCase("4242 (expires 04/22)"))
+			{
+				System.out.println("Payment method is added");
+				
+			}
+			else if (w.topUpSibling().getText().equalsIgnoreCase("ADD PAYMENT METHOD")) 
+			{
+				System.out.println("Add Payment method");
+				w.clickOnAddPaymentMethod();
+				w.addCardDetails();
+				w.clickOnConfirm();
+				/*
+				 * if(pu.alertMsg().getText().
+				 * equalsIgnoreCase("You have entered invalid card data.Please check.")) {
+				 * pu.clickBtn1(); w.addCardDetails(); w.clickOnConfirm(); }
+				 */
+				
+			}
+			w.selectTopUpValue();
+			w.selectPreferredMethod();
+			bs.clickOnMakePaymentBtn();
+			cf.clickOnCloseBtn();
+			bs.clickOnMakePaymentBtn();
+			
+			
+		}
+		else if (bs.topUpBtnOnBookingScreen().getText().equalsIgnoreCase("MAKE PAYMENT")) {
+		
+			System.out.println("Wallet have sufficinent balance for booking");
+			bs.clickOnMakePaymentBtn();
+			
 		}
 		bs.clickOnViewBookingDetails();
-
 		Assert.assertEquals(pds.parcelDetailsScreenStatus().getText(), "Awaiting drop-off");
 		// cf.swipeInListTillExpectedTextAndTap(pds.parcelDetailsViewContainer(),
 		// "Total", 20);

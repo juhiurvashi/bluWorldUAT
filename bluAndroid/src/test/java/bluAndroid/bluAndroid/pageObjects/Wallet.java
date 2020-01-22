@@ -78,7 +78,7 @@ public class Wallet {
 		 * i=0;i<list.size();i++) { System.out.println(list.get(i).getText()); }
 		 */
 		}
-		public void selectValues()
+		public void selectTopUpValue()
 		{
 			WebElement topUpvalue=driver.findElement(By.xpath("//android.widget.LinearLayout[@resource-id='sg.com.blu.android.uat:id/topUpVolumeContainer']//android.widget.Button[1]"));
 			topUpvalue.click();

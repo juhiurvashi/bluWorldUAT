@@ -63,7 +63,7 @@ public class WalletTestRunner extends BaseClass {
 		float f1 = f + 5;
 		String floatingpoint = String.valueOf(f1);
 		w.clickOnTopUp();
-		w.selectValues();
+		w.selectTopUpValue();
 		System.out.println(w.topUpSibling().getText());
 		if((w.topUpSibling().getText()).equalsIgnoreCase("4242 (expires 04/20)"))
 		{

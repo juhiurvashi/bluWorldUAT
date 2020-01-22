@@ -3,15 +3,35 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="bluAndroid.bluAndroid.TestScripts.WalletTestRunner">
+      <class name="bluAndroid.bluAndroid.TestScripts.CreateBookingTestRunner">
         <methods>
           <include name="SetUp"/>
-          <include name="F_S01_TC01_topUpWallet"/>
+          <include name="B_S01_TC07_RedeemedRewardCanBeUsedInBooking"/>
           <include name="getResult"/>
-          <include name="tearDown"/>
+          <include name="B_S01_TC03_CreateBookingViaBluPortWithBluIdToOwnself"/>
+          <include name="B_S09_TC01_EditOrigin"/>
+          <include name="B_S09_TC04_EditBoxSize"/>
+          <include name="B_S01_TC05_CreateBookingViaBluHomeWithMobileNo"/>
+          <include name="B_S08_TC01_ApplicableRewardsForBooking"/>
+          <include name="B_S06_TC02_VerifyProductCatagoryScreenRemarksField"/>
+          <include name="B_S02_TC02_NotRegisteredMobile"/>
           <include name="preCondition"/>
+          <include name="B_S09_TC06_EditRemarks"/>
+          <include name="B_S09_TC07_EditReward"/>
+          <include name="B_S09_TC05_EditProductCatagory"/>
+          <include name="B_S01_TC04_CreateBookingViaBluHomeWithBluId"/>
+          <include name="B_S09_TC03_EditDestinationBluHome"/>
+          <include name="B_S01_TC01_CreateBookingViaBluPortWithBluId"/>
+          <include name="B_S02_TC01_InvaldBluId"/>
+          <include name="tearDown"/>
+          <include name="B_S02_TC05_InvalidMobileAndRecipientName"/>
+          <include name="B_S01_TC02_CreateBookingViaBluPortWithMobileNo"/>
+          <include name="B_S01_TC06_CreateBookingViaBluHomeWithBluIdToOwnself"/>
+          <include name="B_S09_TC02_EditDestination"/>
+          <include name="B_S02_TC05_ChangeRecipientLink"/>
+          <include name="B_S06_TC01_VerifyProductCatagoryScreen"/>
         </methods>
-      </class> <!-- bluAndroid.bluAndroid.TestScripts.WalletTestRunner -->
+      </class> <!-- bluAndroid.bluAndroid.TestScripts.CreateBookingTestRunner -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
