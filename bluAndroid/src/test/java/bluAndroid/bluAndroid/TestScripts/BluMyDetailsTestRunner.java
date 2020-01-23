@@ -173,8 +173,8 @@ public class BluMyDetailsTestRunner extends BaseClass {
 	}
 	@Test
 	public void tc07_editMobileAlreadyExists() throws IOException {
-		System.out.println("tc07_editEmailAlreadyExists");
-		extentTest = extentReports.createTest("tc07_editEmailAlreadyExists()");
+		System.out.println("tc07_editMobileAlreadyExists");
+		extentTest = extentReports.createTest("tc07_editMobileAlreadyExists()");
 		mds.clickOnMyDetails();
 		System.out.println("");
 		mds.clickOneditIconMobile();
@@ -187,7 +187,7 @@ public class BluMyDetailsTestRunner extends BaseClass {
 		Assert.assertEquals(displayMsg.getText(), "Mobile Number already used.");
 		driver.findElement(By.id("android:id/button1")).click();
 		WebElement displayMobile=driver.findElement(By.xpath("//android.widget.FrameLayout[@resource-id='sg.com.blu.android.uat:id/mobile_number_profileDisplayField']//android.widget.TextView[@resource-id='sg.com.blu.android.uat:id/display_tv']"));
-		Assert.assertEquals(displayMobile.getText(), "94561718");
+		Assert.assertEquals(displayMobile.getText(), "+65 94561718");
 	}
 	//@Test
 	public void tc06_editDOB() throws IOException {

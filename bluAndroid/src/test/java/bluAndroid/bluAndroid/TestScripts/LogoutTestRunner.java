@@ -20,6 +20,7 @@ import bluAndroid.bluAndroid.pageObjects.CommonFunctions;
 import bluAndroid.bluAndroid.pageObjects.LoginScreen;
 import bluAndroid.bluAndroid.pageObjects.MenuScreen;
 import bluAndroid.bluAndroid.pageObjects.MyDetailsScreen;
+import bluAndroid.bluAndroid.pageObjects.PopUp;
 import bluAndroid.bluAndroid.pageObjects.SettingsScreen;
 import bluAndroid.bluAndroid.util.BaseClass;
 import bluAndroid.bluAndroid.util.CommonUtil;
@@ -28,7 +29,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.offset.PointOption;
 
-public class BluLogoutTestRunner extends BaseClass {
+public class LogoutTestRunner extends BaseClass {
 	
 	static AppiumDriver<WebElement> driver;
 	LoginScreen ls;
@@ -37,12 +38,13 @@ public class BluLogoutTestRunner extends BaseClass {
 	MenuScreen ms;
 	CommonFunctions cf;
 	SettingsScreen ss;
+	PopUp pu;
 	@BeforeMethod
 	public void preCondition() throws IOException
 
 	{
 		System.out.println("Set Up....");
-		BluLogoutTestRunner.driver = BaseClass.getAppCapabilities();
+		LogoutTestRunner.driver = BaseClass.getAppCapabilities();
 		mobileNo = CommonUtil.getPropertyValue("login", "mobileNo");
 		password = CommonUtil.getPropertyValue("login", "password");
 		ls = new LoginScreen(driver);
@@ -52,6 +54,7 @@ public class BluLogoutTestRunner extends BaseClass {
 		ms=new MenuScreen(driver);
 		cf=new  CommonFunctions(driver);
 		ss=new SettingsScreen(driver);
+		pu=new PopUp(driver);
 	}
 	
 	@Test
@@ -153,12 +156,15 @@ public class BluLogoutTestRunner extends BaseClass {
 		System.out.println("tc06_deactivateAccount");
 		extentTest = extentReports.createTest("tc06_deactivateAccount");
 		ms.clickOnSettings();
-		WebElement deactivateAccount=driver.findElement(By.id("sg.com.blu.android.uat:id/deactivate_account_container"));
-		List<WebElement> list=driver.findElements(By.className("android.widget.RadioGroup"));
-		deactivateAccount.click();
-		WebElement reason=driver.findElement(By.xpath("//android.widget.RadioGroup[@resource-id='sg.com.blu.android.uat:id/radioGroup']//android.widget.RelativeLayout"));
-		reason.click();
-		cf.swipeUp(list);	 
+		ss.clickOnDeactivateAccount();
+		ss.selectReason();
+		cf.swiptToBottom();
+		ss.clickOnDeactivateAccountBtn();
+		Assert.assertEquals(ss.deactivateAlertTitle().getText(), "Deactivate account");
+		Assert.assertEquals(pu.alertMsg().getText(), "Are you sure you want to deactivate this account?");
+		pu.clickBtn1();
+		WebElement deactivateMsg=driver.findElement(By.xpath("//android.widget.ScrollView[@resource-id='sg.com.blu.android.uat:id/nestedScroll']//android.widget.LinearLayout//android.widget.TextView[1]"));
+		Assert.assertEquals(deactivateMsg.getText(), "Account Deactivated");
 	}
 	@AfterMethod
 	public void getResult(ITestResult testResult) throws IOException {

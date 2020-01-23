@@ -7,10 +7,15 @@ import java.io.IOException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.collections.Objects;
+
+import com.aventstack.extentreports.markuputils.ExtentColor;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
 
 import bluAndroid.bluAndroid.pageObjects.BookingScreen;
 import bluAndroid.bluAndroid.pageObjects.CommonFunctions;
@@ -290,6 +295,28 @@ public class RewardsTestRunner extends BaseClass {
 		prs.redeemBtn().click();
 		Assert.assertEquals(pu.alertMsg().getText(), "Insufficient points and/or credits to redeem this reward. Top up your wallet or earn more points to redeem.");
 		pu.clickBtn1();
+	}
+	@AfterMethod
+	public void getResult(ITestResult testResult) throws IOException {
+		if (testResult.getStatus() == ITestResult.SKIP) {
+			System.out.println("Skipped extent report");
+			extentTest.skip(MarkupHelper.createLabel(testResult.getName() + " Test Case SKIPPED", ExtentColor.BLUE));
+			extentTest.skip(testResult.getThrowable());
+			// extentTest.log(Status.SKIP, MarkupHelper.createLabel(testResult.getName() + "
+			// - Test Case Skipped", ExtentColor.ORANGE));
+		} else if (testResult.getStatus() == ITestResult.FAILURE) {
+			extentTest.fail(MarkupHelper.createLabel(testResult.getName() + " Test case FAILED due to below issues:",
+					ExtentColor.RED));
+			extentTest.fail(testResult.getThrowable());
+			String screenshotPath = CommonUtil.takesScreenShotFailed(driver, testResult.getName());
+			extentTest.addScreenCaptureFromPath(screenshotPath);
+		} else if (testResult.getStatus() == ITestResult.SUCCESS) {
+			extentTest.pass(MarkupHelper.createLabel(testResult.getName() + " Test Case PASSED", ExtentColor.GREEN));
+			String screenshotPath = CommonUtil.takesScreenShot(driver, testResult.getName());
+
+			extentTest.addScreenCaptureFromPath(screenshotPath);
+		}
+
 	}
 	}
 	

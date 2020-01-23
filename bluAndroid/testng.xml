@@ -3,6 +3,8 @@
 
 	<test name="order">
 		<classes>
+		    <class name="bluAndroid.bluAndroid.TestScripts.CreateRequestTestRunner" />
+		    <class name="bluAndroid.bluAndroid.TestScripts.RewardsTestRunner" />
 			<class name="bluAndroid.bluAndroid.TestScripts.BluLoginTestRunner" />
 			<class name="bluAndroid.bluAndroid.TestScripts.BluSignUpTestRunner" />
 			<class name="bluAndroid.bluAndroid.TestScripts.BluMyDetailsTestRunner" />
@@ -11,10 +13,8 @@
 			<class name="bluAndroid.bluAndroid.TestScripts.CheckOutWithBluTestRunner" />
 			<class name="bluAndroid.bluAndroid.TestScripts.SavedLocationsTestRunner" />
 			<class name="bluAndroid.bluAndroid.TestScripts.CreateBookingTestRunner" />
-			<class name="bluAndroid.bluAndroid.TestScripts.CreateRequestTestRunner" />
+			<class name="bluAndroid.bluAndroid.TestScripts.LogoutTestRunner" />
 			<class name="bluAndroid.bluAndroid.TestScripts.CreateBookingViaRequestTestRunner" />
-			<class name="bluAndroid.bluAndroid.TestScripts.RewardsTestRunner" />
-			<class name="bluAndroid.bluAndroid.TestScripts.BluLogoutTestRunner" />
 		</classes>
 	</test>
 
