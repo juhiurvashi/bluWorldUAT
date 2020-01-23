@@ -2,39 +2,39 @@
 <testng-results skipped="0" failed="0" ignored="5" total="6" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="49720" started-at="2020-01-23T10:53:01 SGT" finished-at="2020-01-23T10:53:51 SGT">
+  <suite name="Default suite" duration-ms="78557" started-at="2020-01-23T15:43:10 SGT" finished-at="2020-01-23T15:44:29 SGT">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="49720" started-at="2020-01-23T10:53:01 SGT" finished-at="2020-01-23T10:53:51 SGT">
-      <class name="bluAndroid.bluAndroid.TestScripts.LogoutTestRunner">
-        <test-method status="PASS" signature="SetUp()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.LogoutTestRunner@a74868d]" name="SetUp" is-config="true" duration-ms="141" started-at="2020-01-23T10:53:01 SGT" finished-at="2020-01-23T10:53:01 SGT">
+    <test name="Default test" duration-ms="78557" started-at="2020-01-23T15:43:10 SGT" finished-at="2020-01-23T15:44:29 SGT">
+      <class name="bluAndroid.bluAndroid.TestScripts.SavedLocationsTestRunner">
+        <test-method status="PASS" signature="SetUp()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.SavedLocationsTestRunner@7e0e6aa2]" name="SetUp" is-config="true" duration-ms="137" started-at="2020-01-23T15:43:10 SGT" finished-at="2020-01-23T15:43:10 SGT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SetUp -->
-        <test-method status="PASS" signature="preCondition()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.LogoutTestRunner@a74868d]" name="preCondition" is-config="true" duration-ms="37150" started-at="2020-01-23T10:53:01 SGT" finished-at="2020-01-23T10:53:38 SGT">
+        <test-method status="PASS" signature="preCondition()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.SavedLocationsTestRunner@7e0e6aa2]" name="preCondition" is-config="true" duration-ms="37317" started-at="2020-01-23T15:43:11 SGT" finished-at="2020-01-23T15:43:48 SGT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- preCondition -->
-        <test-method status="PASS" signature="tc06_deactivateAccount()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.LogoutTestRunner@a74868d]" name="tc06_deactivateAccount" duration-ms="10837" started-at="2020-01-23T10:53:38 SGT" finished-at="2020-01-23T10:53:49 SGT">
+        <test-method status="PASS" signature="tc03_bluHomeAddressValidation()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.SavedLocationsTestRunner@7e0e6aa2]" name="tc03_bluHomeAddressValidation" duration-ms="39511" started-at="2020-01-23T15:43:48 SGT" finished-at="2020-01-23T15:44:27 SGT">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- tc06_deactivateAccount -->
-        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:bluAndroid.bluAndroid.TestScripts.LogoutTestRunner@a74868d]" name="getResult" is-config="true" duration-ms="1698" started-at="2020-01-23T10:53:49 SGT" finished-at="2020-01-23T10:53:51 SGT">
+        </test-method> <!-- tc03_bluHomeAddressValidation -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:bluAndroid.bluAndroid.TestScripts.SavedLocationsTestRunner@7e0e6aa2]" name="getResult" is-config="true" duration-ms="1701" started-at="2020-01-23T15:44:27 SGT" finished-at="2020-01-23T15:44:29 SGT">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=tc06_deactivateAccount status=SUCCESS method=LogoutTestRunner.tc06_deactivateAccount()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.LogoutTestRunner@a74868d] output={null}]]]>
+                <![CDATA[[TestResult name=tc03_bluHomeAddressValidation status=SUCCESS method=SavedLocationsTestRunner.tc03_bluHomeAddressValidation()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.SavedLocationsTestRunner@7e0e6aa2] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.LogoutTestRunner@a74868d]" name="tearDown" is-config="true" duration-ms="448" started-at="2020-01-23T10:53:51 SGT" finished-at="2020-01-23T10:53:51 SGT">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.SavedLocationsTestRunner@7e0e6aa2]" name="tearDown" is-config="true" duration-ms="411" started-at="2020-01-23T15:44:29 SGT" finished-at="2020-01-23T15:44:29 SGT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- bluAndroid.bluAndroid.TestScripts.LogoutTestRunner -->
+      </class> <!-- bluAndroid.bluAndroid.TestScripts.SavedLocationsTestRunner -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

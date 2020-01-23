@@ -52,6 +52,11 @@ public class SavedLocationsScreen {
 		WebElement bluHomeAddress1=driver.findElement(By.id("sg.com.blu.android.uat:id/bluHomeFormAddress1InputField"));
 		return bluHomeAddress1;
 	}
+	public WebElement bluHomeAddress1Error()
+	{
+		WebElement bluHomeAddress1=driver.findElement(By.xpath("//android.widget.LinearLayout[@resource-id='sg.com.blu.android.uat:id/bluHomeFormAddress1InputField']//android.widget.TextView[@resource-id='sg.com.blu.android.uat:id/error_tv']"));
+		return bluHomeAddress1;
+	}
 	public WebElement bluHomeAddress2()
 	{
 		WebElement bluHomeAddress2=driver.findElement(By.id("sg.com.blu.android.uat:id/bluHomeFormAddress2InputField"));
@@ -60,6 +65,11 @@ public class SavedLocationsScreen {
 	public WebElement bluHomePostalCode()
 	{
 		WebElement bluHomePostalCode=driver.findElement(By.id("sg.com.blu.android.uat:id/bluHomeFormPostalCodeInputField"));
+		return bluHomePostalCode;
+	}
+	public WebElement bluHomePostalCodeError()
+	{
+		WebElement bluHomePostalCode=driver.findElement(By.xpath("//android.widget.LinearLayout[@resource-id='sg.com.blu.android.uat:id/bluHomeFormPostalCodeInputField']//android.widget.TextView[@resource-id='sg.com.blu.android.uat:id/error_tv']"));
 		return bluHomePostalCode;
 	}
 }

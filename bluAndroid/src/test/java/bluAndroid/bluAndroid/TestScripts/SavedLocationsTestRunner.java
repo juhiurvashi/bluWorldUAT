@@ -174,6 +174,33 @@ public class SavedLocationsTestRunner extends BaseClass {
 		}
 		
 	}
+	@Test
+	public void tc03_bluHomeAddressValidation() throws IOException
+	{
+		System.out.println("tc03_bluHomeAddressValidation");
+		extentTest = extentReports.createTest("tc03_bluHomeAddressValidation");
+		mds.clickOnMenu();
+		ms.clickOnSavedLocations();
+		sls.clickOnBluHome();
+		sls.clickOnSaveALocationLink();
+		sls.clickOnSaveLocationBluHomeBtn();
+		Assert.assertEquals(sls.bluHomeAddress1Error().getText(), "Enter address.");
+		Assert.assertEquals(sls.bluHomePostalCodeError().getText(), "Enter postal code.");
+		sls.bluHomeAddress1().sendKeys("357 Admiralty drive");
+		sls.bluHomePostalCode().sendKeys("000000"); 
+		((AndroidDriver)driver).pressKey(new KeyEvent(AndroidKey.ENTER));
+		sls.clickOnSaveLocationBluHomeBtn();
+		Assert.assertEquals(sls.bluHomePostalCodeError().getText(), "Invalid postal code.");
+		sls.bluHomePostalCode().sendKeys("005678"); 
+		((AndroidDriver)driver).pressKey(new KeyEvent(AndroidKey.ENTER));
+		sls.clickOnSaveLocationBluHomeBtn();
+		Assert.assertEquals(sls.bluHomePostalCodeError().getText(), "Invalid postal code.");
+		sls.bluHomePostalCode().sendKeys("1235678"); 
+		((AndroidDriver)driver).pressKey(new KeyEvent(AndroidKey.ENTER));
+		sls.clickOnSaveLocationBluHomeBtn();
+		Assert.assertEquals(sls.bluHomePostalCodeError().getText(), "Invalid postal code.");
+		
+	}
 	@Test(dependsOnMethods = "tc03_saveABluHomeLocation" )
 	public void tc04_removeBluHomeLocation() throws IOException
 	{
