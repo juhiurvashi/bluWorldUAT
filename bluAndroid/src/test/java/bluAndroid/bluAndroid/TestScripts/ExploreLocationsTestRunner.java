@@ -40,7 +40,7 @@ public class ExploreLocationsTestRunner extends BaseClass {
 		mvs=new MapViewScreen(driver);
 		els=new ExploreLocationsScreen(driver);
 	}
-	@Test
+	//@Test
 	public void tc01_enterBluPortNameOnSearchBox() throws IOException
 	{
 		System.out.println("tc01_enterBluPortNameOnSearchBox");

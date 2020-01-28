@@ -206,7 +206,7 @@ public class CreateBookingTestRunner extends BaseClass {
 			pp.permissionAllowBtn().click();
 		}
 		pp.textField().sendKeys("96969696");
-		((AndroidDriver<WebElement>) driver).pressKey(new KeyEvent(AndroidKey.ENTER));
+		cf.swiptToBottom();
 		bs.clickOnNextBtn();
 
 		bs.recipientNametextField().sendKeys("test");
@@ -510,7 +510,7 @@ public class CreateBookingTestRunner extends BaseClass {
 			pp.permissionAllowBtn().click();
 		}
 		pp.textField().sendKeys("96969696");
-		((AndroidDriver<WebElement>) driver).pressKey(new KeyEvent(AndroidKey.ENTER));
+		cf.swiptToBottom();
 		bs.clickOnNextBtn();
 
 		bs.recipientNametextField().sendKeys("test");
