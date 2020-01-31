@@ -3,68 +3,18 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [TestAll]">
   <test thread-count="5" name="order(failed)">
     <classes>
-      <class name="bluAndroid.bluAndroid.TestScripts.CreateBookingTestRunner">
-        <methods>
-          <include name="SetUp"/>
-          <include name="B_S01_TC07_RedeemedRewardCanBeUsedInBooking"/>
-          <include name="getResult"/>
-          <include name="preCondition"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- bluAndroid.bluAndroid.TestScripts.CreateBookingTestRunner -->
-      <class name="bluAndroid.bluAndroid.TestScripts.CreateRequestTestRunner">
-        <methods>
-          <include name="B_S13_TC04_CreateRequestViaBluHomeWithMobileNo"/>
-          <include name="SetUp"/>
-          <include name="preCondition"/>
-          <include name="B_S13_TC03_CreateRequestViaBluHomeWithBluId"/>
-          <include name="getResult"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- bluAndroid.bluAndroid.TestScripts.CreateRequestTestRunner -->
-      <class name="bluAndroid.bluAndroid.TestScripts.BluMyDetailsTestRunner">
-        <methods>
-          <include name="SetUp"/>
-          <include name="preCondition"/>
-          <include name="tearDown"/>
-          <include name="getResult"/>
-          <include name="tc07_editMobileAlreadyExists"/>
-        </methods>
-      </class> <!-- bluAndroid.bluAndroid.TestScripts.BluMyDetailsTestRunner -->
-      <class name="bluAndroid.bluAndroid.TestScripts.RewardsTestRunner">
-        <methods>
-          <include name="SetUp"/>
-          <include name="G_S06_TC03_redeemRewardWithPointsAndCredits"/>
-          <include name="G_S06_TC04_redeemPhysicalReward"/>
-          <include name="G_S06_TC06_InsufficientCredits"/>
-          <include name="G_S06_TC07_InsufficientPoints"/>
-          <include name="tearDown"/>
-          <include name="G_S06_TC08_InsufficientPointsOrCredits"/>
-          <include name="preCondition"/>
-        </methods>
-      </class> <!-- bluAndroid.bluAndroid.TestScripts.RewardsTestRunner -->
       <class name="bluAndroid.bluAndroid.TestScripts.SavedLocationsTestRunner">
         <methods>
           <include name="SetUp"/>
           <include name="preCondition"/>
           <include name="tc04_removeBluHomeLocation"/>
           <include name="tc03_saveABluHomeLocation"/>
-          <include name="tc01_saveALocation"/>
           <include name="getResult"/>
           <include name="tearDown"/>
           <include name="tc01_saveALocationByClickingOnHeartIcon"/>
           <include name="tc02_removeALocation"/>
         </methods>
       </class> <!-- bluAndroid.bluAndroid.TestScripts.SavedLocationsTestRunner -->
-      <class name="bluAndroid.bluAndroid.TestScripts.WalletTestRunner">
-        <methods>
-          <include name="SetUp"/>
-          <include name="getResult"/>
-          <include name="F_S01_TC02_addPaymentMethods"/>
-          <include name="tearDown"/>
-          <include name="preCondition"/>
-        </methods>
-      </class> <!-- bluAndroid.bluAndroid.TestScripts.WalletTestRunner -->
       <class name="bluAndroid.bluAndroid.TestScripts.BluLoginTestRunner">
         <methods>
           <include name="SetUp"/>
@@ -74,15 +24,63 @@
           <include name="tearDown"/>
         </methods>
       </class> <!-- bluAndroid.bluAndroid.TestScripts.BluLoginTestRunner -->
-      <class name="bluAndroid.bluAndroid.TestScripts.BluLogoutTestRunner">
+      <class name="bluAndroid.bluAndroid.TestScripts.CreateBookingViaRequestTestRunner">
         <methods>
           <include name="SetUp"/>
+          <include name="B_S15_TC01_MakeBookingViaRequest"/>
+          <include name="B_S15_TC02_RejectRequest"/>
           <include name="preCondition"/>
           <include name="getResult"/>
-          <include name="tc06_deactivateAccount"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- bluAndroid.bluAndroid.TestScripts.BluLogoutTestRunner -->
+      </class> <!-- bluAndroid.bluAndroid.TestScripts.CreateBookingViaRequestTestRunner -->
+      <class name="bluAndroid.bluAndroid.TestScripts.PublicProfileTestRunner">
+        <methods>
+          <include name="SetUp"/>
+          <include name="getResult"/>
+          <include name="tc05_InvaldMobile"/>
+          <include name="tearDown"/>
+          <include name="preCondition"/>
+        </methods>
+      </class> <!-- bluAndroid.bluAndroid.TestScripts.PublicProfileTestRunner -->
+      <class name="bluAndroid.bluAndroid.TestScripts.CreateBookingTestRunner">
+        <methods>
+          <include name="B_S09_TC07_EditReward"/>
+          <include name="SetUp"/>
+          <include name="B_S01_TC07_RedeemedRewardCanBeUsedInBooking"/>
+          <include name="B_S09_TC05_EditProductCatagory"/>
+          <include name="getResult"/>
+          <include name="preCondition"/>
+          <include name="B_S09_TC03_EditDestinationBluHome"/>
+          <include name="B_S09_TC04_EditBoxSize"/>
+          <include name="B_S09_TC06_EditRemarks"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- bluAndroid.bluAndroid.TestScripts.CreateBookingTestRunner -->
+      <class name="bluAndroid.bluAndroid.TestScripts.WalletTestRunner">
+        <methods>
+          <include name="SetUp"/>
+          <include name="F_S02_TC01_transactionDetails"/>
+          <include name="getResult"/>
+          <include name="tearDown"/>
+          <include name="preCondition"/>
+        </methods>
+      </class> <!-- bluAndroid.bluAndroid.TestScripts.WalletTestRunner -->
+      <class name="bluAndroid.bluAndroid.TestScripts.RewardsTestRunner">
+        <methods>
+          <include name="G_S06_TC01_redeemRewardWithCredits"/>
+          <include name="SetUp"/>
+          <include name="G_S06_TC04_redeemPhysicalReward"/>
+          <include name="getResult"/>
+          <include name="G_S06_TC06_InsufficientCredits"/>
+          <include name="G_S06_TC07_InsufficientPoints"/>
+          <include name="G_S06_TC05_promoCode"/>
+          <include name="G_S06_TC02_redeemRewardWithPoints"/>
+          <include name="tearDown"/>
+          <include name="G_S06_TC08_InsufficientPointsOrCredits"/>
+          <include name="preCondition"/>
+        </methods>
+      </class> <!-- bluAndroid.bluAndroid.TestScripts.RewardsTestRunner -->
     </classes>
   </test> <!-- order(failed) -->
 </suite> <!-- Failed suite [TestAll] -->

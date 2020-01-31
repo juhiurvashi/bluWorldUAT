@@ -25,7 +25,15 @@ public class PublicProfileScreen {
 		WebElement title=driver.findElement(By.id("sg.com.blu.android.uat:id/titleTextView"));
 		return title;
 	}
-	
+	public void clickOnBackButton()
+	{
+		driver.findElement(By.xpath("//android.widget.RelativeLayout[@resource-id='sg.com.blu.android.uat:id/topBar']//android.widget.ImageButton[@resource-id='sg.com.blu.android.uat:id/backButton']")).click();
+	}
+	public void clickOnCloseBtn()
+	{
+		WebElement x=driver.findElement(By.xpath("//android.widget.RelativeLayout[@resource-id='sg.com.blu.android.uat:id/topBar']//android.widget.ImageButton[@resource-id='sg.com.blu.android.uat:id/closeButton']"));
+		x.click();
+	}
 	public WebElement getFriendName() throws IOException
 	{
 		WebElement firstName=driver.findElement(By.id("sg.com.blu.android.uat:id/firstNameTextView"));

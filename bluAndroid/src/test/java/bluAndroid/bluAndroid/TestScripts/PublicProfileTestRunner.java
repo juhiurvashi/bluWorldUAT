@@ -18,9 +18,11 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 
+import bluAndroid.bluAndroid.pageObjects.CommonFunctions;
 import bluAndroid.bluAndroid.pageObjects.LoginScreen;
 import bluAndroid.bluAndroid.pageObjects.MenuScreen;
 import bluAndroid.bluAndroid.pageObjects.MyDetailsScreen;
+import bluAndroid.bluAndroid.pageObjects.PopUp;
 import bluAndroid.bluAndroid.pageObjects.PublicProfileScreen;
 import bluAndroid.bluAndroid.pageObjects.SignUpScreen;
 import bluAndroid.bluAndroid.util.BaseClass;
@@ -34,19 +36,27 @@ public class PublicProfileTestRunner extends BaseClass {
 	MyDetailsScreen mds;
 	MenuScreen ms;
 	PublicProfileScreen pp;
+	PopUp pu;
+	CommonFunctions cf;
+	String mobilefromPropertiesValue,bluIDfromPropertiesValue,bluID;
 	@BeforeMethod
 	public void preCondition() throws IOException
 	{
-		System.out.println("Set Up....");
+		System.out.println("Set Up...."); 
 		PublicProfileTestRunner.driver = BaseClass.getAppCapabilities();
 		mobileNo = CommonUtil.getPropertyValue("login", "mobileNo");
 		password = CommonUtil.getPropertyValue("login", "password");
+		mobilefromPropertiesValue=CommonUtil.getPropertyValue("publicProfile", "mobile");
+		bluIDfromPropertiesValue=CommonUtil.getPropertyValue("publicProfile", "bluId");
+		bluID=CommonUtil.getPropertyValue("login", "bluId");
 		ls = new LoginScreen(driver);
 		ls.clickLoginLink();
 		ls.bluLogin(mobileNo, password);
 		mds=new MyDetailsScreen(driver);
 		ms=new MenuScreen(driver);
 		pp=new PublicProfileScreen(driver);
+		pu=new PopUp(driver);
+		cf=new CommonFunctions(driver);
 	}
 	@Test
 	public void tc01_ViewPublicProfile()
@@ -135,7 +145,7 @@ public class PublicProfileTestRunner extends BaseClass {
 		{
 			pp.permissionAllowBtn().click();
 		}
-		String mobilefromPropertiesValue=CommonUtil.getPropertyValue("publicProfile", "mobile");
+		
 		pp.textField().sendKeys(mobilefromPropertiesValue);
 		WebElement title=driver.findElement(By.id("sg.com.blu.android.uat:id/titleTextView"));
 		Assert.assertEquals(title.getText(), "Public profile","Public profile title displayed");
@@ -191,7 +201,7 @@ public class PublicProfileTestRunner extends BaseClass {
 			allow.click();
 		}
 		//WebElement mobileTextField=driver.findElement(By.id("sg.com.blu.android.uat:id/input_text_et"));
-		pp.textField().sendKeys("91235555");
+		pp.textField().sendKeys("91277777");
 		WebElement error=driver.findElement(By.id("sg.com.blu.android.uat:id/error_tv"));
 		Assert.assertEquals(error.getText(), "Member not found.");
 	}
@@ -226,8 +236,6 @@ public class PublicProfileTestRunner extends BaseClass {
 		extentTest = extentReports.createTest("tc07_unblockMember");
 		mds.clickOnMenu();
 		ms.clickOnFirstName();
-		//WebElement bluId=driver.findElement(By.id("sg.com.blu.android.uat:id/input_text_et"));
-		String bluIDfromPropertiesValue=CommonUtil.getPropertyValue("publicProfile", "bluId");
 		pp.textField().sendKeys(bluIDfromPropertiesValue);
 		WebElement unblockFutureRequest=driver.findElement(By.id("sg.com.blu.android.uat:id/actionTextView"));
 		unblockFutureRequest.click();
@@ -241,6 +249,44 @@ public class PublicProfileTestRunner extends BaseClass {
 		 * wait.until(ExpectedConditions.elementToBeClickable(pp.getFriendName()));
 		 * Assert.assertTrue(pp.getFriendName().isDisplayed());
 		 */
+	}
+	//@Test
+	public void tc08_blockedMemberError() throws IOException
+	{
+		System.out.println("tc08_blockedMemberError");
+		extentTest = extentReports.createTest("tc08_blockedMemberError");
+		mds.clickOnMenu();
+		ms.clickOnFirstName();
+		//WebElement bluId=driver.findElement(By.id("sg.com.blu.android.uat:id/input_text_et"));
+		String bluIDfromPropertiesValue=CommonUtil.getPropertyValue("publicProfile", "bluId");
+		pp.textField().sendKeys(bluIDfromPropertiesValue);
+		WebElement blockFutureRequest=driver.findElement(By.id("sg.com.blu.android.uat:id/actionTextView"));
+		blockFutureRequest.click();
+		Assert.assertEquals(pp.blockAlertTitle().getText(), "Block future requests");
+		Assert.assertEquals(pp.blockAlertMsg().getText(), "This member will not be able to send you future requests.");
+		WebElement blockBtn=driver.findElement(By.id("android:id/button1"));
+		blockBtn.click();
+		pp.clickOnCloseBtn();
+		mds.clickOnMenu();
+		ms.logout();
+		ls.clickLoginLink();
+		ls.bluLogin(mobilefromPropertiesValue, password);
+		mds.clickOnMenu();
+		ms.clickOnFirstName();
+		pp.textField().sendKeys(bluID);
+		WebElement error=driver.findElement(By.id("sg.com.blu.android.uat:id/error_tv"));
+		Assert.assertEquals(error.getText(), "Member not found.");
+		pp.clickOnBackButton();
+		ms.logout();
+		ls.clickLoginLink();
+		ls.bluLogin(mobileNo, password);
+		pp.textField().sendKeys(bluIDfromPropertiesValue);
+		WebElement unblockFutureRequest=driver.findElement(By.id("sg.com.blu.android.uat:id/actionTextView"));
+		unblockFutureRequest.click();
+		Assert.assertEquals(pp.blockAlertTitle().getText(), "Unblock future requests");
+		Assert.assertEquals(pp.blockAlertMsg().getText(), "You will be able to receive future requests from this user.");
+		WebElement unblockBtn=driver.findElement(By.id("android:id/button1"));
+		unblockBtn.click();
 	}
 	@AfterMethod
 	public void getResult(ITestResult testResult) throws IOException {

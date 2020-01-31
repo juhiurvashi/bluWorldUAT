@@ -1,11 +1,7 @@
 package bluAndroid.bluAndroid.TestScripts;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.ITestResult;
@@ -34,12 +30,9 @@ import bluAndroid.bluAndroid.pageObjects.Wallet;
 import bluAndroid.bluAndroid.util.BaseClass;
 import bluAndroid.bluAndroid.util.CommonUtil;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
-import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
-import io.appium.java_client.touch.offset.PointOption;
 
 public class CreateBookingTestRunner extends BaseClass {
 	static AppiumDriver<WebElement> driver;

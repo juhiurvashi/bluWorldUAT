@@ -5,7 +5,6 @@ import static org.testng.Assert.assertTrue;
 import java.io.IOException;
 import java.util.List;
 
-import org.apache.maven.model.MailingList;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;

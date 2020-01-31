@@ -33,6 +33,6 @@ public class PopUp {
 	public void clickBtn2()
 	{
 		WebElement btn2=driver.findElement(By.id("android:id/button2"));
-		btn2.click();;
+		btn2.click();
 	}
 }

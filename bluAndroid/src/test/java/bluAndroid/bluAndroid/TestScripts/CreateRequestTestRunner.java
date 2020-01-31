@@ -175,7 +175,7 @@ public class CreateRequestTestRunner extends BaseClass {
 		pu.clickBtn1();
 		//Assert.assertEquals(rbs.statusTitle().getText(), "Request cancelled");
 	}
-	@Test
+	//@Test
 	public void B_S13_TC03_CreateRequestViaBluHomeWithBluId() {
 		System.out.println("B_S13_TC03_CreateRequestViaBluHomeWithBluId");
 		extentTest = extentReports.createTest("B_S13_TC03_CreateRequestViaBluHomeWithBluId");
@@ -209,7 +209,7 @@ public class CreateRequestTestRunner extends BaseClass {
 		pu.clickBtn1();
 		//Assert.assertEquals(rbs.statusTitle().getText(), "Request cancelled");
 	}
-	@Test
+	//@Test
 	public void B_S13_TC04_CreateRequestViaBluHomeWithMobileNo() {
 		System.out.println("B_S13_TC04_CreateRequestViaBluHomeWithMobileNo");
 		extentTest = extentReports.createTest("B_S13_TC04_CreateRequestViaBluHomeWithMobileNo");

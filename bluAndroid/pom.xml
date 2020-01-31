@@ -78,6 +78,7 @@ https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugi
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<!-- <version>2.3.1</version> -->
 				<configuration>
 					<source>${jdk.level}</source>
 					<target>${jdk.level}</target>
@@ -91,36 +92,11 @@ https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugi
 				<configuration>
 					<suiteXmlFiles>
 						<!-- TestNG suite XML files -->
-						<suiteXmlFile>testng.xml</suiteXmlFile>
+						<suiteXmlFile>testng1.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
-			<plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-clean-plugin</artifactId>
-                <version>3.0.0</version>
-                <executions>
-                    <execution>
-                        <id>Deleting all files under target, but not target itself</id>
-                        <phase>clean</phase>
-                        <goals>
-                            <goal>clean</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <excludeDefaultDirectories>true</excludeDefaultDirectories>
-                    <filesets>
-                        <fileset>
-                            <directory>target/</directory>
-                            <followSymlinks>false</followSymlinks>
-                            <includes>
-                                <include>**/*</include>
-                            </includes>
-                        </fileset>
-                    </filesets>
-                </configuration>
-            </plugin>
+			
 		</plugins>
 	</build>
 </project>

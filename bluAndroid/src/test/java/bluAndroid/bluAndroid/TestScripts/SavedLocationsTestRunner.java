@@ -58,7 +58,7 @@ public class SavedLocationsTestRunner extends BaseClass {
 		pu=new PopUp(driver);
 		su=new SignUpScreen(driver);
 	}
-	@Test
+	@Test(priority=0)
 	public void tc01_saveALocation() throws IOException
 	{
 		System.out.println("tc01_saveALocation");
@@ -85,7 +85,7 @@ public class SavedLocationsTestRunner extends BaseClass {
 		}
 		
 	}
-	@Test
+	@Test(priority=2)
 	public void tc01_saveALocationByClickingOnHeartIcon() throws IOException
 	{
 		System.out.println("tc01_saveALocationByClickingOnHeartIcon");
@@ -124,7 +124,7 @@ public class SavedLocationsTestRunner extends BaseClass {
 			Assert.assertNotEquals(sls.listOfSavedAddress().get(i).getText(), bluPort1);
 	}	
 	}
-	@Test(dependsOnMethods = "tc01_saveALocation" )
+	@Test//(dependsOnMethods = "tc01_saveALocation" ,priority=1)
 	public void tc02_removeALocation() throws IOException
 	{
 		System.out.println("tc02_removeALocation");
@@ -136,7 +136,9 @@ public class SavedLocationsTestRunner extends BaseClass {
 				sls.listOfhearticons().get(sls.listOfhearticons().size()-1).click();
 		}
 		Assert.assertEquals(pu.alertTitle().getText(), "Remove location");
+		System.out.println("Title verified");
 		Assert.assertEquals(pu.alertMsg().getText(), "Are you sure you want to remove this from your saved locations?");
+		System.out.println("Message verified");
 		pu.clickBtn1();
 		System.out.println(sls.listOfSavedAddress().size());
 		for (int i = 0; i < sls.listOfSavedAddress().size(); i++) {

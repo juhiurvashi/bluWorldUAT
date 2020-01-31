@@ -104,6 +104,11 @@ public WebElement promoCodeTextField()
 	WebElement promoCodeTextField=driver.findElement(By.id("sg.com.blu.android.uat:id/promoCodeEditText"));
 	return promoCodeTextField;
 }
+public WebElement promoCodeError()
+{
+	WebElement promoCodeError=driver.findElement(By.id("sg.com.blu.android.uat:id/emptyView"));
+	return promoCodeError;
+}
 public WebElement myRewards()
 {
 	WebElement x=driver.findElement(By.xpath("//android.widget.HorizontalScrollView[@resource-id='sg.com.blu.android.uat:id/tabLayout']//androidx.appcompat.app.ActionBar.Tab[2]"));
