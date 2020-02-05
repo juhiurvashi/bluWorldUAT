@@ -141,7 +141,7 @@ public class WalletTestRunner extends BaseClass {
 		w.clickOnWalletIcon();
 		Assert.assertTrue(w.recentActivity().isDisplayed());
 		w.clickOnSeeMore();
-		w.clickOnSearchBox().sendKeys("Booking");
+		w.clickOnSearchBox().sendKeys("Redemption");
 		w.transactionDetails();
 		List<WebElement> list1 = driver.findElements(By.xpath(
 				"//android.widget.ScrollView[@resource-id='sg.com.blu.android.uat:id/nestedScroll']//android.widget.LinearLayout//android.widget.LinearLayout//android.widget.TextView[1]"));
@@ -156,7 +156,7 @@ public class WalletTestRunner extends BaseClass {
 			if (i == 2)
 				Assert.assertEquals(list1.get(2).getText(), "Activity");
 			if (i == 3)
-				Assert.assertEquals(list1.get(3).getText(), "Parcel reference");
+				Assert.assertEquals(list1.get(3).getText(), "Reward name");
 		}
 
 	}

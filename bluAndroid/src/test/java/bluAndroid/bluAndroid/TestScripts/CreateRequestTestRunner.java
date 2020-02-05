@@ -87,14 +87,6 @@ public class CreateRequestTestRunner extends BaseClass {
 	public void B_S13_TC01_CreateRequestViaBluPortWithBluId() {
 		System.out.println("B_S13_TC01_CreateRequestViaBluPortWithBluId");
 		extentTest = extentReports.createTest("B_S13_TC01_CreateRequestViaBluPortWithBluId");
-		/*
-		 * ms.clickOnMenu(); ms.clickOnMyParcels();
-		 * pds.searchParcelsTextBox().sendKeys("Request cancelled"); WebElement status =
-		 * driver.findElement(By.xpath(
-		 * "//androidx.recyclerview.widget.RecyclerView//android.widget.LinearLayout[1]//android.widget.TextView[1]"
-		 * )); status.click(); System.out.println(rbs.statusTitle().getText());
-		 * Assert.assertEquals(rbs.statusTitle().getText(), "Request cancelled");
-		 */
 		rbs.clickOnRequestForParcel();
 		bs.textBox().sendKeys(bluId);
 		((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.ENTER));
@@ -147,7 +139,7 @@ public class CreateRequestTestRunner extends BaseClass {
 		}
 		pp.textField().sendKeys("96969696");
 		((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.ENTER));
-		bs.clickOnNextBtn();
+		((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.ENTER));
 
 		bs.recipientNametextField().sendKeys("test");
 		((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.ENTER));
@@ -249,7 +241,7 @@ public class CreateRequestTestRunner extends BaseClass {
 		pu.clickBtn1();
 		//Assert.assertEquals(rbs.statusTitle().getText(), "Request cancelled");
 	}
-	@Test
+	//@Test
 	public void B_S14_TC01_cancelRequest() {
 		System.out.println("B_S14_TC01_cancelRequest");
 		extentTest = extentReports.createTest("B_S14_TC01_cancelRequest");

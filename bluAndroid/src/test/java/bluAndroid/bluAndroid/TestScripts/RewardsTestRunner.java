@@ -41,7 +41,7 @@ public class RewardsTestRunner extends BaseClass {
 	static AppiumDriver<WebElement> driver;
 	LoginScreen ls;
 	String mobileNo, password, bluId, bluPort, extectedText, ownBluId, ownName, creditRewardName, pointsRewardName,
-			pointsAndCreditsRewardName, creditRewardDes, pointsRewardDes, pointsAndCreditsRewardDes,physicalRewardName,physicalRewardDes,promocodeRewardName,promocodeRewardDes;
+			pointsAndCreditsRewardName, creditRewardDes, pointsRewardDes, pointsAndCreditsRewardDes,physicalRewardName,physicalRewardDes,promocodeRewardName,promocodeRewardDes,mobileWithInsufficientPointCredit,passwordWithInsufficientPointCredit;
 			
 	MapViewScreen mvs;
 	SavedLocationsScreen sls;
@@ -79,6 +79,8 @@ public class RewardsTestRunner extends BaseClass {
 		physicalRewardDes= CommonUtil.getPropertyValue("reward", "physicalRewardDes");
 		promocodeRewardName=CommonUtil.getPropertyValue("reward", "promocodeRewardName");
 		promocodeRewardDes=CommonUtil.getPropertyValue("reward", "promocodeRewardDes");
+		mobileWithInsufficientPointCredit=CommonUtil.getPropertyValue("reward", "mobileWithInsufficientPointCredit");
+		passwordWithInsufficientPointCredit=CommonUtil.getPropertyValue("reward", "passwordWithInsufficientPointCredit");
 		ls = new LoginScreen(driver);
 		ls.clickLoginLink();
 		
@@ -136,9 +138,8 @@ public class RewardsTestRunner extends BaseClass {
 		prs.redeemBtn().click();
 		Assert.assertEquals(prs.alertTitle().getText(), "Redeem reward?");
 		pu.clickBtn1();	
+		Assert.assertEquals(prs.redeemedRewardTextMsg().getText(), "You can apply this reward to your booking.");
 		cf.clickOnCloseBtn();
-		cf.clickOnCloseBtn();
-		//assertTrue(ls.sendParcel().isDisplayed());	
 		prs.myRewards().click();
 		System.out.println(prs.latestRedeemedOrUtilizedReward().getText());
 		Assert.assertEquals(prs.latestRedeemedOrUtilizedReward().getText(), creditRewardName);
@@ -163,7 +164,7 @@ public class RewardsTestRunner extends BaseClass {
 		prs.redeemBtn().click();
 		Assert.assertEquals(prs.alertTitle().getText(), "Redeem reward?");
 		pu.clickBtn1();	
-		cf.clickOnCloseBtn();
+		Assert.assertEquals(prs.redeemedRewardTextMsg().getText(), "You can apply this reward to your booking.");
 		cf.clickOnCloseBtn();
 		//assertTrue(ls.sendParcel().isDisplayed());
 		prs.myRewards().click();
@@ -246,7 +247,7 @@ public class RewardsTestRunner extends BaseClass {
 	{
 		System.out.println("G_S06_TC06_InsufficientCredits");
 		extentTest = extentReports.createTest("G_S06_TC06_InsufficientCredits");
-		ls.bluLogin("81437794", "Abcd1234@");
+		ls.bluLogin(mobileWithInsufficientPointCredit, passwordWithInsufficientPointCredit);
 		ms.clickOnMenu();
 		ms.clickOnPointsAndRewards();
 		cf.swipeInListTillExpectedTextAndTap(prs.rewardNameList(), creditRewardName, 20);
@@ -265,7 +266,7 @@ public class RewardsTestRunner extends BaseClass {
 	{
 		System.out.println("G_S06_TC07_InsufficientPoints");
 		extentTest = extentReports.createTest("G_S06_TC07_InsufficientPoints");
-		ls.bluLogin("81437794", "Abcd1234@");
+		ls.bluLogin(mobileWithInsufficientPointCredit, passwordWithInsufficientPointCredit);
 		ms.clickOnMenu();
 		ms.clickOnPointsAndRewards();
 		cf.swipeInListTillExpectedTextAndTap(prs.rewardNameList(), pointsRewardName, 20);
@@ -283,7 +284,7 @@ public class RewardsTestRunner extends BaseClass {
 	{
 		System.out.println("G_S06_TC08_InsufficientPointsOrCredits");
 		extentTest = extentReports.createTest("G_S06_TC08_InsufficientPointsOrCredits");
-		ls.bluLogin("81437794", "Abcd1234@");
+		ls.bluLogin(mobileWithInsufficientPointCredit, passwordWithInsufficientPointCredit);
 		ms.clickOnMenu();
 		ms.clickOnPointsAndRewards();
 		cf.swipeInListTillExpectedTextAndTap(prs.rewardNameList(), pointsAndCreditsRewardName, 20);

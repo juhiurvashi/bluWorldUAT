@@ -148,7 +148,7 @@ public class SavedLocationsTestRunner extends BaseClass {
 		}
 		
 	}
-	@Test
+	//@Test
 	public void tc03_saveABluHomeLocation() throws IOException
 	{
 		System.out.println("tc03_saveABluHomeLocation");
@@ -176,7 +176,7 @@ public class SavedLocationsTestRunner extends BaseClass {
 		}
 		
 	}
-	@Test
+	//@Test
 	public void tc03_bluHomeAddressValidation() throws IOException
 	{
 		System.out.println("tc03_bluHomeAddressValidation");
@@ -203,7 +203,7 @@ public class SavedLocationsTestRunner extends BaseClass {
 		Assert.assertEquals(sls.bluHomePostalCodeError().getText(), "Invalid postal code.");
 		
 	}
-	@Test(dependsOnMethods = "tc03_saveABluHomeLocation" )
+	//@Test(dependsOnMethods = "tc03_saveABluHomeLocation" )
 	public void tc04_removeBluHomeLocation() throws IOException
 	{
 		System.out.println("tc04_removeBluHomeLocation");

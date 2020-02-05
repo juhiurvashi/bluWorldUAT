@@ -36,7 +36,8 @@ public class BaseClass {
 			caps.setCapability("unicodeKeyboard", true);
 			caps.setCapability("resetKeyboard", true);
 			caps.setCapability("maxTypingFrequency",30);
-			caps.setCapability("testdroid_testTimeout", 1200);
+			//caps.setCapability("testdroid_testTimeout", 1200);
+			caps.setCapability("clearSystemFiles", true);
 			driver = new AndroidDriver<WebElement>(new URL("http://0.0.0.0:4723/wd/hub"), caps);
 			driver.manage().timeouts().implicitlyWait(180, TimeUnit.SECONDS);
 		} catch (MalformedURLException e) {

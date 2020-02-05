@@ -159,7 +159,6 @@ public class SignUpScreen {
 		enterLastName().sendKeys(lastName);
 		enterMobile().sendKeys(mobile);
 		selectDOB();
-		System.out.println(selectGender());
 		selectGender().click();
 		enterReferralCode().sendKeys(referralCode);
 		((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.ENTER));

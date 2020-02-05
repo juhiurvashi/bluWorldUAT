@@ -3,15 +3,15 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="bluAndroid.bluAndroid.TestScripts.WalletTestRunner">
+      <class name="bluAndroid.bluAndroid.TestScripts.RewardsTestRunner">
         <methods>
+          <include name="G_S06_TC01_redeemRewardWithCredits"/>
           <include name="SetUp"/>
-          <include name="F_S02_TC01_transactionDetails"/>
           <include name="getResult"/>
           <include name="tearDown"/>
           <include name="preCondition"/>
         </methods>
-      </class> <!-- bluAndroid.bluAndroid.TestScripts.WalletTestRunner -->
+      </class> <!-- bluAndroid.bluAndroid.TestScripts.RewardsTestRunner -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
