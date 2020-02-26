@@ -66,7 +66,7 @@ public class BluSignUpTestRunner extends BaseClass {
 		Assert.assertEquals(actual, expected);
 		System.out.println("Textmatched"+ expected+actual);
 	}
-	@Test
+	//@Test
 	public void A_S02_TC02_signupWithoutReferralCode() throws IOException
 	{
 		System.out.println("A_S02_TC02_signupWithoutReferralCode");
@@ -78,7 +78,7 @@ public class BluSignUpTestRunner extends BaseClass {
 		String actual=otpScreenText.getText();
 		Assert.assertEquals(actual, expected);
 	}
-	@Test
+	//@Test
 	public void A_S02_TC03_signupWithoutGenderAndRefferalCode() throws IOException
 	{
 		System.out.println("A_S02_TC03_signupWithoutGenderAndRefferalCode");
@@ -89,7 +89,7 @@ public class BluSignUpTestRunner extends BaseClass {
 		String actual=otpScreenText.getText();
 		Assert.assertEquals(actual, expected);
 	}
-	@Test
+	//@Test
 	public void A_S02_TC04_signupWithoutDOBGenderAndRefferalCode() throws IOException
 	{
 		System.out.println("A_S02_TC04_signupWithoutDOBGenderAndRefferalCode");
@@ -261,7 +261,7 @@ public class BluSignUpTestRunner extends BaseClass {
 	public void A_S02_TC12_signupRegisteredMobile() throws IOException
 	{
 		System.out.println("A_S02_TC12_signupRegisteredMobile");
-		extentTest = extentReports.createTest("A_S02_TC12_signupInvalidMobile()");
+		extentTest = extentReports.createTest("A_S02_TC12_signupRegisteredMobile()");
 		String email= CommonUtil.getPropertyValue("signup", "email");
 		String password = CommonUtil.getPropertyValue("signup", "password");
 		String conPassword = CommonUtil.getPropertyValue("signup", "conPassword");

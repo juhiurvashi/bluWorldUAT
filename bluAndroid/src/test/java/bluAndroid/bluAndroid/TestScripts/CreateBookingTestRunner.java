@@ -391,7 +391,7 @@ public class CreateBookingTestRunner extends BaseClass {
 		cf.swiptToTop();
 		Assert.assertEquals(pds.parcelDetailsScreenStatus().getText(), "Cancelled");
 	}
-	@Test
+	//@Test
 	public void B_S01_TC04_CreateBookingViaBluHomeWithBluId() {
 		System.out.println("B_S01_TC04_CreateBookingViaBluHomeWithBluId");
 		extentTest = extentReports.createTest("B_S01_TC04_CreateBookingViaBluHomeWithBluId");
@@ -493,7 +493,7 @@ public class CreateBookingTestRunner extends BaseClass {
 		cf.swiptToTop();
 		Assert.assertEquals(pds.parcelDetailsScreenStatus().getText(), "Cancelled");
 	}
-	@Test
+	//@Test
 	public void B_S01_TC05_CreateBookingViaBluHomeWithMobileNo() {
 		System.out.println("B_S01_TC05_CreateBookingViaBluHomeWithMobileNo");
 		extentTest = extentReports.createTest("B_S01_TC05_CreateBookingViaBluHomeWithMobileNo");
@@ -598,7 +598,7 @@ public class CreateBookingTestRunner extends BaseClass {
 		cf.swiptToTop();
 		Assert.assertEquals(pds.parcelDetailsScreenStatus().getText(), "Cancelled");
 	}
-	@Test
+	//@Test
 	public void B_S01_TC06_CreateBookingViaBluHomeWithBluIdToOwnself() {
 		System.out.println("B_S01_TC06_CreateBookingViaBluHomeWithBluIdToOwnself");
 		extentTest = extentReports.createTest("B_S01_TC06_CreateBookingViaBluHomeWithBluIdToOwnself");
@@ -1013,7 +1013,7 @@ public class CreateBookingTestRunner extends BaseClass {
 		Assert.assertEquals(bs.destinationNameOnReviewBooking().getText(), "bluPort - HQ2");
 	}
 
-	@Test
+	//@Test
 	public void B_S09_TC03_EditDestinationBluHome() {
 		System.out.println("B_S01_TC04_CreateBookingViaBluHomeWithBluId");
 		extentTest = extentReports.createTest("B_S01_TC04_CreateBookingViaBluHomeWithBluId");

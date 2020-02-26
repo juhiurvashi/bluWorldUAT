@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="1" total="2" passed="1">
+<testng-results skipped="0" failed="0" ignored="14" total="15" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="84987" started-at="2020-02-05T09:42:41 SGT" finished-at="2020-02-05T09:44:06 SGT">
+  <suite name="Default suite" duration-ms="93723" started-at="2020-02-26T17:46:26 SGT" finished-at="2020-02-26T17:48:00 SGT">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="84987" started-at="2020-02-05T09:42:41 SGT" finished-at="2020-02-05T09:44:06 SGT">
-      <class name="bluAndroid.bluAndroid.TestScripts.CreateRequestTestRunner">
-        <test-method status="PASS" signature="SetUp()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.CreateRequestTestRunner@46daef40]" name="SetUp" is-config="true" duration-ms="172" started-at="2020-02-05T09:42:41 SGT" finished-at="2020-02-05T09:42:41 SGT">
+    <test name="Default test" duration-ms="93723" started-at="2020-02-26T17:46:26 SGT" finished-at="2020-02-26T17:48:00 SGT">
+      <class name="bluAndroid.bluAndroid.TestScripts.BluSignUpTestRunner">
+        <test-method status="PASS" signature="SetUp()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.BluSignUpTestRunner@13c27452]" name="SetUp" is-config="true" duration-ms="178" started-at="2020-02-26T17:46:26 SGT" finished-at="2020-02-26T17:46:26 SGT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SetUp -->
-        <test-method status="PASS" signature="preCondition()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.CreateRequestTestRunner@46daef40]" name="preCondition" is-config="true" duration-ms="43291" started-at="2020-02-05T09:42:41 SGT" finished-at="2020-02-05T09:43:24 SGT">
+        <test-method status="PASS" signature="preCondition()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.BluSignUpTestRunner@13c27452]" name="preCondition" is-config="true" duration-ms="55337" started-at="2020-02-26T17:46:26 SGT" finished-at="2020-02-26T17:47:22 SGT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- preCondition -->
-        <test-method status="PASS" signature="B_S13_TC01_CreateRequestViaBluPortWithBluId()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.CreateRequestTestRunner@46daef40]" name="B_S13_TC01_CreateRequestViaBluPortWithBluId" duration-ms="39632" started-at="2020-02-05T09:43:24 SGT" finished-at="2020-02-05T09:44:04 SGT">
+        <test-method status="PASS" signature="A_S02_TC08_signupInvalidPassword()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.BluSignUpTestRunner@13c27452]" name="A_S02_TC08_signupInvalidPassword" duration-ms="35695" started-at="2020-02-26T17:47:22 SGT" finished-at="2020-02-26T17:47:57 SGT">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- B_S13_TC01_CreateRequestViaBluPortWithBluId -->
-        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:bluAndroid.bluAndroid.TestScripts.CreateRequestTestRunner@46daef40]" name="getResult" is-config="true" duration-ms="2032" started-at="2020-02-05T09:44:04 SGT" finished-at="2020-02-05T09:44:06 SGT">
+        </test-method> <!-- A_S02_TC08_signupInvalidPassword -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:bluAndroid.bluAndroid.TestScripts.BluSignUpTestRunner@13c27452]" name="getResult" is-config="true" duration-ms="2662" started-at="2020-02-26T17:47:57 SGT" finished-at="2020-02-26T17:48:00 SGT">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=B_S13_TC01_CreateRequestViaBluPortWithBluId status=SUCCESS method=CreateRequestTestRunner.B_S13_TC01_CreateRequestViaBluPortWithBluId()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.CreateRequestTestRunner@46daef40] output={null}]]]>
+                <![CDATA[[TestResult name=A_S02_TC08_signupInvalidPassword status=SUCCESS method=BluSignUpTestRunner.A_S02_TC08_signupInvalidPassword()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.BluSignUpTestRunner@13c27452] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.CreateRequestTestRunner@46daef40]" name="tearDown" is-config="true" duration-ms="490" started-at="2020-02-05T09:44:06 SGT" finished-at="2020-02-05T09:44:06 SGT">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:bluAndroid.bluAndroid.TestScripts.BluSignUpTestRunner@13c27452]" name="tearDown" is-config="true" duration-ms="489" started-at="2020-02-26T17:48:00 SGT" finished-at="2020-02-26T17:48:01 SGT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- bluAndroid.bluAndroid.TestScripts.CreateRequestTestRunner -->
+      </class> <!-- bluAndroid.bluAndroid.TestScripts.BluSignUpTestRunner -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

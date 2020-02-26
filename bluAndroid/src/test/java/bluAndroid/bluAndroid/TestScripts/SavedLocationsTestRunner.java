@@ -33,7 +33,7 @@ import io.appium.java_client.touch.offset.PointOption;
 public class SavedLocationsTestRunner extends BaseClass {
 	static AppiumDriver<WebElement> driver;
 	LoginScreen ls;
-	String mobileNo, password;
+	String mobileNo, password,bluPort;
 	MapViewScreen mvs;
 	SavedLocationsScreen sls;
 	MenuScreen ms;
@@ -48,6 +48,7 @@ public class SavedLocationsTestRunner extends BaseClass {
 		SavedLocationsTestRunner.driver = BaseClass.getAppCapabilities();
 		mobileNo = CommonUtil.getPropertyValue("login", "mobileNo");
 		password = CommonUtil.getPropertyValue("login", "password");
+		bluPort=CommonUtil.getPropertyValue("bluPortDetails", "bluPort");
 		ls = new LoginScreen(driver);
 		ls.clickLoginLink();
 		ls.bluLogin(mobileNo, password);
@@ -94,14 +95,13 @@ public class SavedLocationsTestRunner extends BaseClass {
 		ms.clickOnSavedLocations();
 		sls.clickOnSaveALocationLink();
 		mvs.clickonSearchBox();
-		String bluPort=CommonUtil.getPropertyValue("bluPortDetails", "bluPort");
+		
 		mvs.enterInSearchBox().sendKeys(bluPort);
 		WebElement bluPortName=driver.findElement(By.id("sg.com.blu.android.uat:id/textViewBluPortName"));
 		for (int i = 0; i < sls.listOfhearticons().size(); i++) {
 			sls.listOfhearticons().get(sls.listOfhearticons().size()-1).click();
 	}
 		mvs.enterInSearchBox().clear();
-		((AndroidDriver<WebElement>) driver).pressKey(new KeyEvent(AndroidKey.ENTER));
 		System.out.println(sls.listOfSavedAddress().size());
 		for (int i = 0; i < sls.listOfSavedAddress().size(); i++) {
 			System.out.println(sls.listOfSavedAddress().get(i).getText());
@@ -119,12 +119,12 @@ public class SavedLocationsTestRunner extends BaseClass {
 	pu.clickBtn1();
 	System.out.println(sls.listOfSavedAddress().size());
 	for (int i = 0; i < sls.listOfSavedAddress().size(); i++) {
-		String bluPort1=CommonUtil.getPropertyValue("bluPortDetails", "bluPort");
+		//String bluPort1=CommonUtil.getPropertyValue("bluPortDetails", "bluPort");
 		System.out.println(sls.listOfSavedAddress().get(i).getText());
-			Assert.assertNotEquals(sls.listOfSavedAddress().get(i).getText(), bluPort1);
+			Assert.assertNotEquals(sls.listOfSavedAddress().get(i).getText(), bluPort);
 	}	
 	}
-	@Test//(dependsOnMethods = "tc01_saveALocation" ,priority=1)
+	@Test(dependsOnMethods = "tc01_saveALocation" ,priority=1)
 	public void tc02_removeALocation() throws IOException
 	{
 		System.out.println("tc02_removeALocation");
